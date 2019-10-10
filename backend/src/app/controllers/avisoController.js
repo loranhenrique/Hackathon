@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Escola = require('../models/Escola');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -16,22 +18,35 @@ function generateToken(params = {}){
 router.post('/register', async (req, res) => {
 
     const { id } = req.body;
-    //const { escola_id } = req.header;
+    const { mensagem } = req.body;
+    const { escola_id } = req.headers;
+
+    const escola = await Escola.findById(escola_id);
 
 
     try{
 
+        if(!escola){
+            return res.status(400).send({ error: 'Escola não existe!' })
+        }
+
         if(await Avisos.findOne({ id }))
             return res.status(400).send({ error: 'Aviso ja cadastrado' })
-
-        const avisos = await Avisos.create(req.body);
+            
+        const avisos = await Avisos.create({
+            id,
+            mensagem,
+            escola: escola_id
+        });
 
         return res.send({
             avisos,
+            escola,
             token: generateToken({ id: avisos.id }),
         });
 
     }catch(err){
+        console.log(err);
         return res.status(400).send({ error: 'Erro ao cadastrar os avisos' });
     }
 

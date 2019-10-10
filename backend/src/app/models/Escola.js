@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 //Modelo do usuário
 const EscolaSchema = new mongoose.Schema({
-    id: {
+    matricula: {
         type: Number,
         require: true,
     },
@@ -46,4 +46,6 @@ EscolaSchema.pre('save', async function(next){
 });
 
 //Exportar o modelo para o mongoose saber que este modelo será usado
-module.exports = mongoose.model('Escola', EscolaSchema);
+const Escola = mongoose.model('Escola', EscolaSchema);
+
+module.exports = Escola;

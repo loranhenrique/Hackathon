@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const authConfig = require('../../config/auth');
 
@@ -14,13 +15,13 @@ function generateToken(params = {}){
 }
 
 router.post('/register', async (req, res) => {
-    const { id } = req.body;
+    const { matricula } = req.body;
     
     try{
-        if(await Escola.findOne({ id }))
+        if(await Escola.findOne({ matricula }))
             return res.status(400).send({ error:'Escola ja existe' }); 
 
-        const escola = await User.create(req.body);
+        const escola = await Escola.create(req.body);
 
         escola.senha = undefined;
 
@@ -30,8 +31,28 @@ router.post('/register', async (req, res) => {
         });
         
     }catch(err){
+        console.log(err);
         return res.status(400).send({ error: 'cadastro falhou'});
     }
 });
 
-module.exports = app => app.use('/escola', router);
+router.post('/authenticate', async (req,res) => {
+    const { matricula, senha } = req.body;
+
+    const escola = await Escola.findOne({ matricula }).select('+senha');
+
+    if(!escola)
+        return res.status(400).send({ error: 'Usuario nao encontrado' });
+    
+    if(!await bcrypt.compare(senha, escola.senha))
+        return res.status(400).send({ error: 'Senha invalida'});
+    
+    escola.senha = undefined;
+
+    res.send({
+        escola,
+        token: generateToken({ id: escola.id }),
+    });
+});
+
+module.exports = app => app.use('/escolas', router);

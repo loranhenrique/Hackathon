@@ -16,7 +16,8 @@ const AvisoSchema = new mongoose.Schema({
     },
     escola_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Escola'
+        ref: 'Escola',
+        require: true,
     }
 });
 
