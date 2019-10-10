@@ -1,17 +1,51 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 //Modelo do usuário
 const ResponsavelSchema = new mongoose.Schema({
-    id: Number,
-    nome: String,
-    telefone: String,
-    email: String,
-    senha: String,
-    logradouro: String,
-    bairro: String,
-    municipio: String,
-    cidade: String,
-    cep: String,
+    id: {
+        type: Number,
+        require: true,
+    },
+    nome: {
+        type: String,
+        require: true,
+    },
+    telefone: {
+        type: String,
+        require: true,
+    },
+    email: {
+        type: String,
+        require: true,
+    },
+    senha: {
+        type: String,
+        require: true,
+        select: false,
+    },
+    logradouro: {
+        type: String,
+    },
+    bairro: {
+        type: String,
+    },
+    municipio: {
+        type: String,
+    },
+    cidade: {
+        type: String,
+    },
+    cep: {
+        type: String,
+    },
+});
+
+ResponsavelSchema.pre('save', async function(next){
+    const hash = await bcrypt.hash(this.password, 10);
+    this.password = hash;
+    
+    next();
 });
 
 //Exportar o modelo para o mongoose saber que este modelo será usado

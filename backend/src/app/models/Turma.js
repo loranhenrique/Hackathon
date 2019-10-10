@@ -2,8 +2,14 @@ const mongoose = require('mongoose');
 
 //Modelo do usuário
 const TurmaSchema = new mongoose.Schema({
-    id: Number,
-    nome: String,
+    id: {
+        type: Number,
+        require: true,
+    },
+    nome: {
+        type: String,
+        require: true,
+    },
     series_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Series'

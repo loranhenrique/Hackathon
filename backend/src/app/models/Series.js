@@ -2,10 +2,22 @@ const mongoose = require('mongoose');
 
 //Modelo do usuário
 const SeriesSchema = new mongoose.Schema({
-    id: Number,
-    nome: String,
-    ano: Number,
-    semestre: Number,
+    id: {
+        type: Number,
+        require: true,
+    },
+    nome: {
+        type: String,
+        require: true,
+    },
+    ano: {
+        type: Number,
+        require: true,
+    },
+    semestre: {
+        type: Number,
+        require: true,
+    },
     escola_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Escola'

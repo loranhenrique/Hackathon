@@ -2,8 +2,14 @@ const mongoose = require('mongoose');
 
 //Modelo do usuário
 const AlunoFaltasSchema = new mongoose.Schema({
-    id: Number,
-    dia: Date,
+    id: {
+        type: Number,
+        require: true,
+    },
+    dia: {
+        type: Date,
+        require: true,
+    },
     disciplina_professor_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'DisciplinaProfessor'

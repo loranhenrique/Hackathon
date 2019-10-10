@@ -5,7 +5,10 @@ var SchemaTypes = mongoose.Schema.Types;
 
 //Modelo do usuário
 const SaudeSchema = new mongoose.Schema({
-    id: Number,
+    id: {
+        type: Number,
+        require: true,
+    },
     altura: {
         type: SchemaTypes.Double
     },

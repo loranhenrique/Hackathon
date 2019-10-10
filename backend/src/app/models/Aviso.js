@@ -2,8 +2,14 @@ const mongoose = require('mongoose');
 
 //Modelo do usuário
 const AvisoSchema = new mongoose.Schema({
-    id: Number,
-    mensagem: String,
+    id: {
+        type: Number,
+        require: true,
+    },
+    mensagem: {
+        type: String,
+        require: true,
+    },
     diaCadastro: {
         type: Date,
         default: Date.now

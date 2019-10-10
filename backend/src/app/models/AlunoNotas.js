@@ -5,7 +5,10 @@ var SchemaTypes = mongoose.Schema.Types;
 
 //Modelo do usuário
 const AlunoNotasSchema = new mongoose.Schema({
-    id: Number,
+    id: {
+        type: Number,
+        require: true,
+    },
     nota: {
         type: SchemaTypes.Double
     },
