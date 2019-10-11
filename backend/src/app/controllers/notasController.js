@@ -1,6 +1,9 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const DisciplinaProfessor = require('../models/DisciplinaProfessor');
+const Aluno = require('../models/Aluno');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -15,23 +18,41 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
-    //const { disciplina_professor_id } = req.header;
-    //const { aluno_matricula } = req.header;
+    const { id, nota } = req.body;
+    const { disciplinaProfessor_id } = req.body;
+    const { aluno_id } = req.body;
+
+    const disciplinaProfessor = await DisciplinaProfessor.findById(disciplinaProfessor_id);
+    const aluno = await Aluno.findById(aluno_id);
+
 
     try{
+
+        if(!disciplinaProfessor)
+            return res.status(400).send({ error: 'Disciplina do professor inexistente' });
+
+        if(!aluno)
+            return res.status(400).send({ error: 'Aluno inexistente' });
 
         if(await Notas.findOne({ id }))
             return res.status(400).send({ error: 'Nota ja cadastrada' })
 
-        const notas = await Faltas.create(req.body);
+        const notas = await Notas.create({
+            id,
+            nota,
+            disciplinaProfessor: disciplinaProfessor_id,
+            aluno: aluno_id
+        });
 
         return res.send({
             notas,
+            disciplinaProfessor,
+            aluno,
             token: generateToken({ id: notas.id }),
         });
 
     }catch(err){
+        console.log(err);
         return res.status(400).send({ error: 'Erro ao cadastrar as notas' });
     }
 

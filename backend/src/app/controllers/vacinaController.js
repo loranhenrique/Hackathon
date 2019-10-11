@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Aluno = require('../models/Aluno');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -15,22 +17,34 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
-    //const { aluno_matricula } = req.header;
+    const { id, nome, dataVacinacao } = req.body;
+    const { aluno_id } = req.body;
+
+    const aluno = await Aluno.findById(aluno_id);
 
     try{
+
+        if(!aluno)
+            return res.status(400).send({ error: 'Aluno não cadastrado' })
 
         if(await Vacina.findOne({ id }))
             return res.status(400).send({ error: 'Vacina ja cadastrada' })
 
-        const vacina = await Vacina.create(req.body);
+        const vacina = await Vacina.create({
+            id,
+            nome,
+            dataVacinacao,
+            aluno: aluno_id
+        });
 
         return res.send({
             vacina,
+            aluno,
             token: generateToken({ id: vacina.id }),
         });
 
     }catch(err){
+        console.log(err);
         return res.status(400).send({ error: 'Erro ao cadastrar a vacina' });
     }
 

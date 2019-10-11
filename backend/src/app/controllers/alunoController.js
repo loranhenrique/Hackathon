@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const Responsavel = require('../models/Responsavel');
 const Turma = require('../models/Turma');
@@ -62,6 +63,25 @@ router.post('/register', async (req,res) => {
         return res.status(400).send({ error: 'Erro o perfil do aluno' })
     }
 
+});
+
+router.post('/authenticate', async (req,res) => {
+    const { matricula, senha } = req.body;
+
+    const aluno = await Aluno.findOne({ matricula }).select('+senha');
+
+    if(!aluno)
+        return res.status(400).send({ error: 'Aluno nao encontrado' });
+    
+    if(!await bcrypt.compare(senha, aluno.senha))
+        return res.status(400).send({ error: 'Senha invalida'});
+    
+    aluno.senha = undefined;
+
+    res.send({
+        aluno,
+        token: generateToken({ id: aluno.id }),
+    });
 });
 
     router.get('/listAll', async(req,res) => {

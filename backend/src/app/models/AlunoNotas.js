@@ -12,7 +12,7 @@ const AlunoNotasSchema = new mongoose.Schema({
     nota: {
         type: SchemaTypes.Double
     },
-    disciplina_professor_id: {
+    disciplinaProfessor_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'DisciplinaProfessor'
     },

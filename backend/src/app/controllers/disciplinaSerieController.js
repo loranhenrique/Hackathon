@@ -1,6 +1,9 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Disciplina = require('../models/Disciplina');
+const Serie = require('../models/Series');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -16,18 +19,33 @@ function generateToken(params = {}){
 router.post('/register', async (req, res) => {
 
     const { id } = req.body;
-    //const { disciplina_id } = req.header;
-    //const { series_id } = req.header;
+    const { disciplina_id } = req.body;
+    const { series_id } = req.body;
+
+    const disciplina = await Disciplina.findById(disciplina_id);
+    const series = await Serie.findById(series_id);
 
     try{
+
+        if(!disciplina)
+            return res.status(400).send({ error: 'Disciplina não existe' })
+            
+        if(!series)
+            return res.status(400).send({ error: 'Series não existe' })
 
         if(await DisciplinaSeries.findOne({ id }))
             return res.status(400).send({ error: 'Disciplina dessa serie ja cadastrada' })
 
-        const disciplinaSeries = await DisciplinaSeries.create(req.body);
+        const disciplinaSeries = await DisciplinaSeries.create({
+            id,
+            disciplina: disciplina_id,
+            series: series_id
+        });
 
         return res.send({
             disciplinaSeries,
+            disciplina,
+            series,
             token: generateToken({ id: disciplinaSeries.id }),
         });
 

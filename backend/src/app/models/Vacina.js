@@ -10,11 +10,14 @@ const VacinaSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    dataVacinacao: Date,
+    dataVacinacao: {
+        type: Date,
+        require: true,
+    },
     aluno_matricula: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Aluno'
-    }
+    },
 });
 
 //Exportar o modelo para o mongoose saber que este modelo será usado

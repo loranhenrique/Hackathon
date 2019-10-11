@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Aluno = require('../models/Aluno');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -15,18 +17,32 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
-    //const { aluno_matricula } = req.header;
+    const { id, altura, peso, medidaCintura, medidaQuadril, imc } = req.body;
+    const { aluno_id } = req.body;
+
+    const aluno = await Aluno.findById(aluno_id);
 
     try{
+
+        if(!aluno)
+            return res.status(400).send({ error: 'Aluno não cadastrado' })
 
         if(await Saude.findOne({ id }))
             return res.status(400).send({ error: 'Saude ja cadastrada' })
 
-        const saude = await Saude.create(req.body);
+        const saude = await Saude.create({
+            id,
+            altura,
+            peso,
+            medidaCintura,
+            medidaQuadril,
+            imc,
+            aluno: aluno_id
+        });
 
         return res.send({
             saude,
+            aluno,
             token: generateToken({ id: saude.id }),
         });
 
