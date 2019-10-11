@@ -55,4 +55,13 @@ router.post('/authenticate', async (req,res) => {
     });
 });
 
+router.get('/listAll', async(req,res) => {
+    try{           
+    const resp = await Escola.find({});
+return res.json(resp);
+    }catch(err){
+        console.log(err);
+    }
+});
+
 module.exports = app => app.use('/escolas', router);

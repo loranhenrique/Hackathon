@@ -60,5 +60,14 @@ router.post('/register', async (req,res) => {
     }
 
 });
+//rota para buscar todos os dados da agenda controller
+router.get('/listAll', async(req,res) => {
+    try{           
+      const resp = await Agenda.find({});
+        return res.json(resp);
+    }catch(err){
+        console.log(err);
+    }
+});
 
 module.exports = app => app.use('/agenda', router);

@@ -36,4 +36,14 @@ router.post('/register', async (req, res) => {
 
 });
 
+router.get('/listAll', async(req,res) => {
+    try{
+        const resp = await Vacina.find({});
+        return res.json(resp);
+    }catch(err){
+        console.log(err);
+    }
+});
+
+
 module.exports = app => app.use('/vacina', router);

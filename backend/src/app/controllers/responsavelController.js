@@ -15,11 +15,11 @@ function generateToken(params = {}){
 }
 
 router.post('/register', async (req, res) => {
-    const { id } = req.body;
+    const { matricula } = req.body;
 
     try{
 
-        if(await Responsavel.findOne({ id }))
+        if(await Responsavel.findOne({ matricula }))
             return res.status(400).send({ error: 'Responsavel ja existe' });
 
         const responsavel = await Responsavel.create(req.body);
@@ -37,6 +37,8 @@ router.post('/register', async (req, res) => {
         return res.status(400).send({ error: 'Cadastro falhou' });
     }
 });
+
+
 
 router.post('/authenticate', async (req,res) => {
     const { matricula, senha } = req.body;
@@ -56,5 +58,15 @@ router.post('/authenticate', async (req,res) => {
         token: generateToken({ id: responsavel.id }),
     });
 });
+
+router.get('/listAll', async(req,res) => {
+    try{
+        const resp = await Responsavel.find({});
+        return res.json(resp);
+    }catch(err){
+        console.log(err);
+    }
+});
+
 
 module.exports = app => app.use('/responsavel', router);
