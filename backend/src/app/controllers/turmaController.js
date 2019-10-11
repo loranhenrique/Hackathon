@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Series = require('../models/Series');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -15,18 +17,28 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
-    //const { series_id } = req.header;
+    const { id, nome } = req.body;
+    const { series_id } = req.headers;
+
+    const series = await Series.findById(series_id);
 
     try{
+
+        if(!series)
+            return res.status(400).send({ error: 'Serie não existe' });
 
         if(await Turma.findOne({ id }))
             return res.status(400).send({ error: 'Turma ja cadastrada' })
 
-        const turma = await Turma.create(req.body);
+        const turma = await Turma.create({
+            id,
+            nome,
+            series: series_id
+        });
 
         return res.send({
             turma,
+            series,
             token: generateToken({ id: turma.id }),
         });
 

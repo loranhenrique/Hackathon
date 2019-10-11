@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 //Modelo do usuário
 const ProfessorSchema = new mongoose.Schema({
-    id: {
+    matricula: {
         type: Number,
         require: true,
     },

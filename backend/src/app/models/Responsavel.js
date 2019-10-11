@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 //Modelo do usuário
 const ResponsavelSchema = new mongoose.Schema({
-    id: {
+    matricula: {
         type: Number,
         require: true,
     },
@@ -42,8 +42,8 @@ const ResponsavelSchema = new mongoose.Schema({
 });
 
 ResponsavelSchema.pre('save', async function(next){
-    const hash = await bcrypt.hash(this.password, 10);
-    this.password = hash;
+    const hash = await bcrypt.hash(this.senha, 10);
+    this.senha = hash;
     
     next();
 });

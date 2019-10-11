@@ -1,6 +1,9 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Aluno = require('../models/Aluno');
+const Professor = require('../models/Professor');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -15,20 +18,39 @@ function generateToken(params = {}){
 
 router.post('/register', async (req,res) => {
 
-    const { id } = req.body;
-    //const { aluno_matricula } = req.header;
-    //const { professor_matricula } = req.header; 
+    const { id, dia, assunto, tipo, arquivo } = req.body;
+    const { aluno_id } = req.headers;
+    const { professor_id } = req.headers; 
+
+    const aluno = await Aluno.findById(aluno_id);
+    const professor = await Professor.findById(professor_id);
 
     try{
+
+        if(!aluno)
+            return res.status(400).send({ error: 'Aluno não existe' });
+
+        if(!professor)
+            return res.status(400).send({ error: 'Professor não existe' });
 
         if(await Agenda.findOne({ id }))
             return res.status(400).send({ error:'Agenda ja existe' }); 
 
-        const agenda = await Agenda.create(req.body);
+        const agenda = await Agenda.create({
+            id,
+            dia,
+            assunto,
+            tipo,
+            arquivo,
+            aluno: aluno_id,
+            professor: professor_id
+        });
 
         return res.send({
 
             agenda,
+            aluno,
+            professor,
             token: generateToken({ id: agenda.id }),
 
         });

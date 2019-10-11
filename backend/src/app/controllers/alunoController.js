@@ -1,6 +1,9 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const Responsavel = require('../models/Responsavel');
+const Turma = require('../models/Turma');
+
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -15,25 +18,47 @@ function generateToken(params = {}){
 
 router.post('/register', async (req,res) => {
 
-    const { id } = req.body;
-    //const { aluno_matricula } = req.header;
-    //const { professor_matricula } = req.header; 
+    const { matricula, nome, telefone, email, dataNasc, senha, situacao } = req.body;
+    const { responsavel_id } = req.headers;
+    const { turma_id } = req.headers; 
+
+    const responsavel = await Responsavel.findById(responsavel_id);
+    const turma = await Turma.findById(turma_id);
 
     try{
 
-        if(await Aluno.findOne({ id }))
+        if(!responsavel)
+            return res.status(400).send({ error: 'Responsavel não existe' });
+            
+        if(!turma)
+        return res.status(400).send({ error: 'Turma não existe' });
+
+        if(await Aluno.findOne({ matricula }))
             return res.status(400).send({ error:'Aluno ja existe' }); 
 
-        const aluno = await Aluno.create(req.body);
+        const aluno = await Aluno.create({
+            matricula,
+            nome,
+            telefone,
+            email,
+            dataNasc,
+            senha,
+            situacao,
+            responsavel: responsavel_id,
+            turma: turma_id
+        });
 
         return res.send({
 
             aluno,
+            responsavel,
+            turma,
             token: generateToken({ id: aluno.id }),
 
         });
 
     }catch(err){
+        console.log(err);
         return res.status(400).send({ error: 'Erro o perfil do aluno' })
     }
 

@@ -10,9 +10,13 @@ const AlunoFaltasSchema = new mongoose.Schema({
         type: Date,
         require: true,
     },
-    disciplina_professor_id: {
+    disciplinaProfessor_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'DisciplinaProfessor'
+    },
+    professor_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Professor'
     },
     aluno_matricula: {
         type: mongoose.Schema.Types.ObjectId,
