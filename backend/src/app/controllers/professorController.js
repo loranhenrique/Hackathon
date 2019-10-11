@@ -15,11 +15,11 @@ function generateToken(params = {}){
 }
 
 router.post('/register', async (req, res) => {
-    const { id } = req.body;
+    const { matricula } = req.body;
 
     try{
 
-        if(await Professor.findOne({ id }))
+        if(await Professor.findOne({ matricula }))
             return res.status(400).send({ error: 'Professor ja existente' });
 
         const professor = await Professor.create(req.body);

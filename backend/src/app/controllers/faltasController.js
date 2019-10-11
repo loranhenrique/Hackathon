@@ -23,19 +23,19 @@ router.post('/register', async (req, res) => {
 
     const { id, dia } = req.body;
     const { professor_id } = req.headers;
-    const { disciplinaProfessor_id } = req.headers;
+    const { disciplinaProfessor_id } = req.body;
     const { aluno_id } = req.headers;
 
     const professor = await Professor.findById(professor_id);
 
-
     const disciplinaProfessor = await DisciplinaProfessor.findById(disciplinaProfessor_id);
-
-    
 
     const aluno = await Aluno.findById(aluno_id);
 
     try{
+
+        if(!disciplinaProfessor)
+        return res.status(400).send({ error: 'Disciplina do professor não existe!' })
 
         if(!professor){
             return res.status(400).send({ error: 'Professor não existe!' })
