@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import './styles.css';
@@ -22,6 +21,7 @@ export default function Login({ history }){
 
     return(
         <>
+        <div className="contenteAluno">
             <p>FamInSchool</p>
 
             <form onSubmit={handleSubmit}>
@@ -40,9 +40,7 @@ export default function Login({ history }){
                 <button type="submit" className="btn">CONFIRMAR</button>
                 <button type="submit" className="btnSenha">Esqueceu a senha?</button>
             </form>
-            <Link to="/cadastrar">
-                <button className="btnRegistrar">Registrar-se</button>
-            </Link>
+        </div>
         </>
     );
 }

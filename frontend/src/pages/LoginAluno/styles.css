@@ -1,49 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Allura&display=swap');
-
-body{
-    background: #000 url('../../assets/background.jpg') no-repeat;
-    background-size: cover;
-    -webkit-font-smoothing: antialiased !important;
-  }
   
-  body, input, button{
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-  
-  .container {
-    margin: 80px auto;
-    max-width: 450px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .content {
-    width: 100%;
-    background: #fff;
-    margin-top: 40%;
+  .contenteAluno {
+    position: relative;
+    left: 30%;
+    width: 40%;
+    background: #fde277;
+    margin-top: 10%;
     border-radius: 4px;
     padding: 30px;
     box-shadow: 1px 1px 10px #545454;
   }
   
-  .content > p {
+  .contenteAluno > p {
     font-family: 'Allura', Arial, Helvetica, sans-serif;
-    font-size: 52px;
+    font-size: 42px;
     line-height: 30px;
     margin-bottom: 30px;
     text-align: center;
   }
   
-  .content form{
+  .contenteAluno form{
     display: flex;
     flex-direction: column;
   }
   
-  .content form input{
+  .contenteAluno form input{
     text-align: center;
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -53,7 +35,7 @@ body{
     font-size: 16px;
   }
   
-  .content button.btn{
+  .contenteAluno button.btn{
     border: 0;
     border-radius: 2px;
     width: 100%;
@@ -61,12 +43,12 @@ body{
     padding: 0 20px;
     font-size: 16px;
     font-weight: bold;
-    background: #fde277;
+    background: #fff;
     color: #545454;
     cursor: pointer;
   }
   
-  .content button.btnSenha{
+  .contenteAluno button.btnSenha{
     position: relative;
     left: 60%;
     top: 10px;
@@ -96,6 +78,6 @@ body{
     cursor: pointer;
   }
   
-  .content button.btn:hover{
-    background: #f5d967;
+  .contenteAluno button.btn:hover{
+    background: #ddd;
   }
