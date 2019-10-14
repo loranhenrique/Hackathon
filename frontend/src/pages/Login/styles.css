@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Allura&display=swap');
+
+body{
+    background: #000 url('../../assets/background.jpg') no-repeat;
+    background-size: cover;
+    -webkit-font-smoothing: antialiased !important;
+  }
+  
+  body, input, button{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+  
+  .container {
+    margin: 80px auto;
+    max-width: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content {
+    width: 100%;
+    background: #fff;
+    margin-top: 40%;
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 1px 1px 10px #545454;
+  }
+  
+  .content > p {
+    font-family: 'Allura', Arial, Helvetica, sans-serif;
+    font-size: 52px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .content form{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content form input{
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    height: 45px;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+  
+  .content button.btn{
+    border: 0;
+    border-radius: 2px;
+    width: 100%;
+    height: 42px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fde277;
+    color: #545454;
+    cursor: pointer;
+  }
+  
+  .content button.btnSenha{
+    position: relative;
+    left: 60%;
+    top: 10px;
+    text-align: center;
+    border: 0;
+    width: 40%;
+    height: 42px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+    background: transparent;
+    color: #545454;
+    cursor: pointer;
+  }
+
+  .btnRegistrar{
+    position: relative;
+    top: -350px;
+    left: -40px; 
+    border: 0;
+    border-radius: 2px;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: transparent;
+    color: #545454;
+    cursor: pointer;
+  }
+  
+  .content button.btn:hover{
+    background: #f5d967;
+  }

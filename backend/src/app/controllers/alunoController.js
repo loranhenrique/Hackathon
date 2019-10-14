@@ -29,13 +29,13 @@ router.post('/register', async (req,res) => {
     try{
 
         if(!responsavel)
-            return res.status(400).send({ error: 'Responsavel não existe' });
+            return res.status(400).json({ error: 'Responsavel não existe' });
             
         if(!turma)
-        return res.status(400).send({ error: 'Turma não existe' });
+        return res.status(400).json({ error: 'Turma não existe' });
 
         if(await Aluno.findOne({ matricula }))
-            return res.status(400).send({ error:'Aluno ja existe' }); 
+            return res.status(400).json({ error:'Aluno ja existe' }); 
 
         const aluno = await Aluno.create({
             matricula,
@@ -49,7 +49,7 @@ router.post('/register', async (req,res) => {
             turma: turma_id
         });
 
-        return res.send({
+        return res.json({
 
             aluno,
             responsavel,
@@ -60,7 +60,7 @@ router.post('/register', async (req,res) => {
 
     }catch(err){
         console.log(err);
-        return res.status(400).send({ error: 'Erro o perfil do aluno' })
+        return res.status(400).json({ error: 'Erro o perfil do aluno' })
     }
 
 });
@@ -71,14 +71,14 @@ router.post('/authenticate', async (req,res) => {
     const aluno = await Aluno.findOne({ matricula }).select('+senha');
 
     if(!aluno)
-        return res.status(400).send({ error: 'Aluno nao encontrado' });
+        return res.status(400).json({ error: 'Aluno nao encontrado' });
     
     if(!await bcrypt.compare(senha, aluno.senha))
-        return res.status(400).send({ error: 'Senha invalida'});
+        return res.status(400).json({ error: 'Senha invalida'});
     
     aluno.senha = undefined;
 
-    res.send({
+    res.json({
         aluno,
         token: generateToken({ id: aluno.id }),
     });
