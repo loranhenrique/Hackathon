@@ -42,14 +42,14 @@ router.post('/authenticate', async (req,res) => {
     const escola = await Escola.findOne({ matricula }).select('+senha');
 
     if(!escola)
-        return res.status(400).send({ error: 'Usuario nao encontrado' });
+        return res.status(400).json({ error: 'Usuario nao encontrado' });
     
     if(!await bcrypt.compare(senha, escola.senha))
-        return res.status(400).send({ error: 'Senha invalida'});
+        return res.status(400).json({ error: 'Senha invalida'});
     
     escola.senha = undefined;
 
-    res.send({
+    res.json({
         escola,
         token: generateToken({ id: escola.id }),
     });

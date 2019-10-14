@@ -3,20 +3,20 @@ import api from '../../services/api';
 
 import './styles.css';
 
-export default function LoginAluno({ history }){
+export default function LoginResponsavel({ history }){
     const [matricula, setMatricula] = useState('');
     const [senha, setSenha] = useState('');
   
     async function handleSubmit(event){
       event.preventDefault();
   
-      const response = await api.post('/aluno/authenticate', {matricula, senha});
+      const response = await api.post('/responsavel/authenticate', {matricula, senha});
   
       const { _id } = response.data;
 
-      localStorage.setItem('aluno', _id);
+      localStorage.setItem('responsavel', _id);
 
-      history.push('/Aluno');
+      history.push('/Responsavel');
     }
 
     return(

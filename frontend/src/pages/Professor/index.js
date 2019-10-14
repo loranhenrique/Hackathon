@@ -5,7 +5,7 @@ import './styles.css';
 export default function Aluno(){
     return(
         <>
-            <h1>Aluno</h1>
+            <h1>Professor</h1>
         </>
     );
 }

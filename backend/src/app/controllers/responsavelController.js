@@ -46,14 +46,14 @@ router.post('/authenticate', async (req,res) => {
     const responsavel = await Responsavel.findOne({ matricula }).select('+senha');
 
     if(!responsavel)
-        return res.status(400).send({ error: 'Usuario nao encontrado' });
+        return res.status(400).json({ error: 'Usuario nao encontrado' });
     
     if(!await bcrypt.compare(senha, responsavel.senha))
-        return res.status(400).send({ error: 'Senha invalida'});
+        return res.status(400).json({ error: 'Senha invalida'});
     
     responsavel.senha = undefined;
 
-    res.send({
+    res.json({
         responsavel,
         token: generateToken({ id: responsavel.id }),
     });
