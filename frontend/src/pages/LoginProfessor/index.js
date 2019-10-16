@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -22,8 +23,18 @@ export default function LoginProfessor({ history }) {
     return (
         <>
             <div className="backLogin">
-                <div className="contenteProfessor" align="center">
+                <div className="contentAluno" align="center">
                     <div id="logoLogin"></div>
+
+                    <p id="escolha">Escola como deseja entrar:</p>
+                    <div className="acessos">
+                        <li>
+                            <Link to="/LoginEscola"><button className="btnLink">Escola</button></Link>
+                            <Link to="/LoginProfessor"><button className="btnLinkAluno">Professor</button></Link>
+                            <Link to="/LoginResponsavel"><button className="btnLink">Responsável</button></Link>
+                            <Link to="/LoginAluno"><button className="btnLink">Aluno</button></Link>
+                        </li>
+                    </div>
 
                     <form onSubmit={handleSubmit}>
                         <input type="number"
