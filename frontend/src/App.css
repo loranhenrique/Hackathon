@@ -23,28 +23,3 @@ body, input, button{
   font-size: 14px;
 }
 
-.cabecalho {
-  width: 100%;
-  background-color: #fde277;
-  display: flex;
-  height: 60px;
-  box-shadow: 1px 1px 10px #545454;
-}
-
-.cabecalho > p{
-  position: relative;
-  left: 5%;
-  font-family: 'Allura', Arial, Helvetica, sans-serif;
-  font-size: 48px;
-  text-align: center;
-}
-
-.cabecalho > h4{
-  position: relative;
-  color: #545454;
-  left: 8%;
-  top: 10px;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 28px;
-  text-align: center;
-}

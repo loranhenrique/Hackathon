@@ -1,83 +1,118 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Allura&display=swap');
+
+
   
-  .contenteAluno {
+.contentImg {
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  -webkit-font-smoothing: antialiased !important;
+  width: 900px;
+  height: 1000px;
+ 
+}
+  .contentResponsavel {
     position: relative;
-    left: 30%;
-    width: 40%;
-    background: #fde277;
-    margin-top: 10%;
-    border-radius: 4px;
+    left: 40%;
+    width: 52.73%;
+    height: 1000px;
+    bottom: 1190px;
+    left: 900px;
+    background: whitesmoke;  
+    margin-top: 10%;  
     padding: 30px;
-    box-shadow: 1px 1px 10px #545454;
   }
   
-  .contenteAluno > p {
+  .contentResponsavel> p {
     font-family: 'Allura', Arial, Helvetica, sans-serif;
     font-size: 42px;
-    line-height: 30px;
+    line-height: 100px;
     margin-bottom: 30px;
-    text-align: center;
+    color: #2CDBC7;
   }
   
-  .contenteAluno form{
+  .contentResponsavel form{
     display: flex;
     flex-direction: column;
   }
   
-  .contenteAluno form input{
-    text-align: center;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    height: 45px;
-    padding: 0 15px;
-    font-size: 16px;
+  .contentResponsavel form input{
+    margin-left: 160px;
+    width: 600px;
+    margin-top: 150px;
+    text-align: justify;
+    margin-bottom: -120px;
+    border: none; /*Retira as bordas do input*/
+    border-bottom: solid 3px  #2CDBC7; /*Coloca borda somente na parte de baixo*/
+    height: 32px;
+    font-size: 15px;
+    color: Black;
+    background: whitesmoke;
   }
-  
-  .contenteAluno button.btn{
-    border: 0;
-    border-radius: 2px;
-    width: 100%;
-    height: 42px;
-    padding: 0 20px;
-    font-size: 16px;
+
+  ::placeholder {
+    color: Black;
+  }
+  .contentResponsavel button.btnResponsavel{
+     position: relative;
+    top: 330px;
+    left: 170px; 
+    width: 600px;
+    height: 32px;
+    border: 1px solid #2CDBC7;
+    border-radius: 10px;
+    background: #2CDBC7;
+    font-size: 20px;
     font-weight: bold;
-    background: #fff;
-    color: #545454;
+    color: #fff;
     cursor: pointer;
+    opacity: 1;
   }
   
-  .contenteAluno button.btnSenha{
+  .contentResponsavel button.btnSenhaResponsavel{
     position: relative;
-    left: 60%;
-    top: 10px;
+    left: 63.4%;
+    top: 170px;
     text-align: center;
     border: 0;
-    width: 40%;
+    border-radius: 10px;
+    width: 20%;
     height: 42px;
     padding: 0;
     font-size: 16px;
     font-weight: bold;
     background: transparent;
-    color: #545454;
+    color: black;
     cursor: pointer;
   }
 
-  .btnRegistrar{
+  .btnRegistroResponsavel{
     position: relative;
-    top: -350px;
-    left: -40px; 
-    border: 0;
-    border-radius: 2px;
-    padding: 0 20px;
+    top: 330px;
+    left: 170px; 
+    width: 600px;
+    height: 32px;
+    border: 1px solid #4D51C0;
+    border-radius: 10px;
+    background: White;
     font-size: 20px;
     font-weight: bold;
-    background: transparent;
-    color: #545454;
+    color: #4D51C0;
     cursor: pointer;
+    opacity: 1;
   }
   
-  .contenteAluno button.btn:hover{
-    background: #ddd;
+
+  .contentResponsavel button.btnResponsavel:hover{
+    color: #4D51C0;
+    background: whitesmoke;
+    border: 1px solid whitesmoke;
+  }
+  .contentResponsavel button.btnSenhaResponsavel:hover{
+    color: #2CDBC7;
+    background: whitesmoke;
+}
+  .contentResponsavel button.btnRegistroResponsavel:hover{
+    color: #2CDBC7;
+    background: white;
   }
