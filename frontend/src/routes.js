@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Login from './pages/PaginaInicial';
 import LoginAluno from './pages/LoginAluno';
 import LoginResponsavel from './pages/LoginResponsavel';
 import LoginProfessor from './pages/LoginProfessor';
@@ -15,7 +14,7 @@ export default function Routes() {
     return(
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Login} />
+                <Route path="/" exact component={LoginAluno} />
                 <Route path="/LoginAluno" component={LoginAluno} />
                 <Route path="/LoginResponsavel" component={LoginResponsavel} />
                 <Route path="/LoginProfessor" component={LoginProfessor} />
