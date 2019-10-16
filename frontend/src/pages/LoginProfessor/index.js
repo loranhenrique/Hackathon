@@ -22,8 +22,8 @@ export default function LoginProfessor({ history }) {
     return (
         <>
             <div className="backLogin">
-                <div className="contenteAluno">
-                    <p>FamInSchool</p>
+                <div className="contenteProfessor" align="center">
+                    <div id="logoLogin"></div>
 
                     <form onSubmit={handleSubmit}>
                         <input type="number"
@@ -38,8 +38,9 @@ export default function LoginProfessor({ history }) {
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
                         />
-                        <button type="submit" className="btn">CONFIRMAR</button>
+                        <button type="submit" className="btnProfessor">CONFIRMAR</button>
                         <button type="submit" className="btnSenha">Esqueceu a senha?</button>
+                        <button type="submit" className="btnCriarConta">CRIAR UMA CONTA</button>
                     </form>
                 </div>
             </div>
