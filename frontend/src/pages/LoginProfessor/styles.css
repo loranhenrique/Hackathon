@@ -12,17 +12,19 @@
   }
   
   #logoLogin{
+    position: relative;
+    top: -40px;
     background-image: url('../../assets/FaminSchool.png');
     width: 300px;
     height: 150px;
     background-size: cover;
   }
 
-  .contenteProfessor {
+  .contentAluno {
     position: relative;
     margin: auto;
     width: 30%;
-    height: 600px;
+    height: 640px;
     background: #fff;
     opacity: 0.97;
     margin-top: 8%;
@@ -33,7 +35,7 @@
     min-height: 400px;
   }
   
-  .contenteProfessor > p {
+  .contentAluno > p {
     font-family: 'Allura', Arial, Helvetica, sans-serif;
     text-align: center;
     margin-top: 100px;
@@ -46,25 +48,27 @@
     line-height: 1px;
   }
   
-  .contenteProfessor form{
+  .contentAluno form{
     display: flex;
     flex-direction: column;
     text-align: center;
  
   }
   
-  .contenteProfessor form input{
+  .contentAluno form input{
+    position: relative;
+    top: -15px;
     text-align: center;
     margin-bottom: 20px;
     border-radius: 2px;
     height: 45px;
-    padding: 0 15px;
+    padding: 0 10px;
     font-size: 16px;
     border: none;
     border-bottom: solid 1px #2CDBC7;
   }
   
-  .contenteProfessor button.btnProfessor{
+  .contentAluno button.btnProfessor{
     border: 0;
     border-radius: 1px solid #2CDBC7;
     width:100%;
@@ -73,11 +77,11 @@
     font-size: 16px;
     font-weight: bold;
     background: rgb(5, 236, 209);
-    color: #FFF;
+    color: #545454;
     cursor: pointer;
   }
   
-  .contenteProfessor button.btnSenha{
+  .contentAluno button.btnSenha{
     position: relative;
     left: 65%;
     bottom: 110px;
@@ -92,13 +96,15 @@
     color: #545454;
     cursor: pointer;
   }
+  .btnSenha:hover{
+    text-decoration: underline;
+  }
 
-  .contenteProfessor button.btnCriarConta{
+  .contentAluno button.btnCriarConta{
     position: relative;
     top: -20px;
     border: 1px solid #4D51C0 ;
     border-radius: 2px;
-    padding: 0 20px;
     font-size: 20px;
     font-weight: bold;
     background: transparent;
@@ -106,10 +112,65 @@
     cursor: pointer;
   }
   
-  .contenteProfessor button.btnProfessor:hover{
+  .contentAluno button.btnProfessor:hover{
     background: #2CDBC7;
     font-size: 21px;
   }
-  .contenteProfessor button.btnCriarConta:hover{
+  .contentAluno button.btnCriarConta:hover{
     font-size: 21px;
+  }
+
+  .acessos{
+    list-style: none;
+  }
+
+  .acessos li{
+    display: block;
+    flex-direction: row;
+  }
+
+  .btnLink{
+    position: relative;
+    top: -30px;
+    border: 0;
+    width: 24%;
+    height: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgb(5, 236, 209);
+    color: #545454;
+    cursor: pointer;
+    margin: 0 2px;
+    min-width: 95px;
+  }
+
+  .btnLinkAluno{
+    position: relative;
+    top: -30px;
+    border: 0;
+    width: 24%;
+    height: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #545454;
+    color:#fff;
+    cursor: pointer;
+    margin: 0 2px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    min-width: 95px;
+  }
+
+  .btnLink:hover{
+    background: #545454;
+    color:#fff;
+  }
+
+  #escolha{
+    position: relative;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    text-align: left;  
+    left: -12px;  
   }
