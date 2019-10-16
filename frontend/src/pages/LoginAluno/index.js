@@ -8,12 +8,11 @@ import './styles.css';
 export default function LoginAluno({ history }){
     const [matricula, setMatricula] = useState('');
     const [senha, setSenha] = useState('');
-    const [tipoUsuario, setTipoUsuario] = useState('');
   
     async function handleSubmit(event){
       event.preventDefault();
   
-      const response = await api.post('/aluno/authenticate', {matricula, senha, tipoUsuario});
+      const response = await api.post('/aluno/authenticate', {matricula, senha});
   
       const { _id } = response.data;
 
@@ -31,13 +30,7 @@ export default function LoginAluno({ history }){
             <p>FamInSchool</p>
 
             <form onSubmit={handleSubmit}>
-                <input type="search" 
-                id="tipoUsuario" 
-                placeholder="Ex: aluno" 
-                value={tipoUsuario} 
-                onChange={ event => setTipoUsuario(event.target.value)}
-                />
-                 <input type="text" 
+                <input type="text" 
                 id="matricula" 
                 placeholder="matrícula" 
                 value={matricula} 
