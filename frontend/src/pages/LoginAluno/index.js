@@ -26,7 +26,7 @@ export default function LoginAluno({ history }) {
                 <div className="contentAluno" align="center">
                     <div id="logoLogin"></div>
 
-                    <p id="escolha">Escola como deseja entrar:</p>
+                    <p id="escolha">Escolha como deseja entrar:</p>
                     <div className="acessos">
                         <li>
                             <Link to="/LoginEscola"><button className="btnLink">Escola</button></Link>
