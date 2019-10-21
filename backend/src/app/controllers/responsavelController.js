@@ -59,6 +59,74 @@ router.post('/authenticate', async (req,res) => {
     });
 });
 
+router.post('/forgot_password', async (req, res) => {
+    const { email } = req.body;
+
+    try{
+
+        const responsavel = await Responsavel.findOne({ email });
+
+        if(!responsavel) 
+            return res.status(400).send({ error: 'Usuario nao encontrado' });
+
+        const token = crypto.randomBytes(20).toString('hex');
+
+        const now = new Date();
+        now.setHours(now.getHours() + 1);
+
+        await Responsavel.findByIdAndUpdate(responsavel.id, {
+            '$set': {
+                passwordResetToken: token,
+                passwordResetExpires: now,
+            }
+        });
+
+        mailer.sendMail({
+            to: email,
+            from: 'loran@gmail.com.br',
+            template: 'auth/forgot_password',
+            context: { token },
+        }, (err) =>{
+            if(err)
+            return res.status(400).send({ error: 'Cannot send forgot password email' });
+
+        return res.send();
+        })
+    }catch(err){
+        res.status(400).send({ error: 'Erro ao esquecer a senha, tente novamente' });
+    }
+});
+
+router.post('/reset_password', async (req, res) => {
+
+    const { email, token, senha } = req.body;
+
+    try{
+        const responsavel = await Responsavel.findOne({ email })
+        .select('+senhaResetToken senhaResetExpires');
+
+        if(!responsavel)
+            return res.status(400).send({ error: 'Usuario nao existe' });
+
+        if(token !== responsavel.senhaResetToken)
+            return res.status(400).send({ error: 'Token invalido' });
+
+            const now = new Date();
+
+        if( now > responsavel.senhaResetExpires)
+            return res.status(400).send({ error: 'Token expirado, gere um novo' });
+
+        responsavel.senha = senha;
+
+        await responsavel.save();
+
+        res.send();
+
+    }catch(err){
+        res.status(400).send({ error: 'não pode redefinir a senha, tente novamente' });
+    }
+});
+
 router.get('/listAll', async(req,res) => {
     try{
         const resp = await Responsavel.find({});

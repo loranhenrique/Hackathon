@@ -16,6 +16,18 @@ const ProfessorSchema = new mongoose.Schema({
         require: true,
         select: false,
     },
+    senhaResetToken:{
+        type: String,
+        select: false,
+    },
+    senhaResetExpires: {
+        type: Date,
+        select: false,
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now,
+    },
 });
 
 ProfessorSchema.pre('save', async function(next){

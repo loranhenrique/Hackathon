@@ -36,6 +36,18 @@ const EscolaSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    senhaResetToken:{
+        type: String,
+        select: false,
+    },
+    senhaResetExpires: {
+        type: Date,
+        select: false,
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now,
+    },
 });
 
 EscolaSchema.pre('save', async function(next){
