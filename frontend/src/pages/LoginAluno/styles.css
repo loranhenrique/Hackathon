@@ -89,7 +89,7 @@
     border: 0;
     width: 40%;
     height: 42px;
-    padding: 0;
+    padding: 0; 
     font-size: 16px;
     font-weight: bold;
     background: transparent;
@@ -100,8 +100,9 @@
     text-decoration: underline;
   }
 
-  .contentAluno button.btnCriarConta{
+  .contentAluno button.btnLinkCriarConta{
     position: relative;
+    width: 100%;
     top: -20px;
     border: 1px solid #4D51C0 ;
     border-radius: 2px;
@@ -116,7 +117,7 @@
     background: #2CDBC7;
     font-size: 21px;
   }
-  .contentAluno button.btnCriarConta:hover{
+  .btnLinkCriarConta:hover{
     font-size: 21px;
   }
 

@@ -102,6 +102,7 @@
 
   .contentAluno button.btnCriarConta{
     position: relative;
+    width: 100%;
     top: -20px;
     border: 1px solid #4D51C0 ;
     border-radius: 2px;
