@@ -33,6 +33,7 @@ export default function LoginProfessor({ history }) {
                             <Link to="/LoginProfessor"><button className="btnLinkAluno">Professor</button></Link>
                             <Link to="/LoginResponsavel"><button className="btnLink">Responsável</button></Link>
                             <Link to="/LoginAluno"><button className="btnLink">Aluno</button></Link>
+                            
                         </li>
                     </div>
 
@@ -45,13 +46,13 @@ export default function LoginProfessor({ history }) {
                         />
                         <input type="password"
                             id="senha"
-                            placeholder="Password"
+                            placeholder="Senha"
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
                         />
                         <button type="submit" className="btnProfessor">CONFIRMAR</button>
-                        <button type="submit" className="btnSenha">Esqueceu a senha?</button>
-                        <button type="submit" className="btnCriarConta">CRIAR UMA CONTA</button>
+                        <button type="submit" className="btnSenha">Esqueceu a senha?</button>                        
+                        <Link to="/CriarConta"><button type="submit" className="btnCriarConta">CRIAR UMA CONTA</button></Link>
                     </form>
                 </div>
             </div>
