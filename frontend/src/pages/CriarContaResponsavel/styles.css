@@ -35,69 +35,100 @@
     min-height: 400px;
   }
   
-  .contentCriarConta > p {
-    font-family: 'Allura', Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin-top: 100px;
-    padding: 1em;
+  .contentCriarConta .ConjuntodeCampos {
+    position: relative;
+    margin: auto;
     border: 1px solid #2CDBC7;
-    border-radius: 1em;
-    margin-bottom: 20px;
-    height: 45px;
-    font-size: 16px;
-    line-height: 1px;
+    height: 420px;
+    width: 1465px;
+    border-radius: 25px;
+    padding-top: 300px ;
+    min-width: 100px;
+    min-height: 100px;
+  }
+  
+  .contentCriarConta.ConjuntodeCampos.escolha {
+    font-size: 1.2em !important;
+    text-align: left !important;
+  }
+
+  .contentCriarConta > p {
+    font-size: 1.2em !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
   }
   
   .contentCriarConta form{
+    position: relative;
+    margin: auto;
+    bottom: 60px;
     display: grid;
     flex-direction: column;
     text-align: center;
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 30px; 
-
+    margin-bottom: 30px;
+    animation-name:moverForm;
+    animation-duration: 400ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+    overflow: hidden;
   }
   
   .contentCriarConta form input{
     position: relative;
-    width: 595px;
-    top: -15px;
-    text-align: center;
-    margin-bottom: 20px;
-    border-radius: 2px;
-    height: 35px;
-    padding: 0 10px;
-    font-size: 16px;
     border: none;
-    border: solid 1px #2CDBC7;  
+    border-bottom: solid 1px #2CDBC7; 
+    border-radius: 10px #2CDBC7;
+    width: 457.68px;
+    bottom: 290px; 
+    text-align: center; 
+    height: 40px;
+    font-size: 16px;
+    margin: 10px;
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
   }
-  
-  .contentCriarConta button.btnCriar{
+
+  .contentCriarConta button.btnConfirmar{
+    position: relative;
     border: 0;
-    border-radius: 1px solid #2CDBC7;
-    width:100%;
+    border-radius: 10px !important;
+    width:20%;
     height: 32px;
-    margin-top: 80px;
+    bottom: 200px;
+    left: 705px;
     font-size: 16px;
     font-weight: bold;
     background: rgb(5, 236, 209);
     color: #545454;
     cursor: pointer;
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
   }
   
   .contentCriarConta button.btnVoltar{
     position: relative;
-    left: 33.6%;
-    top: 80px;
-    text-align: center;
     border: 0;
-    width: 40%;
-    height: 42px;
-    padding: 0;
+    border-radius: 10px !important;
+    width:20%;
+    height: 32px;
+    bottom: 200px;
+    right: 705px;
     font-size: 16px;
     font-weight: bold;
-    background: transparent;
+    background: rgb(5, 236, 209);
     color: #545454;
-    cursor: pointer;    
+    cursor: pointer;   
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 400ms;
+    animation-fill-mode: backwards;
   }
   .btnVoltar:hover{
     text-decoration: underline;
@@ -157,11 +188,25 @@
     color:#fff;
   }
 
-  #escolha{
-    position: relative;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    margin: 0px;
-    text-align: left;  
-    left: -12px;  
-  }
+    /* Animações*/
+  
+
+    @keyframes moverForm {
+      from{
+        opacity: 0;
+        transform: scale(0.9);
+      }to{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  
+    @keyframes moverInput {
+      from{
+        opacity: 0;
+        transform: translateX(-35%);
+      }to{
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }

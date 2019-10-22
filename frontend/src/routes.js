@@ -9,7 +9,7 @@ import Aluno from './pages/Aluno';
 import Responsavel from './pages/Responsavel';
 import Professor from './pages/Professor';
 import Escola from './pages/Escola';
-import CriarConta from './pages/CriarConta';
+import CriarContaResponsavel from './pages/CriarContaResponsavel';
 
 export default function Routes() {
     return(
@@ -24,7 +24,7 @@ export default function Routes() {
                 <Route path="/Responsavel" component={Responsavel} />
                 <Route path="/Professor" component={Professor} />
                 <Route path="/Escola" component={Escola} />
-                <Route path="/CriarConta" component={CriarConta} />
+                <Route path="/CriarContaResponsavel" component={CriarContaResponsavel} />
             </Switch>
         </BrowserRouter>
     );

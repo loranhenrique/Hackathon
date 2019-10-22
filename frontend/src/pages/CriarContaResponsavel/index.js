@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
-import { Link } from 'react-router-dom';
+
 
 import './styles.css';
 
-export default function LoginAluno({ history }) {
+export default function CriarContaResponsavel({ history }) {
     const [matricula, setMatricula] = useState('');
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmarsenha, setConfirmarSenha] = useState('');
     const [logradouro, setLogradouro] = useState('');
     const [bairro, setBairro] = useState('');
     const [municipio, setMunicipio] = useState('');
@@ -34,13 +35,15 @@ export default function LoginAluno({ history }) {
             <div className="backLogin">
                 <div className="contentCriarConta" align="center">
                     <div id="logoLogin"></div>
-                   
-                    <p id="escolha">Escolha como deseja entrar:</p>
-                    
+
                     <form onSubmit={handleSubmit}>
+
+                    <fieldset class="ConjuntodeCampos">
+                    <legend class="escolha">Dados básicos de cadastro</legend>
+
                         <input type="text"
                             id="matricula"
-                            placeholder="Matricula"
+                            placeholder="Matrícula"
                             value={matricula}
                             onChange={event => setMatricula(event.target.value)}
                         />
@@ -50,7 +53,7 @@ export default function LoginAluno({ history }) {
                             value={nome}
                             onChange={event => setNome(event.target.value)}
                         />
-                        <input type="number"
+                        <input type="text"
                             id="telefone"
                             placeholder="Telefone"
                             value={telefone}
@@ -68,13 +71,19 @@ export default function LoginAluno({ history }) {
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
                         />
+                          <input type="password"
+                            id="confirmarsenha"
+                            placeholder="Confirmar Senha"
+                            value={confirmarsenha}
+                            onChange={event => setConfirmarSenha(event.target.value)}
+                        />
                         <input type="text"
                             id="logradouro"
                             placeholder="Logradouro"
                             value={logradouro}
                             onChange={event => setLogradouro(event.target.value)}
                         />
-                        <input type="number"
+                        <input type="text"
                             id="bairro"
                             placeholder="Bairro"
                             value={bairro}
@@ -82,27 +91,30 @@ export default function LoginAluno({ history }) {
                         />
                         <input type="text"
                             id="municipio"
-                            placeholder="Municipio"
+                            placeholder="Município"
                             value={municipio}
                             onChange={event => setMunicipio(event.target.value)}
                         />
+                        <div className="Meio">
                         <input type="text"
                             id="cidade"
                             placeholder="Cidade"
                             value={cidade}
                             onChange={event => setCidade(event.target.value)}
                         />
-                        <input type="number"
+                        <input type="text"
                             id="cep"
                             placeholder="Cep"
                             value={cep}
                             onChange={event => setCep(event.target.value)}
                         />
-                        <button type="submit" className="btnCriar">CONFIRMAR</button>
-                        <button type="submit" className="btnVoltar">Esqueceu a senha?</button>
+                        </div>
+                        <button type="submit" className="btnConfirmar">CONFIRMAR</button>
+                       <button type="submit" className="btnVoltar">VOLTAR</button>
+                        </fieldset>
                     </form>
                 </div>
-            </div>
+                </div>
         </>
     );
 }
