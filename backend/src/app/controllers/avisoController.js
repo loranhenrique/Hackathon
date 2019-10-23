@@ -2,7 +2,9 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const Escola = require('../models/Escola');
-
+const Turma = require('../models/Turma');
+const Series = require('../models/Series');
+const Aluno = require('../models/Aluno');
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -62,6 +64,14 @@ router.post('/register', async (req, res) => {
         }catch(err){
             console.log(err);
         }
+    });
+
+    router.get('/EscolaAviso',async(req,res)=>{
+        const {aluno_id} = req.headers;
+        console.log(aluno_id);
+        let user = await Aluno.findOne({_id:aluno_id});
+        console.log(user);
+
     });
 
 module.exports = app => app.use('/avisos', router);
