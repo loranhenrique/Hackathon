@@ -42,15 +42,13 @@ router.post('/register', async (req,res) => {
             assunto,
             tipo,
             arquivo,
-            aluno: aluno_id,
-            professor: professor_id
+            aluno_id: aluno_id,
+            professor_id: professor_id
         });
 
         return res.send({
 
-            agenda,
-            aluno,
-            professor,
+            agenda,           
             token: generateToken({ id: agenda.id }),
 
         });

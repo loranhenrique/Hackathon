@@ -34,12 +34,11 @@ router.post('/register', async (req, res) => {
             id,
             nome,
             dataVacinacao,
-            aluno: aluno_id
+            aluno_id: aluno_id
         });
 
         return res.send({
-            vacina,
-            aluno,
+            vacina,            
             token: generateToken({ id: vacina.id }),
         });
 

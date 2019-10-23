@@ -13,6 +13,7 @@ import CriarContaResponsavel from './pages/CriarContaResponsavel';
 import CriarContaEscola from './pages/CriarContaEscola';
 import RecuperarSenha from './pages/RecuperarSenha';
 import ConfirmarSenha from './pages/ConfirmarSenha';
+import Feed from './pages/Feed';
 
 
 export default function Routes() {
@@ -32,6 +33,7 @@ export default function Routes() {
                 <Route path="/CriarContaEscola" component={CriarContaEscola} />
                 <Route path="/RecuperarSenha" component={RecuperarSenha} />
                 <Route path="/ConfirmarSenha" component={ConfirmarSenha} />
+                <Route path="/Feed" component={Feed} />
             </Switch>
         </BrowserRouter>
     );

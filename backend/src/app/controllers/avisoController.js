@@ -36,14 +36,17 @@ router.post('/register', async (req, res) => {
         const avisos = await Avisos.create({
             id,
             mensagem,
-            escola: escola_id
+            escola_id: escola_id
+           
         });
+        await avisos.populate('escola_id').execPopulate();  
+        return res.json(avisos);
 
-        return res.send({
+    /*    return res.send({
             avisos,
             escola,
             token: generateToken({ id: avisos.id }),
-        });
+        });*/
 
     }catch(err){
         console.log(err);
@@ -53,7 +56,7 @@ router.post('/register', async (req, res) => {
 });
 
     router.get('/listAll', async(req,res) => {
-        try{           
+        try{          
         const resp = await Avisos.find({});
         return res.json(resp);
         }catch(err){

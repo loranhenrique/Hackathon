@@ -37,12 +37,11 @@ router.post('/register', async (req, res) => {
             medidaCintura,
             medidaQuadril,
             imc,
-            aluno: aluno_id
+            aluno_id: aluno_id
         });
 
         return res.send({
             saude,
-            aluno,
             token: generateToken({ id: saude.id }),
         });
 
