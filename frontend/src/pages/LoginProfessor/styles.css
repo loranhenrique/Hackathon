@@ -1,57 +1,90 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Allura&display=swap');
+
+
+  .backLogin {
+    position: absolute;
+    background-image:  url('../../assets/fundo_login.jpg');
+    width: 100%;
+    height: 937px;
+    background-size: contain;
+    min-height: 600px;
+  }
   
-  .contenteAluno {
+  #logoLogin{
     position: relative;
-    left: 30%;
-    width: 40%;
-    background: #fde277;
-    margin-top: 10%;
+    top: -40px;
+    background-image: url('../../assets/FaminSchool.png');
+    width: 300px;
+    height: 150px;
+    background-size: cover;
+  }
+
+  .contentAluno {
+    position: relative;
+    margin: auto;
+    width: 30%;
+    height: 640px;
+    background: #fff;
+    opacity: 0.97;
+    margin-top: 8%;
     border-radius: 4px;
     padding: 30px;
     box-shadow: 1px 1px 10px #545454;
+    min-width: 300px;
+    min-height: 400px;
   }
   
-  .contenteAluno > p {
+  .contentAluno > p {
     font-family: 'Allura', Arial, Helvetica, sans-serif;
-    font-size: 42px;
-    line-height: 30px;
-    margin-bottom: 30px;
     text-align: center;
-  }
-  
-  .contenteAluno form{
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contenteAluno form input{
-    text-align: center;
+    margin-top: 100px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     border-radius: 2px;
     height: 45px;
     padding: 0 15px;
     font-size: 16px;
+    line-height: 1px;
   }
   
-  .contenteAluno button.btn{
-    border: 0;
+  .contentAluno form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+ 
+  }
+  
+  .contentAluno form input{
+    position: relative;
+    top: -15px;
+    text-align: center;
+    margin-bottom: 20px;
     border-radius: 2px;
-    width: 100%;
-    height: 42px;
-    padding: 0 20px;
+    height: 45px;
+    padding: 0 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: solid 1px #2CDBC7;
+  }
+  
+  .contentAluno button.btnConfirmar{
+    border: 0;
+    border-radius: 1px solid #2CDBC7;
+    width:100%;
+    height: 32px;
+    margin-top: 120px;
     font-size: 16px;
     font-weight: bold;
-    background: #fff;
+    background: rgb(5, 236, 209);
     color: #545454;
     cursor: pointer;
   }
   
-  .contenteAluno button.btnSenha{
+  .contentAluno button.btnRecuperarSenha{
     position: relative;
-    left: 60%;
-    top: 10px;
+    left: 35%;
+    bottom: 130px;
     text-align: center;
     border: 0;
     width: 40%;
@@ -63,21 +96,82 @@
     color: #545454;
     cursor: pointer;
   }
+  .btnSenha:hover{
+    text-decoration: underline;
+  }
 
-  .btnRegistrar{
+  .contentAluno button.btnCriarConta{
     position: relative;
-    top: -350px;
-    left: -40px; 
-    border: 0;
+    width: 100%;
+    top: -20px;
+    border: 1px solid #4D51C0 ;
     border-radius: 2px;
-    padding: 0 20px;
     font-size: 20px;
     font-weight: bold;
     background: transparent;
-    color: #545454;
+    color: #4D51C0;
     cursor: pointer;
   }
   
-  .contenteAluno button.btn:hover{
-    background: #ddd;
+  .contentAluno button.btnProfessor:hover{
+    background: #2CDBC7;
+    font-size: 21px;
+  }
+  .contentAluno button.btnCriarConta:hover{
+    font-size: 21px;
+  }
+
+  .acessos{
+    list-style: none;
+  }
+
+  .acessos li{
+    display: block;
+    flex-direction: row;
+  }
+
+  .btnLink{
+    position: relative;
+    top: -30px;
+    border: 0;
+    width: 24%;
+    height: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgb(5, 236, 209);
+    color: #545454;
+    cursor: pointer;
+    margin: 0 2px;
+    min-width: 95px;
+  }
+
+  .btnLinkAluno{
+    position: relative;
+    top: -30px;
+    border: 0;
+    width: 24%;
+    height: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #545454;
+    color:#fff;
+    cursor: pointer;
+    margin: 0 2px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    min-width: 95px;
+  }
+
+  .btnLink:hover{
+    background: #545454;
+    color:#fff;
+  }
+
+  #escolha{
+    position: relative;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    text-align: left;  
+    left: -12px;  
   }

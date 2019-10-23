@@ -1,59 +1,60 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
-import logo from '../../assets/teste1.png';
-
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-export default function LoginAluno({ history }){
+export default function LoginAluno({ history }) {
     const [matricula, setMatricula] = useState('');
     const [senha, setSenha] = useState('');
-    const [tipoUsuario, setTipoUsuario] = useState('');
-  
-    async function handleSubmit(event){
-      event.preventDefault();
-  
-      const response = await api.post('/aluno/authenticate', {matricula, senha, tipoUsuario});
-  
-      const { _id } = response.data;
 
-      localStorage.setItem('aluno', _id);
+    async function handleSubmit(event) {
+        event.preventDefault();
 
-      history.push('/Aluno');
+        const response = await api.post('/aluno/authenticate', { matricula, senha });
+
+        const { _id } = response.data;
+
+        localStorage.setItem('aluno', _id);
+
+        history.push('/Aluno'); 
     }
 
-    return(
+    return (
         <>
-        <div className="contentImg"></div>
-        <div className="contentAluno">
-            <img src={logo} alt="Logo da aplicação"></img>
+            <div className="backLogin">
+                <div className="contentAluno" align="center">
+                    <div id="logoLogin"></div>
 
-            <p>FamInSchool</p>
+                    <p id="escolha">Escolha como deseja entrar:</p>
+                    <div className="acessos">
+                        <li>
+                            <Link to="/LoginEscola"><button className="btnLink">Escola</button></Link>
+                            <Link to="/LoginProfessor"><button className="btnLink">Professor</button></Link>
+                            <Link to="/LoginResponsavel"><button className="btnLink">Responsável</button></Link>
+                            <Link to="/LoginAluno"><button className="btnLinkAluno">Aluno</button></Link>
+                           
+                        </li>
+                    </div>
 
-            <form onSubmit={handleSubmit}>
-                <input type="search" 
-                id="tipoUsuario" 
-                placeholder="Ex: aluno" 
-                value={tipoUsuario} 
-                onChange={ event => setTipoUsuario(event.target.value)}
-                />
-                 <input type="text" 
-                id="matricula" 
-                placeholder="matrícula" 
-                value={matricula} 
-                onChange={ event => setMatricula(event.target.value)}
-                />
-                <input type="password"
-                id="senha" 
-                placeholder="senha" 
-                value={senha} 
-                onChange={ event => setSenha(event.target.value)}
-                />
-                <button type="submit" className="btnAluno">ENTRAR</button>
-                <button type="submit" className="btnSenhaAluno">Esqueceu a senha?</button>
-                <button type="submit" className="btnRegistroAluno">CRIAR UMA CONTA</button>
-            </form>
-        </div>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text"
+                            id="matricula"
+                            placeholder="Matrícula"
+                            value={matricula}
+                            onChange={event => setMatricula(event.target.value)}
+                        />
+                        <input type="password"
+                            id="senha"
+                            placeholder="Senha"
+                            value={senha}
+                            onChange={event => setSenha(event.target.value)}
+                        />
+                        <button type="submit" className="btnConfirmar">CONFIRMAR</button>
+                        <Link to="/RecuperarSenha"><button className="btnRecuperarSenha">Esqueceu a senha?</button></Link>
+                    </form>
+                </div>
+            </div>
         </>
     );
 }

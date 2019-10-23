@@ -31,6 +31,18 @@ const AlunoSchema = new mongoose.Schema({
     situacao: {
         type: String,
     },
+    senhaResetToken:{
+        type: String,
+        select: false,
+    },
+    senhaResetExpires: {
+        type: Date,
+        select: false,
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now,
+    },
     responsavel_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Responsavel'

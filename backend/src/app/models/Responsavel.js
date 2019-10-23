@@ -39,6 +39,18 @@ const ResponsavelSchema = new mongoose.Schema({
     cep: {
         type: String,
     },
+    senhaResetToken:{
+        type: String,
+        select: false,
+    },
+    senhaResetExpires: {
+        type: Date,
+        select: false,
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now,
+    },
 });
 
 ResponsavelSchema.pre('save', async function(next){
