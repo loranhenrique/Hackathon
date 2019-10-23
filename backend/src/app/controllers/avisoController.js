@@ -39,7 +39,7 @@ router.post('/register', async (req, res) => {
             escola: escola_id
         });
 
-        await Avisos.populate('escola_id').execPopulate();
+       // await Avisos.populate('escola_id').execPopulate();
         return res.send({
             avisos,
             escola,
