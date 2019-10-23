@@ -20,11 +20,11 @@
     background-size: cover;
   }
 
-  .contentCriarConta {
+  .contentRecuperarSenha {
     position: relative;
     margin: auto;
-    width: 80%;
-    height: 640px;
+    width: 30%;
+    height: 500px;
     background: #fff;
     opacity: 0.97;
     margin-top: 8%;
@@ -35,46 +35,49 @@
     min-height: 400px;
   }
   
-  .contentCriarConta > p {
+  .contentRecuperarSenha > p {
     font-family: 'Allura', Arial, Helvetica, sans-serif;
     text-align: center;
     margin-top: 100px;
-    padding: 1em;
-    border: 1px solid #2CDBC7;
-    border-radius: 1em;
     margin-bottom: 20px;
+    border: 0px solid #ddd;
+    border-radius: 2px;
     height: 45px;
+    padding: 0 15px;
     font-size: 16px;
     line-height: 1px;
   }
   
-  .contentCriarConta form{
-    display: grid;
+  .contentRecuperarSenha form{
+    display: flex;
     flex-direction: column;
     text-align: center;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 30px; 
-
+    overflow: hidden;
+    animation-name: moverForm;
+    animation-duration: 0.2s;
   }
   
-  .contentCriarConta form input{
+  .contentRecuperarSenha  input{
     position: relative;
-    width: 595px;
-    top: -15px;
+    border: none ;
+    border-bottom: 1px solid #2CDBC7;
+    top: 23px;  
     text-align: center;
     margin-bottom: 20px;
-    border-radius: 2px;
-    height: 35px;
+    height: 45px;
     padding: 0 10px;
     font-size: 16px;
-    border: none;
-    border: solid 1px #2CDBC7;  
-  }
-  
-  .contentCriarConta button.btnCriar{
+    animation-name:moverInput;
+    animation-duration: 500ms;
+    animation-fill-mode: backwards;
+   }
+
+   .contentRecuperarSenha button.btnConfirmEmail{
+    position: relative;
+    left: 310px;
     border: 0;
-    border-radius: 1px solid #2CDBC7;
-    width:100%;
+    border-radius: 11px;
+    width:40%;
     height: 32px;
     margin-top: 80px;
     font-size: 16px;
@@ -82,86 +85,68 @@
     background: rgb(5, 236, 209);
     color: #545454;
     cursor: pointer;
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
+
   }
-  
-  .contentCriarConta button.btnVoltar{
+
+    .contentRecuperarSenha button.btnLinkVoltar{
     position: relative;
-    left: 33.6%;
-    top: 80px;
-    text-align: center;
-    border: 0;
     width: 40%;
-    height: 42px;
-    padding: 0;
-    font-size: 16px;
-    font-weight: bold;
-    background: transparent;
-    color: #545454;
-    cursor: pointer;    
-  }
-  .btnVoltar:hover{
-    text-decoration: underline;
-  }
-  
-  .contentCriarConta button.btnCriarConta:hover{
-    background: #2CDBC7;
-    font-size: 21px;
-  }
-  .contentCriarConta button.btnCriarConta:hover{
-    font-size: 21px;
-  }
-
-  .acessos{
-    list-style: none;
-  }
-
-  .acessos li{
-    display: block;
-    flex-direction: row;
-  }
-
-  .btnLink{
-    position: relative;
-    top: -30px;
-    border: 0;
-    width: 24%;
     height: 32px;
+    right: 150px;
+    bottom: 31px;
+    border: 0;
+    border-radius: 11px;
     font-size: 16px;
     font-weight: bold;
     background: rgb(5, 236, 209);
     color: #545454;
     cursor: pointer;
-    margin: 0 2px;
-    min-width: 95px;
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 250ms;
+    animation-fill-mode: backwards;
+  }
+  
+  .contentRecuperarSenha button.btnConfirmEmail:hover{
+    background: #2CDBC9;
+    font-size: 17px;
+  }
+  .contentRecuperarSenha button.btnLinkVoltar:hover{
+    font-size: 17px;
+    background: #2CDBC9;
   }
 
-  .btnLinkAluno{
-    position: relative;
-    top: -30px;
-    border: 0;
-    width: 24%;
-    height: 32px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #545454;
-    color:#fff;
-    cursor: pointer;
-    margin: 0 2px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    min-width: 95px;
-  }
-
-  .btnLink:hover{
-    background: #545454;
-    color:#fff;
-  }
-
-  #escolha{
+  #label{
     position: relative;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin: 0px;
     text-align: left;  
     left: -12px;  
+  }
+
+  /* Animações*/
+
+  @keyframes moverForm {
+    from{
+      opacity: 0;
+      transform: scale(0.9);
+    }to{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes moverInput {
+    from{
+      opacity: 0;
+      transform: translateX(-35%);
+    }to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
   }

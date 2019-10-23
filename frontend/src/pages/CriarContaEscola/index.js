@@ -2,45 +2,47 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 
+
 import './styles.css';
 
-export default function LoginAluno({ history }) {
+export default function CriarContaEscola({ history }) {
     const [matricula, setMatricula] = useState('');
     const [nome, setNome] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmarsenha, setConfirmarSenha] = useState('');
     const [logradouro, setLogradouro] = useState('');
     const [bairro, setBairro] = useState('');
     const [municipio, setMunicipio] = useState('');
-    const [cidade, setCidade] = useState('');
+    const [estado, setEstado] = useState('');
     const [cep, setCep] = useState('');
 
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/escolas/authenticate', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
+        const response = await api.post('/responsavel', { matricula, nome, senha, logradouro, bairro, municipio, estado, cep });
 
         const { _id } = response.data;
 
-        localStorage.setItem('escolas', _id);
+        localStorage.setItem('responsavel', _id);
 
-        history.push('/Escola');
+        history.push('/LoginResponsavel');
     }
 
     return (
         <>
             <div className="backLogin">
-                <div className="contentCriarConta" align="center">
+                <div className="contentCriarContaEscola" align="center">
                     <div id="logoLogin"></div>
-                   
-                    <p id="escolha">Escolha como deseja entrar:</p>
-                    
+
                     <form onSubmit={handleSubmit}>
+
+                    <fieldset class="ConjuntodeCampos">
+                    <legend class="escolha">Dados básicos de cadastro</legend>
+
                         <input type="text"
                             id="matricula"
-                            placeholder="Matricula"
+                            placeholder="Matrícula"
                             value={matricula}
                             onChange={event => setMatricula(event.target.value)}
                         />
@@ -50,23 +52,17 @@ export default function LoginAluno({ history }) {
                             value={nome}
                             onChange={event => setNome(event.target.value)}
                         />
-                        <input type="number"
-                            id="telefone"
-                            placeholder="Telefone"
-                            value={telefone}
-                            onChange={event => setTelefone(event.target.value)}
-                        />
-                        <input type="text"
-                            id="email"
-                            placeholder="E-mail"
-                            value={email}
-                            onChange={event => setEmail(event.target.value)}
-                        />
                         <input type="password"
                             id="senha"
                             placeholder="Senha"
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
+                        />
+                          <input type="password"
+                            id="confirmarsenha"
+                            placeholder="Confirmar Senha"
+                            value={confirmarsenha}
+                            onChange={event => setConfirmarSenha(event.target.value)}
                         />
                         <input type="text"
                             id="logradouro"
@@ -74,7 +70,7 @@ export default function LoginAluno({ history }) {
                             value={logradouro}
                             onChange={event => setLogradouro(event.target.value)}
                         />
-                        <input type="number"
+                        <input type="text"
                             id="bairro"
                             placeholder="Bairro"
                             value={bairro}
@@ -82,27 +78,29 @@ export default function LoginAluno({ history }) {
                         />
                         <input type="text"
                             id="municipio"
-                            placeholder="Municipio"
+                            placeholder="Município"
                             value={municipio}
                             onChange={event => setMunicipio(event.target.value)}
+                        />                  
+                        <input type="text"
+                            id="estado"
+                            placeholder="Estado"
+                            value={estado}
+                            onChange={event => setEstado(event.target.value)}
                         />
                         <input type="text"
-                            id="cidade"
-                            placeholder="Cidade"
-                            value={cidade}
-                            onChange={event => setCidade(event.target.value)}
-                        />
-                        <input type="number"
                             id="cep"
                             placeholder="Cep"
                             value={cep}
                             onChange={event => setCep(event.target.value)}
                         />
-                        <button type="submit" className="btnCriar">CONFIRMAR</button>
-                        <button type="submit" className="btnVoltar">Esqueceu a senha?</button>
+
+                        <button type="submit" className="btnConfirmarEscola">CONFIRMAR</button>
+                       <Link to="LoginAluno"><button type="submit" className="btnVoltarEscola">VOLTAR</button></Link>
+                        </fieldset>
                     </form>
                 </div>
-            </div>
+                </div>
         </>
     );
 }

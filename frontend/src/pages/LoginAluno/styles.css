@@ -52,10 +52,12 @@
     display: flex;
     flex-direction: column;
     text-align: center;
- 
+    overflow: hidden;
+    animation-name: moverForm;
+    animation-duration: 0.2s;
   }
   
-  .contentAluno form input{
+  .contentAluno form input:nth-child(1){
     position: relative;
     top: -15px;
     text-align: center;
@@ -66,35 +68,55 @@
     font-size: 16px;
     border: none;
     border-bottom: solid 1px #2CDBC7;
-  }
+    animation-name:moverInput;
+    animation-duration: 500ms;
+    animation-fill-mode: backwards;
+   }
+
+   .contentAluno form input:nth-child(2){
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+   }
   
-  .contentAluno button.btnProfessor{
+  .contentAluno button.btnConfirmar{
     border: 0;
     border-radius: 1px solid #2CDBC7;
     width:100%;
     height: 32px;
-    margin-top: 80px;
+    margin-top: 120px;
     font-size: 16px;
     font-weight: bold;
     background: rgb(5, 236, 209);
     color: #545454;
     cursor: pointer;
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 200ms;
+    animation-fill-mode: backwards;
+
   }
   
-  .contentAluno button.btnSenha{
+  .contentAluno button.btnRecuperarSenha{
     position: relative;
-    left: 65%;
-    bottom: 110px;
+    left: 35%;
+    bottom: 130px;
     text-align: center;
     border: 0;
     width: 40%;
     height: 42px;
-    padding: 0; 
+    padding: 0;
     font-size: 16px;
     font-weight: bold;
     background: transparent;
     color: #545454;
     cursor: pointer;
+    animation-name:moverInput;
+    animation-duration: 400ms;
+    animation-delay: 350ms;
+    animation-fill-mode: backwards;
+
   }
   .btnSenha:hover{
     text-decoration: underline;
@@ -174,4 +196,26 @@
     margin: 0px;
     text-align: left;  
     left: -12px;  
+  }
+
+  /* Animações*/
+
+  @keyframes moverForm {
+    from{
+      opacity: 0;
+      transform: scale(0.9);
+    }to{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes moverInput {
+    from{
+      opacity: 0;
+      transform: translateX(-35%);
+    }to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
   }
