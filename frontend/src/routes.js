@@ -10,7 +10,7 @@ import Responsavel from './pages/Responsavel';
 import Professor from './pages/Professor';
 import Escola from './pages/Escola';
 import CriarConta from './pages/CriarConta';
-
+import FeedNoticia from './pages/Feed';
 export default function Routes() {
     return(
         <BrowserRouter>
@@ -25,6 +25,7 @@ export default function Routes() {
                 <Route path="/Professor" component={Professor} />
                 <Route path="/Escola" component={Escola} />
                 <Route path="/CriarConta" component={CriarConta} />
+                <Route path="/feed" component={FeedNoticia}/>
             </Switch>
         </BrowserRouter>
     );
