@@ -35,7 +35,7 @@
     min-height: 400px;
   }
   
-  .contentCriarConta .ConjuntodeCampos {
+  .contentCriarConta .ConjuntodeCampos1 {
     position: relative;
     margin: auto;
     border: 1px solid #2CDBC7;
@@ -64,8 +64,6 @@
     position: relative;
     margin: auto;
     bottom: 60px;
-    display: grid;
-    flex-direction: column;
     text-align: center;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 30px;
@@ -78,10 +76,12 @@
   
   .contentCriarConta form input{
     position: relative;
+    display: inline-block;
+    width: 30%;
+    min-width: 30%;
     border: none;
     border-bottom: solid 1px #2CDBC7; 
     border-radius: 10px #2CDBC7;
-    width: 457.68px;
     bottom: 290px; 
     text-align: center; 
     height: 40px;

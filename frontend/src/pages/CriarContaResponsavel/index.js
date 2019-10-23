@@ -22,11 +22,7 @@ export default function CriarContaResponsavel({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/responsavel', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
-
-        const { _id } = response.data;
-
-        localStorage.setItem('responsavel', _id);
+        await api.post('/responsavel/register', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
 
         history.push('/LoginResponsavel');
     }
@@ -39,7 +35,7 @@ export default function CriarContaResponsavel({ history }) {
 
                     <form onSubmit={handleSubmit}>
 
-                    <fieldset class="ConjuntodeCampos">
+                    <fieldset class="ConjuntodeCampos1">
                     <legend class="escolha">Dados básicos de cadastro</legend>
 
                         <input type="text"

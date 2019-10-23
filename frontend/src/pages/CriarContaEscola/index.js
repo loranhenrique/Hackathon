@@ -20,13 +20,9 @@ export default function CriarContaEscola({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/responsavel', { matricula, nome, senha, logradouro, bairro, municipio, estado, cep });
+        await api.post('/escola/register', { matricula, nome, senha, logradouro, bairro, municipio, estado, cep });
 
-        const { _id } = response.data;
-
-        localStorage.setItem('responsavel', _id);
-
-        history.push('/LoginResponsavel');
+        history.push('/LoginEscola');
     }
 
     return (

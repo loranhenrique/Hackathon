@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-export default function RecuperarSenha({ history }) {
+export default function ConfirmarSenhaAluno({ history }) {
     const [senha, setSenha] = useState('');
     const [confirmarsenha, setConfirmarSenha] = useState('');
 
@@ -17,7 +17,7 @@ export default function RecuperarSenha({ history }) {
 
         localStorage.setItem('aluno', _id);
 
-        history.push('/ConfirmarSenha'); 
+        history.push('/LoginAluno'); 
     }
 
     return (
@@ -41,7 +41,7 @@ export default function RecuperarSenha({ history }) {
                             onChange={event => setConfirmarSenha(event.target.value)}
                         />
                         <button type="submit" className="btnConfirmEmail">CONFIRMAR</button>
-                        <Link to="/RecuperarSenha"><button type="submit" className="btnLinkVoltar">VOLTAR</button></Link>
+                        <Link to="/RecuperarSenhaAluno"><button className="btnLinkVoltar">VOLTAR</button></Link>
                     </form>
                 </div>
             </div>

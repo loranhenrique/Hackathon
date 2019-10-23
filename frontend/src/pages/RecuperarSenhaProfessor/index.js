@@ -4,19 +4,15 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-export default function RecuperarSenha({ history }) {
+export default function RecuperarSenhaProfessor({ history }) {
     const [email, setEmail] = useState('');
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/aluno/authenticate', { email });
+        await api.post('/aluno/authenticate', { email });
 
-        const { _id } = response.data;
-
-        localStorage.setItem('aluno', _id);
-
-        history.push('/ConfirmarSenha'); 
+        history.push('/ConfirmarSenhaProfessor'); 
     }
 
     return (
@@ -33,8 +29,8 @@ export default function RecuperarSenha({ history }) {
                             value={email}
                             onChange={event => setEmail(event.target.value)}
                         />
-                        <Link to="/ConfirmarSenha"><button type="submit" className="btnConfirmEmail">CONFIRMAR</button></Link>
-                        <Link to="/LoginAluno"><button type="submit" className="btnLinkVoltar">VOLTAR</button></Link>
+                        <button type="submit" className="btnConfirmEmail">CONFIRMAR</button>
+                        <Link to="/LoginProfessor"><button type="submit" className="btnLinkVoltar">VOLTAR</button></Link>
                     </form>
                 </div>
             </div>
