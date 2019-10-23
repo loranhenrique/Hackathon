@@ -9,7 +9,7 @@ const router = express.Router();
 
 const Avisos = require('../models/Aviso');
 
-function generateToken(params = {}){
+function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
@@ -24,15 +24,15 @@ router.post('/register', async (req, res) => {
     const escola = await Escola.findById(escola_id);
 
 
-    try{
+    try {
 
-        if(!escola){
+        if (!escola) {
             return res.status(400).send({ error: 'Escola não existe!' })
         }
 
-        if(await Avisos.findOne({ id }))
+        if (await Avisos.findOne({ id }))
             return res.status(400).send({ error: 'Aviso ja cadastrado' })
-            
+
         const avisos = await Avisos.create({
             id,
             mensagem,
@@ -45,20 +45,20 @@ router.post('/register', async (req, res) => {
             token: generateToken({ id: avisos.id }),
         });
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
         return res.status(400).send({ error: 'Erro ao cadastrar os avisos' });
     }
 
 });
 
-    router.get('/listAll', async(req,res) => {
-        try{           
+router.get('/listAll', async (req, res) => {
+    try {
         const resp = await Avisos.find({});
         return res.json(resp);
-        }catch(err){
-            console.log(err);
-        }
-    });
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 module.exports = app => app.use('/avisos', router);

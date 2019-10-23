@@ -10,9 +10,10 @@ import Aluno from './pages/Aluno';
 import Responsavel from './pages/Responsavel';
 import Professor from './pages/Professor';
 import Escola from './pages/Escola';
+import Feed from './pages/Feed';
 
 export default function Routes() {
-    return(
+    return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Login} />
@@ -24,6 +25,7 @@ export default function Routes() {
                 <Route path="/Responsavel" component={Responsavel} />
                 <Route path="/Professor" component={Professor} />
                 <Route path="/Escola" component={Escola} />
+                <Route path="/Feed" component={Feed} />
             </Switch>
         </BrowserRouter>
     );
