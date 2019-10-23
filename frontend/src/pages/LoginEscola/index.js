@@ -51,8 +51,8 @@ export default function LoginAluno({ history }) {
                             onChange={event => setSenha(event.target.value)}
                         />
                         <button type="submit" className="btnProfessor">CONFIRMAR</button>
-                        <button type="submit" className="btnSenha">Esqueceu a senha?</button>
-                        <Link to="/CriarContaResponsavel"><button type="submit" className="btnCriarConta">CRIAR UMA CONTA</button></Link>
+                        <Link to="/RecuperarSenha"><button className="btnRecuperarSenha">Esqueceu a senha?</button></Link>
+                        <Link to="/CriarContaEscola"><button className="btnCriarConta">CRIAR UMA CONTA</button></Link>
                     </form>
                 </div>
             </div>

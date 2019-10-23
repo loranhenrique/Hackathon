@@ -20,7 +20,7 @@
     background-size: cover;
   }
 
-  .contentCriarConta {
+  .contentCriarContaEscola {
     position: relative;
     margin: auto;
     width: 80%;
@@ -35,7 +35,7 @@
     min-height: 400px;
   }
   
-  .contentCriarConta .ConjuntodeCampos {
+  .contentCriarContaEscola .ConjuntodeCampos {
     position: relative;
     margin: auto;
     border: 1px solid #2CDBC7;
@@ -47,12 +47,12 @@
     min-height: 100px;
   }
   
-  .contentCriarConta.ConjuntodeCampos.escolha {
+  .contentCriarContaEscola.ConjuntodeCampos.escolha {
     font-size: 1.2em !important;
     text-align: left !important;
   }
 
-  .contentCriarConta > p {
+  .contentCriarContaEscola > p {
     font-size: 1.2em !important;
     text-align: left !important;
     width: auto;
@@ -60,7 +60,7 @@
     border-bottom: none;
   }
   
-  .contentCriarConta form{
+  .contentCriarContaEscola form{
     position: relative;
     margin: auto;
     bottom: 60px;
@@ -76,13 +76,13 @@
     overflow: hidden;
   }
   
-  .contentCriarConta form input{
+  .contentCriarContaEscola form input{
     position: relative;
     border: none;
     border-bottom: solid 1px #2CDBC7; 
     border-radius: 10px #2CDBC7;
     width: 457.68px;
-    bottom: 290px; 
+    bottom: 245px; 
     text-align: center; 
     height: 40px;
     font-size: 16px;
@@ -93,13 +93,13 @@
     animation-fill-mode: backwards;
   }
 
-  .contentCriarConta button.btnConfirmar{
+  .contentCriarContaEscola button.btnConfirmarEscola{
     position: relative;
     border: 0;
     border-radius: 10px !important;
     width:20%;
     height: 32px;
-    bottom: 200px;
+    bottom: 140px;
     left: 705px;
     font-size: 16px;
     font-weight: bold;
@@ -112,13 +112,13 @@
     animation-fill-mode: backwards;
   }
   
-  .contentCriarConta button.btnVoltar{
+  .contentCriarContaEscola button.btnVoltarEscola{
     position: relative;
     border: 0;
     border-radius: 10px !important;
     width:20%;
     height: 32px;
-    bottom: 200px;
+    bottom: 140px;
     right: 705px;
     font-size: 16px;
     font-weight: bold;
@@ -130,12 +130,12 @@
     animation-delay: 400ms;
     animation-fill-mode: backwards;
   }
-  .contentCriarConta button.btnVoltar:hover{
+  .contentCriarContaEscola button.btnVoltar:hover{
     background: #2CDBC9;
     font-size: 18px;
   }
 
-  .contentCriarConta button.btnConfirmar:hover{
+  .contentCriarContaEscola button.btnConfirmar:hover{
     background: #2CDBC9;
     font-size: 18px;
   }

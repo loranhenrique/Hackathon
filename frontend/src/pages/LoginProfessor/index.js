@@ -50,9 +50,8 @@ export default function LoginProfessor({ history }) {
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
                         />
-                        <button type="submit" className="btnProfessor">CONFIRMAR</button>
-                        <button type="submit" className="btnSenha">Esqueceu a senha?</button>                        
-                        <Link to="/CriarContaResponsavel"><button type="submit" className="btnCriarConta">CRIAR UMA CONTA</button></Link>
+                        <button type="submit" className="btnConfirmar">CONFIRMAR</button>
+                        <Link to="/RecuperarSenha"><button className="btnRecuperarSenha">Esqueceu a senha?</button></Link>                       
                     </form>
                 </div>
             </div>

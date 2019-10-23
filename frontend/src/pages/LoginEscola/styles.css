@@ -81,10 +81,10 @@
     cursor: pointer;
   }
   
-  .contentAluno button.btnSenha{
+  .contentAluno button.btnRecuperarSenha{
     position: relative;
-    left: 65%;
-    bottom: 110px;
+    left: 35%;
+    bottom: 130px;
     text-align: center;
     border: 0;
     width: 40%;
@@ -96,7 +96,7 @@
     color: #545454;
     cursor: pointer;
   }
-  .btnSenha:hover{
+  .btnRecuperarSenha:hover{
     text-decoration: underline;
   }
 

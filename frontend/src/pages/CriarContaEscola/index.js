@@ -5,24 +5,22 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-export default function CriarContaResponsavel({ history }) {
+export default function CriarContaEscola({ history }) {
     const [matricula, setMatricula] = useState('');
     const [nome, setNome] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmarsenha, setConfirmarSenha] = useState('');
     const [logradouro, setLogradouro] = useState('');
     const [bairro, setBairro] = useState('');
     const [municipio, setMunicipio] = useState('');
-    const [cidade, setCidade] = useState('');
+    const [estado, setEstado] = useState('');
     const [cep, setCep] = useState('');
 
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/responsavel', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
+        const response = await api.post('/responsavel', { matricula, nome, senha, logradouro, bairro, municipio, estado, cep });
 
         const { _id } = response.data;
 
@@ -34,7 +32,7 @@ export default function CriarContaResponsavel({ history }) {
     return (
         <>
             <div className="backLogin">
-                <div className="contentCriarConta" align="center">
+                <div className="contentCriarContaEscola" align="center">
                     <div id="logoLogin"></div>
 
                     <form onSubmit={handleSubmit}>
@@ -53,18 +51,6 @@ export default function CriarContaResponsavel({ history }) {
                             placeholder="Nome"
                             value={nome}
                             onChange={event => setNome(event.target.value)}
-                        />
-                        <input type="text"
-                            id="telefone"
-                            placeholder="Telefone"
-                            value={telefone}
-                            onChange={event => setTelefone(event.target.value)}
-                        />
-                        <input type="text"
-                            id="email"
-                            placeholder="E-mail"
-                            value={email}
-                            onChange={event => setEmail(event.target.value)}
                         />
                         <input type="password"
                             id="senha"
@@ -95,13 +81,12 @@ export default function CriarContaResponsavel({ history }) {
                             placeholder="Município"
                             value={municipio}
                             onChange={event => setMunicipio(event.target.value)}
-                        />
-                        <div className="Meio">
+                        />                  
                         <input type="text"
-                            id="cidade"
-                            placeholder="Cidade"
-                            value={cidade}
-                            onChange={event => setCidade(event.target.value)}
+                            id="estado"
+                            placeholder="Estado"
+                            value={estado}
+                            onChange={event => setEstado(event.target.value)}
                         />
                         <input type="text"
                             id="cep"
@@ -109,9 +94,9 @@ export default function CriarContaResponsavel({ history }) {
                             value={cep}
                             onChange={event => setCep(event.target.value)}
                         />
-                        </div>
-                        <button type="submit" className="btnConfirmar">CONFIRMAR</button>
-                       <Link to="LoginAluno"><button type="submit" className="btnVoltar">VOLTAR</button></Link>
+
+                        <button type="submit" className="btnConfirmarEscola">CONFIRMAR</button>
+                       <Link to="LoginAluno"><button type="submit" className="btnVoltarEscola">VOLTAR</button></Link>
                         </fieldset>
                     </form>
                 </div>
