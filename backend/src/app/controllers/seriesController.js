@@ -35,12 +35,11 @@ router.post('/register', async (req, res) => {
             nome,
             ano,
             semestre,
-            escola: escola_id
+            escola_id: escola_id
         });
 
         return res.send({
-            series,
-            escola,
+            series,          
             token: generateToken({ id: series.id }),
         });
 

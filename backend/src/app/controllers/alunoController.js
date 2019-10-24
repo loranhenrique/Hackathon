@@ -22,8 +22,8 @@ function generateToken(params = {}){
 router.post('/register', async (req,res) => {
 
     const { matricula, nome, telefone, email, dataNasc, senha, situacao } = req.body;
-    const { responsavel_id } = req.headers;
-    const { turma_id } = req.headers; 
+    const { responsavel_id } = req.body;
+    const { turma_id } = req.body; 
 
     const responsavel = await Responsavel.findById(responsavel_id);
     const turma = await Turma.findById(turma_id);
@@ -47,15 +47,13 @@ router.post('/register', async (req,res) => {
             dataNasc,
             senha,
             situacao,
-            responsavel: responsavel_id,
-            turma: turma_id
+            responsavel_id: responsavel_id,
+            turma_id: turma_id,
         });
 
         return res.json({
 
-            aluno,
-            responsavel,
-            turma,
+            aluno,           
             token: generateToken({ id: aluno.id }),
 
         });

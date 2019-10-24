@@ -2,7 +2,9 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const Escola = require('../models/Escola');
-
+const Turma = require('../models/Turma');
+const Series = require('../models/Series');
+const Aluno = require('../models/Aluno');
 const authConfig = require('../../config/auth');
 
 const router = express.Router();
@@ -36,14 +38,17 @@ router.post('/register', async (req, res) => {
         const avisos = await Avisos.create({
             id,
             mensagem,
-            escola: escola_id
+            escola_id: escola_id
+           
         });
+        await avisos.populate('escola_id').execPopulate();  
+        return res.json(avisos);
 
-        return res.send({
+    /*    return res.send({
             avisos,
             escola,
             token: generateToken({ id: avisos.id }),
-        });
+        });*/
 
     } catch (err) {
         console.log(err);
@@ -52,13 +57,26 @@ router.post('/register', async (req, res) => {
 
 });
 
+<<<<<<< HEAD
 router.get('/listAll', async (req, res) => {
     try {
+=======
+    router.get('/listAll', async(req,res) => {
+        try{          
+>>>>>>> 55f8ba7d29b6ceaf037ab7b8bae8c56794cb81d7
         const resp = await Avisos.find({});
         return res.json(resp);
     } catch (err) {
         console.log(err);
     }
 });
+
+    router.get('/EscolaAviso',async(req,res)=>{
+        const {aluno_id} = req.headers;
+        console.log(aluno_id);
+        let user = await Aluno.findOne({_id:aluno_id});
+        console.log(user);
+
+    });
 
 module.exports = app => app.use('/avisos', router);
