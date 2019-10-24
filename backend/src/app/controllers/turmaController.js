@@ -9,7 +9,7 @@ const router = express.Router();
 
 const Turma = require('../models/Turma');
 
-function generateToken(params = {}){
+function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
@@ -18,16 +18,16 @@ function generateToken(params = {}){
 router.post('/register', async (req, res) => {
 
     const { id, nome } = req.body;
-    const { series_id } = req.headers;
+    const { series_id } = req.body;
 
     const series = await Series.findById(series_id);
 
-    try{
+    try {
 
-        if(!series)
+        if (!series)
             return res.status(400).send({ error: 'Serie não existe' });
 
-        if(await Turma.findOne({ id }))
+        if (await Turma.findOne({ id }))
             return res.status(400).send({ error: 'Turma ja cadastrada' })
 
         const turma = await Turma.create({
@@ -37,20 +37,20 @@ router.post('/register', async (req, res) => {
         });
 
         return res.send({
-            turma,           
+            turma,
             token: generateToken({ id: turma.id }),
         });
 
-    }catch(err){
+    } catch (err) {
         return res.status(400).send({ error: 'Erro ao cadastrar a turma' });
     }
 
 });
-router.get('/listAll', async(req,res) => {
-    try{
+router.get('/listAll', async (req, res) => {
+    try {
         const resp = await Turma.find({});
         return res.json(resp);
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 });

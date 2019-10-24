@@ -1,0 +1,9 @@
+Especificações do frontend do sistema
+
+Cor de fundo : #fafafa
+Cor do menu: #fff
+Cor da borda: e6e6e6
+
+
+fontes: 
+-apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif

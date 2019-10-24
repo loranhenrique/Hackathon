@@ -9,7 +9,7 @@ const router = express.Router();
 
 const Series = require('../models/Series');
 
-function generateToken(params = {}){
+function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
@@ -18,16 +18,16 @@ function generateToken(params = {}){
 router.post('/register', async (req, res) => {
 
     const { id, nome, ano, semestre } = req.body;
-    const { escola_id } = req.headers;
+    const { escola_id } = req.body;
 
     const escola = await Escola.findById(escola_id);
 
-    try{
+    try {
 
-        if(!escola)
+        if (!escola)
             return res.status(400).send({ error: 'Escola não existe' });
 
-        if(await Series.findOne({ id }))
+        if (await Series.findOne({ id }))
             return res.status(400).send({ error: 'Serie ja cadastrada' })
 
         const series = await Series.create({
@@ -39,21 +39,21 @@ router.post('/register', async (req, res) => {
         });
 
         return res.send({
-            series,          
+            series,
             token: generateToken({ id: series.id }),
         });
 
-    }catch(err){
+    } catch (err) {
         return res.status(400).send({ error: 'Erro ao cadastrar a serie' });
     }
 
 });
 
-router.get('/listAll', async(req,res) => {
-    try{
+router.get('/listAll', async (req, res) => {
+    try {
         const resp = await Series.find({});
         return res.json(resp);
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 });
