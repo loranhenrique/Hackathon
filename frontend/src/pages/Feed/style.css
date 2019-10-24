@@ -1,0 +1,56 @@
+body{
+    background: #fafafa;
+}
+.menu-navigation-icons {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center; 
+    /* min-height: 654px;*/
+ 
+}
+
+.menu-navigation-icons a {
+    display: block;
+    color: #000000;
+    padding-top: 5%;    
+    font-weight: bold;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.06);
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    align-items: center;
+    width: 136px;
+    height: 109px;
+}
+
+.menu-navigation-icons a:hover{
+    opacity:0.92;
+}
+
+.menu-navigation-icons a i {
+    display: block;    
+}
+
+.menu-navigation-icons a span {
+    display: block;  
+    margin-top: 10%;  
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu colors */
+
+
+
+
+
+/* Make this page responsive */
+
+
+.slicknav_menu {
+    display:none;
+}
+
+
