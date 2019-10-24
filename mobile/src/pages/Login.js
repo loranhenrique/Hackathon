@@ -29,35 +29,39 @@ class Login extends React.Component{
             await AsyncStorage.setItem('perfil', this.state.perfil);
             await AsyncStorage.setItem('matricula', this.state.matricula);
             var response;
-    
+            
+            let matricula = this.state.matricula;
+            let senha = this.state.senha;
+            const {navigate} = this.props.navigation;
+
             switch(this.state.perfil){
                 case "aluno":
-                    let matricula = this.state.matricula;
-                    let senha = this.state.senha;
                     response = await api.post("/aluno/authenticate", {matricula, senha});
                     var situacao = response.data.aluno.situacao;
                     if(situacao === 'matriculado'){
-                        const {navigate} = this.props.navigation;
-                        navigate('Aluno');
+                        // console.log(situacao);
+                        navigate('menuAluno');
                     }
                 break;
                 case "professor":
                     response = api.post("/professor/authenticate", {matricula, senha});
-                    console.log(response.data);
+                    navigate('menuProfessor');
                 break;
                 case "escola":
                     response = api.post("/escola/authenticate", {matricula, senha});
-                    console.log(response.data);
+                    // console.log(response.data);
+                    navigate('menuEscola');
                 break;
                 case "responsavel":
                     response = api.post("/responsavel/authenticate", {matricula, senha});
-                    console.log(response.data);
+                    // console.log(response.data);
+                    navigate('menuResponsavel');
                 break;
             }
                     
-            console.log("matricula: " + this.state.matricula);
-            console.log("senha: " + this.state.senha);
-            console.log("perfil: " + this.state.perfil);
+            // console.log("matricula: " + this.state.matricula);
+            // console.log("senha: " + this.state.senha);
+            // console.log("perfil: " + this.state.perfil);
         }
       }
 

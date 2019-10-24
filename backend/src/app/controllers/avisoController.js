@@ -57,13 +57,8 @@ router.post('/register', async (req, res) => {
 
 });
 
-<<<<<<< HEAD
-router.get('/listAll', async (req, res) => {
-    try {
-=======
     router.get('/listAll', async(req,res) => {
         try{          
->>>>>>> 55f8ba7d29b6ceaf037ab7b8bae8c56794cb81d7
         const resp = await Avisos.find({});
         return res.json(resp);
     } catch (err) {

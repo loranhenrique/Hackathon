@@ -58,5 +58,15 @@ router.get('/listAll', async(req,res) => {
     }
 });
 
+router.post('/listSerie', async(req,res) => {
+    const { _id } = req.body;
+    try{
+        const resp = await Series.findOne({ _id }).populate('escola_id')
+        return res.json(resp);
+    }catch(err){
+        console.log(err);
+    }
+});
+
 
 module.exports = app => app.use('/series', router);
