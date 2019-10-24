@@ -1,49 +1,49 @@
-import React, {useState} from 'react';
-import { View, AsyncStorage, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, AsyncStorage, Text, StyleSheet, FlatList } from 'react-native';
 
 import api from '../../services/api';
 
-class DadosAluno extends React.Component{
+class DadosAluno extends React.Component {
 
     constructor() {
         super();
         this.state = {
-          matricula: '',
-          dadosPessoais:'',
-          dadosResponsavel:'',
-          dadosTurma:'',
-          dadosSerie:'',
-          dadosEscola: '',
-          series_id: '',
+            matricula: '',
+            dadosPessoais: '',
+            dadosResponsavel: '',
+            dadosTurma: '',
+            dadosSerie: '',
+            dadosEscola: '',
+            series_id: '',
         };
         this.buscaDadosPessoais();
-      }
+    }
 
-      async buscaDadosPessoais(){
-        this.setState({matricula: await AsyncStorage.getItem('matricula')});
+    async buscaDadosPessoais() {
+        this.setState({ matricula: await AsyncStorage.getItem('matricula') });
 
         let matricula = this.state.matricula;
         //console.log("Matricula: " + matricula);
-        const response = await api.post("/aluno/listAluno", {matricula});
-        
+        const response = await api.post("/aluno/listAluno", { matricula });
+
         // console.log("Nome: " + response.data.nome);
         // console.log("Responsável: " + response.data.responsavel_id.nome);
 
-        this.setState({dadosPessoais: response.data});
-        this.setState({dadosResponsavel: response.data.responsavel_id});
-        this.setState({dadosTurma: response.data.turma_id});
-        this.setState({series_id: response.data.turma_id.series_id});
+        this.setState({ dadosPessoais: response.data });
+        this.setState({ dadosResponsavel: response.data.responsavel_id });
+        this.setState({ dadosTurma: response.data.turma_id });
+        this.setState({ series_id: response.data.turma_id.series_id });
 
         //console.log("SeriesID: " + this.state.series_id);
         let _id = this.state.series_id;
-        
-        const responseEscola = await api.post("/series/listSerie", {_id});
-        this.setState({dadosSerie: responseEscola.data});
-        this.setState({dadosEscola: responseEscola.data.escola_id});
-        
-      }
 
-      render(){
+        const responseEscola = await api.post("/series/listSerie", { _id });
+        this.setState({ dadosSerie: responseEscola.data });
+        this.setState({ dadosEscola: responseEscola.data.escola_id });
+
+    }
+
+    render() {
         return (
             <View style={style.container}>
                 <Text style={style.titulo}>Dados pessoais</Text>
@@ -73,7 +73,7 @@ class DadosAluno extends React.Component{
                     <Text style={style.textoDados}>{this.state.dadosPessoais.dataNasc}</Text>
                 </View>
 
-                
+
                 <Text style={style.titulo}>Dados do Responsável</Text>
 
                 <View style={style.formDados}>
@@ -124,12 +124,21 @@ class DadosAluno extends React.Component{
 }
 
 const style = StyleSheet.create({
-    container:{
+    container: {
         justifyContent: 'flex-start',
         padding: 8,
     },
+    item: {
+        backgroundColor: '#f9c2ff',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+    },
+    title: {
+        fontSize: 32,
+    },
 
-    formDados:{
+    formDados: {
         flex: 1,
         marginTop: 20,
         flexDirection: 'row',
@@ -146,7 +155,7 @@ const style = StyleSheet.create({
         height: 25,
         marginBottom: 5,
     },
-    
+
     label: {
         fontWeight: "bold",
         color: "#333",
