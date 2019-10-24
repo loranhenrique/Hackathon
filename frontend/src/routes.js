@@ -11,8 +11,14 @@ import Professor from './pages/Professor';
 import Escola from './pages/Escola';
 import CriarContaResponsavel from './pages/CriarContaResponsavel';
 import CriarContaEscola from './pages/CriarContaEscola';
-import RecuperarSenha from './pages/RecuperarSenha';
-import ConfirmarSenha from './pages/ConfirmarSenha';
+import RecuperarSenhaAluno from './pages/RecuperarSenhaAluno';
+import RecuperarSenhaEscola from './pages/RecuperarSenhaEscola';
+import RecuperarSenhaProfessor from './pages/RecuperarSenhaProfessor';
+import RecuperarSenhaResponsavel from './pages/RecuperarSenhaResponsavel';
+import ConfirmarSenhaAluno from './pages/ConfirmarSenhaAluno';
+import ConfirmarSenhaEscola from './pages/ConfirmarSenhaEscola';
+import ConfirmarSenhaResponsavel from './pages/ConfirmarSenhaResponsavel';
+import ConfirmarSenhaProfessor from './pages/ConfirmarSenhaProfessor';
 
 
 export default function Routes() {
@@ -30,8 +36,14 @@ export default function Routes() {
                 <Route path="/Escola" component={Escola} />
                 <Route path="/CriarContaResponsavel" component={CriarContaResponsavel} />
                 <Route path="/CriarContaEscola" component={CriarContaEscola} />
-                <Route path="/RecuperarSenha" component={RecuperarSenha} />
-                <Route path="/ConfirmarSenha" component={ConfirmarSenha} />
+                <Route path="/RecuperarSenhaAluno" component={RecuperarSenhaAluno} />
+                <Route path="/RecuperarSenhaEscola" component={RecuperarSenhaEscola} />
+                <Route path="/RecuperarSenhaProfessor" component={RecuperarSenhaProfessor }/>
+                <Route path="/RecuperarSenhaResponsavel" component={RecuperarSenhaResponsavel} />
+                <Route path="/ConfirmarSenhaAluno" component={ConfirmarSenhaAluno} />
+                <Route path="/ConfirmarSenhaEscola" component={ConfirmarSenhaEscola} />
+                <Route path="/ConfirmarSenhaResponsavel" component={ConfirmarSenhaResponsavel} />
+                <Route path="/ConfirmarSenhaProfessor" component={ConfirmarSenhaProfessor} />
             </Switch>
         </BrowserRouter>
     );
