@@ -8,7 +8,7 @@ const Escola = require('../models/Escola');
 
 const router = express.Router();
 
-function generateToken(params = {}){
+function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
@@ -16,10 +16,10 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
     const { matricula } = req.body;
-    
-    try{
-        if(await Escola.findOne({ matricula }))
-            return res.status(400).send({ error:'Escola ja existe' }); 
+
+    try {
+        if (await Escola.findOne({ matricula }))
+            return res.status(400).send({ error: 'Escola ja existe' });
 
         const escola = await Escola.create(req.body);
 
@@ -29,24 +29,24 @@ router.post('/register', async (req, res) => {
             escola,
             token: generateToken({ id: escola.id }),
         });
-        
-    }catch(err){
+
+    } catch (err) {
         console.log(err);
-        return res.status(400).send({ error: 'cadastro falhou'});
+        return res.status(400).send({ error: 'cadastro falhou' });
     }
 });
 
-router.post('/authenticate', async (req,res) => {
+router.post('/authenticate', async (req, res) => {
     const { matricula, senha } = req.body;
 
     const escola = await Escola.findOne({ matricula }).select('+senha');
 
-    if(!escola)
+    if (!escola)
         return res.status(400).json({ error: 'Usuario nao encontrado' });
-    
-    if(!await bcrypt.compare(senha, escola.senha))
-        return res.status(400).json({ error: 'Senha invalida'});
-    
+
+    if (!await bcrypt.compare(senha, escola.senha))
+        return res.status(400).json({ error: 'Senha invalida' });
+
     escola.senha = undefined;
 
     res.json({
@@ -58,11 +58,11 @@ router.post('/authenticate', async (req,res) => {
 router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
-    try{
+    try {
 
         const escola = await Escola.findOne({ email });
 
-        if(!escola) 
+        if (!escola)
             return res.status(400).send({ error: 'Usuario nao encontrado' });
 
         const token = crypto.randomBytes(20).toString('hex');
@@ -82,13 +82,13 @@ router.post('/forgot_password', async (req, res) => {
             from: 'loran@gmail.com.br',
             template: 'auth/forgot_password',
             context: { token },
-        }, (err) =>{
-            if(err)
-            return res.status(400).send({ error: 'Cannot send forgot password email' });
+        }, (err) => {
+            if (err)
+                return res.status(400).send({ error: 'Cannot send forgot password email' });
 
-        return res.send();
+            return res.send();
         })
-    }catch(err){
+    } catch (err) {
         res.status(400).send({ error: 'Erro ao esquecer a senha, tente novamente' });
     }
 });
@@ -97,19 +97,19 @@ router.post('/reset_password', async (req, res) => {
 
     const { email, token, senha } = req.body;
 
-    try{
+    try {
         const escola = await Escola.findOne({ email })
-        .select('+senhaResetToken senhaResetExpires');
+            .select('+senhaResetToken senhaResetExpires');
 
-        if(!escola)
+        if (!escola)
             return res.status(400).send({ error: 'Usuario nao existe' });
 
-        if(token !== escola.senhaResetToken)
+        if (token !== escola.senhaResetToken)
             return res.status(400).send({ error: 'Token invalido' });
 
-            const now = new Date();
+        const now = new Date();
 
-        if( now > escola.senhaResetExpires)
+        if (now > escola.senhaResetExpires)
             return res.status(400).send({ error: 'Token expirado, gere um novo' });
 
         escola.senha = senha;
@@ -118,16 +118,26 @@ router.post('/reset_password', async (req, res) => {
 
         res.send();
 
-    }catch(err){
+    } catch (err) {
         res.status(400).send({ error: 'não pode redefinir a senha, tente novamente' });
     }
 });
 
-router.get('/listAll', async(req,res) => {
-    try{           
-    const resp = await Escola.find({});
-return res.json(resp);
-    }catch(err){
+router.get('/list', async (req, res) => {
+    try {
+        const { _id } = req.headers;
+        const resp = await Escola.findById({ _id });
+        return res.json(resp);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+router.get('/listAll', async (req, res) => {
+    try {
+        const resp = await Escola.find({});
+        return res.json(resp);
+    } catch (err) {
         console.log(err);
     }
 });

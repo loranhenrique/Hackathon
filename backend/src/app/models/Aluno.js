@@ -21,7 +21,7 @@ const AlunoSchema = new mongoose.Schema({
     },
     dataNasc: {
         type: Date,
-        require:true,
+        require: true,
     },
     senha: {
         type: String,
@@ -31,7 +31,7 @@ const AlunoSchema = new mongoose.Schema({
     situacao: {
         type: String,
     },
-    senhaResetToken:{
+    senhaResetToken: {
         type: String,
         select: false,
     },
@@ -39,7 +39,7 @@ const AlunoSchema = new mongoose.Schema({
         type: Date,
         select: false,
     },
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now,
     },
@@ -55,10 +55,9 @@ const AlunoSchema = new mongoose.Schema({
     }
 });
 
-AlunoSchema.pre('save', async function(next){
+AlunoSchema.pre('save', async function (next) {
     const hash = await bcrypt.hash(this.senha, 10);
     this.senha = hash;
-    
     next();
 });
 

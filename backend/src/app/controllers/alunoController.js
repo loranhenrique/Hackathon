@@ -13,31 +13,31 @@ const router = express.Router();
 
 const Aluno = require('../models/Aluno');
 
-function generateToken(params = {}){
+function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
 }
 
-router.post('/register', async (req,res) => {
+router.post('/register', async (req, res) => {
 
     const { matricula, nome, telefone, email, dataNasc, senha, situacao } = req.body;
     const { responsavel_id } = req.body;
-    const { turma_id } = req.body; 
+    const { turma_id } = req.body;
 
     const responsavel = await Responsavel.findById(responsavel_id);
     const turma = await Turma.findById(turma_id);
 
-    try{
+    try {
 
-        if(!responsavel)
+        if (!responsavel)
             return res.status(400).json({ error: 'Responsavel não existe' });
-            
-        if(!turma)
-        return res.status(400).json({ error: 'Turma não existe' });
 
-        if(await Aluno.findOne({ matricula }))
-            return res.status(400).json({ error:'Aluno ja existe' }); 
+        if (!turma)
+            return res.status(400).json({ error: 'Turma não existe' });
+
+        if (await Aluno.findOne({ matricula }))
+            return res.status(400).json({ error: 'Aluno ja existe' });
 
         const aluno = await Aluno.create({
             matricula,
@@ -53,29 +53,29 @@ router.post('/register', async (req,res) => {
 
         return res.json({
 
-            aluno,           
+            aluno,
             token: generateToken({ id: aluno.id }),
 
         });
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
         return res.status(400).json({ error: 'Erro o perfil do aluno' })
     }
 
 });
 
-router.post('/authenticate', async (req,res) => {
+router.post('/authenticate', async (req, res) => {
     const { matricula, senha } = req.body;
 
     const aluno = await Aluno.findOne({ matricula }).select('+senha');
 
-    if(!aluno)
+    if (!aluno)
         return res.status(400).json({ error: 'Aluno nao encontrado' });
-    
-    if(!await bcrypt.compare(senha, aluno.senha))
-        return res.status(400).json({ error: 'Senha invalida'});
-    
+
+    if (!await bcrypt.compare(senha, aluno.senha))
+        return res.status(400).json({ error: 'Senha invalida' });
+
     aluno.senha = undefined;
 
     res.json({
@@ -87,11 +87,11 @@ router.post('/authenticate', async (req,res) => {
 router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
-    try{
+    try {
 
         const aluno = await Aluno.findOne({ email });
 
-        if(!aluno) 
+        if (!aluno)
             return res.status(400).send({ error: 'Usuario nao encontrado' });
 
         const token = crypto.randomBytes(20).toString('hex');
@@ -111,13 +111,13 @@ router.post('/forgot_password', async (req, res) => {
             from: 'loran@gmail.com.br',
             template: 'auth/forgot_password',
             context: { token },
-        }, (err) =>{
-            if(err)
-            return res.status(400).send({ error: 'Cannot send forgot password email' });
+        }, (err) => {
+            if (err)
+                return res.status(400).send({ error: 'Cannot send forgot password email' });
 
-        return res.send();
+            return res.send();
         })
-    }catch(err){
+    } catch (err) {
         res.status(400).send({ error: 'Erro ao esquecer a senha, tente novamente' });
     }
 });
@@ -126,19 +126,19 @@ router.post('/reset_password', async (req, res) => {
 
     const { email, token, senha } = req.body;
 
-    try{
+    try {
         const aluno = await Aluno.findOne({ email })
-        .select('+senhaResetToken senhaResetExpires');
+            .select('+senhaResetToken senhaResetExpires');
 
-        if(!aluno)
+        if (!aluno)
             return res.status(400).send({ error: 'Usuario nao existe' });
 
-        if(token !== aluno.senhaResetToken)
+        if (token !== aluno.senhaResetToken)
             return res.status(400).send({ error: 'Token invalido' });
 
-            const now = new Date();
+        const now = new Date();
 
-        if( now > aluno.senhaResetExpires)
+        if (now > aluno.senhaResetExpires)
             return res.status(400).send({ error: 'Token expirado, gere um novo' });
 
         aluno.senha = senha;
@@ -147,19 +147,19 @@ router.post('/reset_password', async (req, res) => {
 
         res.send();
 
-    }catch(err){
+    } catch (err) {
         res.status(400).send({ error: 'não pode redefinir a senha, tente novamente' });
     }
 });
 
 
-    router.get('/listAll', async(req,res) => {
-        try{           
+router.get('/listAll', async (req, res) => {
+    try {
         const resp = await Aluno.find({});
-    return res.json(resp);
-        }catch(err){
-            console.log(err);
-        }
-    });
+        return res.json(resp);
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 module.exports = app => app.use('/aluno', router);

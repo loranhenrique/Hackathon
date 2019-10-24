@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const Escola = require('../models/Escola');
 const Turma = require('../models/Turma');
-const Series = require('../models/Series');
+const Serie = require('../models/Series');
 const Aluno = require('../models/Aluno');
 const authConfig = require('../../config/auth');
 
@@ -21,7 +21,7 @@ router.post('/register', async (req, res) => {
 
     const { id } = req.body;
     const { mensagem } = req.body;
-    const { escola_id } = req.headers;
+    const { escola_id } = req.body;
 
     const escola = await Escola.findById(escola_id);
 
@@ -39,16 +39,16 @@ router.post('/register', async (req, res) => {
             id,
             mensagem,
             escola_id: escola_id
-           
+
         });
-        await avisos.populate('escola_id').execPopulate();  
+        await avisos.populate('escola_id').execPopulate();
         return res.json(avisos);
 
-    /*    return res.send({
-            avisos,
-            escola,
-            token: generateToken({ id: avisos.id }),
-        });*/
+        /*    return res.send({
+                avisos,
+                escola,
+                token: generateToken({ id: avisos.id }),
+            });*/
 
     } catch (err) {
         console.log(err);
@@ -57,13 +57,8 @@ router.post('/register', async (req, res) => {
 
 });
 
-<<<<<<< HEAD
 router.get('/listAll', async (req, res) => {
     try {
-=======
-    router.get('/listAll', async(req,res) => {
-        try{          
->>>>>>> 55f8ba7d29b6ceaf037ab7b8bae8c56794cb81d7
         const resp = await Avisos.find({});
         return res.json(resp);
     } catch (err) {
@@ -71,12 +66,16 @@ router.get('/listAll', async (req, res) => {
     }
 });
 
-    router.get('/EscolaAviso',async(req,res)=>{
-        const {aluno_id} = req.headers;
-        console.log(aluno_id);
-        let user = await Aluno.findOne({_id:aluno_id});
-        console.log(user);
+router.get('/EscolaAviso', async (req, res) => {
+    const { aluno_id } = req.headers;
+    let user = await Aluno.findOne({ _id: aluno_id });
+    let turma = await Turma.findOne({ _id: user.turma_id });
+    let serie = await Serie.findOne({ _id: turma.series_id });
+    let escola = await Escola.findOne({ _id: serie.escola_id });
+    let avisos = await Avisos.find({ escola_id: escola._id });
+    //console.log(avisos);
+    return res.json(avisos);
 
-    });
+});
 
 module.exports = app => app.use('/avisos', router);
