@@ -38,14 +38,12 @@ router.post('/register', async (req, res) => {
 
         const disciplinaSeries = await DisciplinaSeries.create({
             id,
-            disciplina: disciplina_id,
-            series: series_id
+            disciplina_id: disciplina_id,
+            series_id: series_id
         });
 
         return res.send({
-            disciplinaSeries,
-            disciplina,
-            series,
+            disciplinaSeries,           
             token: generateToken({ id: disciplinaSeries.id }),
         });
 

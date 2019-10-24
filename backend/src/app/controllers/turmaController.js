@@ -33,12 +33,11 @@ router.post('/register', async (req, res) => {
         const turma = await Turma.create({
             id,
             nome,
-            series: series_id
+            series_id: series_id
         });
 
         return res.send({
-            turma,
-            series,
+            turma,           
             token: generateToken({ id: turma.id }),
         });
 

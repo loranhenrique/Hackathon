@@ -11,6 +11,7 @@ import Professor from './pages/Professor';
 import Escola from './pages/Escola';
 import CriarContaResponsavel from './pages/CriarContaResponsavel';
 import CriarContaEscola from './pages/CriarContaEscola';
+
 import RecuperarSenhaAluno from './pages/RecuperarSenhaAluno';
 import RecuperarSenhaEscola from './pages/RecuperarSenhaEscola';
 import RecuperarSenhaProfessor from './pages/RecuperarSenhaProfessor';
@@ -19,6 +20,9 @@ import ConfirmarSenhaAluno from './pages/ConfirmarSenhaAluno';
 import ConfirmarSenhaEscola from './pages/ConfirmarSenhaEscola';
 import ConfirmarSenhaProfessor from './pages/ConfirmarSenhaProfessor';
 import ConfirmarSenhaResponsavel from './pages/ConfirmarSenhaResponsavel';
+import RecuperarSenha from './pages/RecuperarSenha';
+import ConfirmarSenha from './pages/ConfirmarSenha';
+import Feed from './pages/Feed';
 
 export default function Routes() {
     return(
@@ -43,6 +47,9 @@ export default function Routes() {
                 <Route path="/ConfirmarSenhaEscola" component={ConfirmarSenhaEscola} />
                 <Route path="/ConfirmarSenhaProfessor" component={ConfirmarSenhaProfessor} />
                 <Route path="/ConfirmarSenhaResponsavel" component={ConfirmarSenhaResponsavel} />
+                <Route path="/RecuperarSenha" component={RecuperarSenha} />
+                <Route path="/ConfirmarSenha" component={ConfirmarSenha} />
+                <Route path="/Feed" component={Feed} />
             </Switch>
         </BrowserRouter>
     );

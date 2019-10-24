@@ -45,11 +45,13 @@ const AlunoSchema = new mongoose.Schema({
     },
     responsavel_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Responsavel'
+        ref: 'Responsavel',
+        required: true,
     },
     turma_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Turma'
+        ref: 'Turma',
+        required: true,
     }
 });
 

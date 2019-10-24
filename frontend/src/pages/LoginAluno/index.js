@@ -11,11 +11,9 @@ export default function LoginAluno({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/aluno/authenticate', { matricula, senha });
-
-        const { _id } = response.data;
-
-        localStorage.setItem('aluno', _id);
+        const response = await api.post('/aluno/authenticate', { matricula, senha });            
+     
+        localStorage.setItem('aluno',response.data.aluno._id);
 
         history.push('/Aluno'); 
     }
