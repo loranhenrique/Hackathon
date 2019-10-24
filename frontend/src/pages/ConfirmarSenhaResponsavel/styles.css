@@ -74,10 +74,11 @@
 
    .contentRecuperarSenha button.btnConfirmEmail{
     position: relative;
-    left: 310px;
+    left: 60%;
+    width:40%;
+    min-width:40%;
     border: 0;
     border-radius: 11px;
-    width:40%;
     height: 32px;
     margin-top: 80px;
     font-size: 16px;
@@ -94,9 +95,10 @@
 
     .contentRecuperarSenha button.btnLinkVoltar{
     position: relative;
-    width: 40%;
+    width:40%;
+    min-width:40%;
     height: 32px;
-    right: 150px;
+    right: 30%;
     bottom: 31px;
     border: 0;
     border-radius: 11px;
