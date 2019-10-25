@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 
-class Aluno extends React.Component{
+class Notas extends React.Component{
     constructor() {
         super();
         this.state = {
@@ -15,7 +15,7 @@ class Aluno extends React.Component{
       render(){
         return (
             <View style={style.form}>
-                <Text style={style.titulo}>Aluno</Text>
+                <Text style={style.titulo}>Notas</Text>
             </View>
         );
     }
@@ -82,4 +82,4 @@ const style = StyleSheet.create({
     }
 });
 
-export default Aluno;
+export default Notas;
