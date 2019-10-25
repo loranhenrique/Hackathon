@@ -49,6 +49,7 @@ export default function Routes() {
                 <Route path="/DadosAluno" component={DadosAluno} />
                 <Route path="/DadosEscola" component={DadosEscola} />
                 <Route path="/NotasAluno" component={NotasAluno} />
+                
             </Switch>
         </BrowserRouter>
     );

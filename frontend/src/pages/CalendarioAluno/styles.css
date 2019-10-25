@@ -63,25 +63,15 @@ body{
     height: 55px;
 }
 
-/*
-@media(max-width:1000px) and (min-width:500px){  
-  
-    .corpo_pagina .menu-navigation-icons a{
-        padding-top:1%;
-    }
-    .corpo_pagina{
-        margin-left: 0%;
-    }
-    .corpo_pagina .posts{       
-       position: relative;
-        margin-left:15%; 
-        margin-topbottom: 100%;
-           
-    }
-    .corpo_pagina .posts{
-        width: 200px;
-    }
-}*/
+.corpo_pagina .calendario table{
+    border: 1px solid black;
+    margin: auto;
+}
+.corpo_pagina .calendario table td{
+    text-align: center;
+    border: 1px solid black;
+   
+}
 @media(max-width:600px)and (min-width:300px)
     {
     .corpo_pagina .menu  .menu-navigation-icons {

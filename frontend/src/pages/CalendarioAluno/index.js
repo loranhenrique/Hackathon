@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './styles.css';
 //importando imagens que será usada no menu como logo
@@ -11,6 +12,17 @@ import escola_icon from '../../assets/escola.png';
 //import colorido from '../../assets/house_colorida.png';
 
 export default function CalendarioAluno(){
+    const [faltas, setFaltas] = useState([]);
+    //const [escola, setEscola] = useState('');
+    useEffect(() => {
+        async function loadAvisos() {
+            const aluno_id = localStorage.getItem('aluno');
+           
+            const response = await api.get('/faltas/faltasaluno', { headers: { aluno_id } });          
+            setFaltas(response.data);
+        }
+        loadAvisos();
+    }, []);
 
     return(
         <>
@@ -47,7 +59,28 @@ export default function CalendarioAluno(){
                 </ul>
             </div>
             <div className="calendario">
-                <h1>Calendario</h1>
+                <table className="tabela_falta">
+                    <thead>
+                        <tr>
+                        <td>
+                            DIA
+                        </td>
+                        </tr>
+                    </thead>
+                    <tbody>                   
+
+                        {faltas.map(falta => (
+                            <tr key={falta._id}>
+                            <td >                               
+                                <span>{falta.dia}</span>
+                            </td>
+                            </tr>
+                        ))}
+                        
+                    </tbody>
+                        
+                        
+                </table>
             </div>
          
         </div>

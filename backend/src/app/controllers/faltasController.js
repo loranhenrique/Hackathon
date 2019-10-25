@@ -18,9 +18,6 @@ function generateToken(params = {}){
 }
 
 router.post('/register', async (req, res) => {
-
-    
-
     const { id, dia } = req.body;
     const { professor_id } = req.headers;
     const { disciplinaProfessor_id } = req.body;
@@ -53,7 +50,7 @@ router.post('/register', async (req, res) => {
             dia,
             professor_id: professor_id,
             disciplinaProfessor_id: disciplinaProfessor_id,
-            aluno_id: aluno_id
+            aluno_matricula: aluno_id
         });
 
         return res.send({
@@ -74,6 +71,17 @@ router.get('/listAll', async(req,res) => {
         return res.json(resp);
     }catch(err){
         console.log(err);
+    }
+});
+
+router.get('/faltasaluno', async(req,res) => {
+    try{
+        const { aluno_id } = req.headers;
+        let faltas = await Faltas.find({ aluno_matricula: aluno_id});        
+        return res.json(faltas);
+
+    }catch(err){
+        return res.status(400).send({ error: 'Erro ao buscar as faltas do aluno'});
     }
 });
 
