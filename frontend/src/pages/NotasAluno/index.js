@@ -1,6 +1,5 @@
-
-
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './styles.css';
 //importando imagens que será usada no menu como logo
@@ -10,8 +9,20 @@ import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
+//import colorido from '../../assets/house_colorida.png';
 
 export default function CalendarioAluno(){
+    const [nota, setNotas] = useState([]);
+    //const [escola, setEscola] = useState('');
+    useEffect(() => {
+        async function loadAvisos() {
+            const aluno_id = localStorage.getItem('aluno');
+           
+            const response = await api.get('/notas/notasAluno', { headers: { aluno_id } });          
+            setNotas(response.data);
+        }
+        loadAvisos();
+    }, []);
 
     return(
         <>
@@ -47,8 +58,29 @@ export default function CalendarioAluno(){
                     </li>
                 </ul>
             </div>
-            <div className="notas">
-                <h1>Notas</h1>
+            <div className="calendario">
+                <table className="tabela_falta">
+                    <thead>
+                        <tr>
+                        <td>
+                            DIA
+                        </td>
+                        </tr>
+                    </thead>
+                    <tbody>                   
+
+                        {/*notas.map(nota => (
+                            <tr key={nota._id}>
+                            <td >                               
+                                <span>{nota.dia}</span>
+                            </td>
+                            </tr>
+                        ))*/}
+                        
+                    </tbody>
+                        
+                        
+                </table>
             </div>
          
         </div>

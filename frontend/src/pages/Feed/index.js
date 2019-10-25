@@ -23,7 +23,7 @@ export default function Feed() {
             const escolaDoresponse = response.data[0].escola_id + "";
 
             const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
-            
+
             setEscola(Escolas.data);
             setAvisos(response.data);
         }
