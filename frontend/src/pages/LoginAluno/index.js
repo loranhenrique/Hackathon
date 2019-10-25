@@ -15,7 +15,7 @@ export default function LoginAluno({ history }) {
      
         localStorage.setItem('aluno',response.data.aluno._id);
 
-        history.push('/Aluno'); 
+        history.push('/Feed'); 
     }
 
     return (

@@ -17,7 +17,7 @@ export default function LoginProfessor({ history }) {
 
         localStorage.setItem('professor', _id);
 
-        history.push('/Professor');
+        history.push('/FeedProfessor');
     }
 
     return (

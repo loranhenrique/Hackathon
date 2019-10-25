@@ -17,7 +17,7 @@ export default function LoginAluno({ history }) {
 
         localStorage.setItem('escolas', _id);
 
-        history.push('/Escola');
+        history.push('/FeedEscola');
     }
 
     return (
