@@ -1,21 +1,74 @@
-import React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, AsyncStorage, FlatList } from 'react-native';
+import { ListItem } from 'react-native-elements';
 
+import api from '../../services/api';
 
-class Faltas extends React.Component{
+class Faltas extends React.Component {
     constructor() {
         super();
         this.state = {
-          matricula: '',
-          senha:'',
-          perfil: ''
+            matricula: '',
+            aluno_id: '',
+            faltas: [],
         };
-      }
 
-      render(){
+        this.buscaDados();
+    }
+
+    async buscaDados() {
+        this.setState({ aluno_id: await AsyncStorage.getItem('aluno_id') });
+
+        // console.log("Escola ID: " + this.state.escola_id);
+        // console.log("Aluno ID: " + this.state.aluno_id);
+
+        this.buscaFaltas();
+    }
+
+    async buscaFaltas() {
+        let aluno_id = this.state.aluno_id;
+        const response = await api.get("/faltas/faltasaluno", { headers: { aluno_id } });
+        // console.log(response.data);
+        this.setState({ faltas: response.data });
+    }
+
+    render() {
+        const columns = 3;
+        function createRows(data, columns) {
+            const rows = Math.floor(data.length / columns); // [A]
+            let lastRowElements = data.length - rows * columns; // [B]  while (lastRowElements !== columns) { // [C]
+
+            while (lastRowElements !== columns){
+                lastRowElements += 1; // [E]
+                data.push({ // [D]
+                id: `empty-${lastRowElements}`,
+                dia: `empty-${lastRowElements}`,
+                empty: true
+              });
+            }
+            return data; // [F]
+          }
+
         return (
             <View style={style.form}>
                 <Text style={style.titulo}>Faltas</Text>
+                <FlatList
+                    data={createRows(this.state.faltas, columns)}
+                    renderItem={({ item }) =>{
+                        if (item.empty) {
+                            return <View style={[style.item, style.itemEmpty]} />;
+                          }
+
+                        return (
+                            <View style={style.item}>
+                              <Text style={style.texto}>{"Dia: " + new Date(item.dia).toLocaleDateString()}</Text>
+                            </View>
+                          );
+                    }
+                    }
+                    keyExtractor={item => item._id}
+                    numColumns={columns}
+                />
             </View>
         );
     }
@@ -23,17 +76,28 @@ class Faltas extends React.Component{
 
 const style = StyleSheet.create({
     titulo: {
-        marginTop: 100,
-    },
-
-    container:{
-        flex: 1,
+        marginTop: 30,
+        fontSize: 18,
+        fontWeight: 'bold',
         justifyContent: 'center',
-        alignItems: 'center',
+        textAlign: 'center',
+        height: 25,
+        marginBottom: 5,
     },
 
-    logo: {
-        marginBottom: 50,
+    item: {
+        alignItems: 'center',
+        backgroundColor: '#ff4545',
+        flexGrow: 1,
+        margin: 4,
+        padding: 20,
+        flexBasis: 0,
+    },
+
+    texto:{
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontWeight: 'bold',
     },
 
     form: {
@@ -41,45 +105,10 @@ const style = StyleSheet.create({
         paddingHorizontal: 20,
     },
 
-    picker:{
-        height: 50,
-        paddingHorizontal: 30,
-        marginTop: 5,
-        marginBottom: 10,
-        backgroundColor: '#EEE',
-    },
-    
-    label: {
-        fontWeight: "bold",
-        color: "#333",
-        marginBottom: 2,
-    },
+    itemEmpty: {
+        backgroundColor: "transparent"
+      },
 
-    input: {
-        borderWidth: 1,
-        borderColor: "#CCC",
-        backgroundColor: '#FFF',
-        borderRadius: 3,
-        paddingHorizontal: 20, 
-        marginBottom: 20,
-        height: 40,
-        fontSize: 14,
-        color: "#333",
-    },
-
-    button: {
-        height: 40,
-        borderRadius: 3,
-        backgroundColor: '#CCC',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    buttonText: {
-        color: '#FFF',
-        fontWeight: 'bold',
-        fontSize: 16,
-    }
 });
 
 export default Faltas;
