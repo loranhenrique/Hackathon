@@ -5,6 +5,11 @@ import './style.css';
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
+import notas from '../../assets/notas.png';
+import aulas from '../../assets/aulas_quadro.png';    
+import person from '../../assets/person.png';
+import escola_icon from '../../assets/escola.png';
+import colorido from '../../assets/house_colorida.png';
 export default function Feed() {
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
@@ -25,26 +30,29 @@ export default function Feed() {
 
     return (
         <>
-        <div >
-            <nav className="menu-navigation-icons">
-                <Link to="#" className="menu-icon"><img className="" src={home} alt="home"/><span>Inicio</span></Link>
-                <Link to="#" className="menu-icon"><img className="" src={calendario}/><span></span></Link>
-                <Link to="#" className="menu-icon"><i className=""></i><span></span></Link>
-                <Link to="#" className="menu-icon"><i className=""></i><span></span></Link>
-                <Link to="#" className="menu-icon"><i className=""></i><span></span></Link>
-                <Link to="#" className="menu-icon"><i className=""></i><span></span></Link>
-            </nav>
-        </div>
-        <div>
-        <ul>
-            {avisos.map(aviso => (
-                <li key={aviso._id}>
-                    {/*aviso.mensagem*/}
-                    {/*escola.nome*/}
-                </li>
+        <div className="corpo_pagina">
+            <div className="menu">
+                <nav className="menu-navigation-icons">
+                    <Link to="#" className="menu-icon"><img className="" src={home} alt="home"/><span>Inicio</span></Link>
+                    <Link to="#" className="menu-icon"><img className="" src={calendario}/><span>Frequência</span></Link>
+                    <Link to="#" className="menu-icon"><img className="notas" src={notas}/><span></span>Notas</Link>
+                    <Link to="#" className="menu-icon"><img className="aulas"src={aulas}/><span></span>Aulas</Link>
+                    <Link to="#" className="menu-icon"><img className="person" src={person}/><span></span>Dados Pessoais</Link>
+                    <Link to="#" className="menu-icon"><img className="escola_icon" src={escola_icon}/><span></span>Dados Escola</Link>
+                </nav>
+            </div>
+            <div className="posts">
+            <ul className="feed_post">
+                {avisos.map(aviso => (
+                    <li key={aviso._id}>
+                        <img src={colorido}></img>
+                        <h5>{aviso.mensagem}</h5>
+                        <span>{escola.nome}</span>
+                    </li>
 
-            ))}
-        </ul>
+                ))}
+            </ul>
+            </div>
         </div>
         </>
     );
