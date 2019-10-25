@@ -41,6 +41,27 @@ export default function Feed() {
                     <Link to="#" className="menu-icon"><img className="escola_icon" src={escola_icon}/><span></span>Dados Escola</Link>
                 </nav>
             </div>
+            <div className="tarefas">
+            {/*Aqui será listada todas as tarefas que o aluno administrar */}
+                <ul>
+                    <li>
+                    <h4>
+                        PROVAS
+                    </h4>
+                    <span>
+                        5
+                    </span>
+                    </li>
+                    <li>
+                    <h4>
+                        PROVAS
+                    </h4>
+                    <span>
+                        5
+                    </span>
+                    </li>
+                </ul>
+            </div>
             <div className="posts">
             <ul className="feed_post">
                 {avisos.map(aviso => (
@@ -53,6 +74,7 @@ export default function Feed() {
                 ))}
             </ul>
             </div>
+         
         </div>
         </>
     );
