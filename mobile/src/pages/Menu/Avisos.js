@@ -1,21 +1,53 @@
-import React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, AsyncStorage, FlatList } from 'react-native';
+import { ListItem } from 'react-native-elements';
 
+import api from '../../services/api';
 
-class Avisos extends React.Component{
+class Avisos extends React.Component {
     constructor() {
         super();
         this.state = {
-          matricula: '',
-          senha:'',
-          perfil: ''
+            matricula: '',
+            aluno_id: '',
+            escola_id: '',
+            avisos: [],
         };
-      }
 
-      render(){
+        this.buscaDados();
+    }
+
+    async buscaDados() {
+        this.setState({ escola_id: await AsyncStorage.getItem('escola_id') });
+        this.setState({ aluno_id: await AsyncStorage.getItem('aluno_id') });
+
+        // console.log("Escola ID: " + this.state.escola_id);
+        // console.log("Aluno ID: " + this.state.aluno_id);
+
+        this.buscaAvisos();
+    }
+
+    async buscaAvisos() {
+        let aluno_id = this.state.aluno_id;
+        const response = await api.get("/avisos/EscolaAviso", { headers: { aluno_id } });
+        // console.log(response.data);
+        this.setState({ avisos: response.data });
+    }
+
+    render() {
         return (
             <View style={style.form}>
                 <Text style={style.titulo}>Avisos</Text>
+                <FlatList
+                    data={this.state.avisos}
+                    renderItem={({ item }) =>
+                        <ListItem style={style.item}
+                            title={"Mensagem: " + item.mensagem}
+                            subtitle={"Data do aviso: " + new Date(item.diaCadastro).toLocaleDateString()}
+                        />
+                    }
+                    keyExtractor={item => item._id}
+                />
             </View>
         );
     }
@@ -23,17 +55,21 @@ class Avisos extends React.Component{
 
 const style = StyleSheet.create({
     titulo: {
-        marginTop: 100,
-    },
-
-    container:{
-        flex: 1,
+        marginTop: 30,
+        fontSize: 18,
+        fontWeight: 'bold',
         justifyContent: 'center',
-        alignItems: 'center',
+        textAlign: 'center',
+        height: 25,
+        marginBottom: 5,
     },
 
-    logo: {
-        marginBottom: 50,
+    item: {
+        backgroundColor: '#dbdbdb',
+        padding: 8,
+        marginVertical: 3,
+        marginHorizontal: 3,
+        borderRadius: 4,
     },
 
     form: {
@@ -41,45 +77,6 @@ const style = StyleSheet.create({
         paddingHorizontal: 20,
     },
 
-    picker:{
-        height: 50,
-        paddingHorizontal: 30,
-        marginTop: 5,
-        marginBottom: 10,
-        backgroundColor: '#EEE',
-    },
-    
-    label: {
-        fontWeight: "bold",
-        color: "#333",
-        marginBottom: 2,
-    },
-
-    input: {
-        borderWidth: 1,
-        borderColor: "#CCC",
-        backgroundColor: '#FFF',
-        borderRadius: 3,
-        paddingHorizontal: 20, 
-        marginBottom: 20,
-        height: 40,
-        fontSize: 14,
-        color: "#333",
-    },
-
-    button: {
-        height: 40,
-        borderRadius: 3,
-        backgroundColor: '#CCC',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    buttonText: {
-        color: '#FFF',
-        fontWeight: 'bold',
-        fontSize: 16,
-    }
 });
 
 export default Avisos;

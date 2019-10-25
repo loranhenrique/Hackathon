@@ -21,6 +21,15 @@ import Notas from './pages/Menu/Notas';
 import Vacinacao from './pages/Menu/Vacinacao';
 
 export const menuAluno = createBottomTabNavigator({
+    DadosAluno: {
+        screen: DadosAluno,
+        navigationOptions: {
+            title: 'Info',
+            tabBarIcon: ({tintColor}) => {
+                return <Icon name='ios-person' size={22} color={tintColor} />;
+            }
+        },
+    },
     Notas: {
         screen: Notas,
         navigationOptions: {
@@ -63,15 +72,6 @@ export const menuAluno = createBottomTabNavigator({
             title: 'Extra',
             tabBarIcon: ({tintColor}) => {
                 return <Icon name='ios-document' size={22} color={tintColor} />;
-            }
-        },
-    },
-    DadosAluno: {
-        screen: DadosAluno,
-        navigationOptions: {
-            title: 'Info',
-            tabBarIcon: ({tintColor}) => {
-                return <Icon name='ios-person' size={22} color={tintColor} />;
             }
         },
     },
@@ -181,7 +181,7 @@ const Routes = createAppContainer(
         menuEscola,
     },
         {
-            initialRouteName: "Login"
+            initialRouteName: "menuAluno"
         })
 );
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, AsyncStorage, Text, StyleSheet, FlatList } from 'react-native';
+import React from 'react';
+import { View, AsyncStorage, Text, StyleSheet } from 'react-native';
 
 import api from '../../services/api';
 
@@ -14,7 +14,10 @@ class DadosAluno extends React.Component {
             dadosTurma: '',
             dadosSerie: '',
             dadosEscola: '',
+            aluno_id: '',
             series_id: '',
+            turma_id: '',
+            escola_id: '',
         };
         this.buscaDadosPessoais();
     }
@@ -26,21 +29,24 @@ class DadosAluno extends React.Component {
         //console.log("Matricula: " + matricula);
         const response = await api.post("/aluno/listAluno", { matricula });
 
-        // console.log("Nome: " + response.data.nome);
-        // console.log("Responsável: " + response.data.responsavel_id.nome);
-
+        //Quebra o retorno do response em partes
         this.setState({ dadosPessoais: response.data });
         this.setState({ dadosResponsavel: response.data.responsavel_id });
         this.setState({ dadosTurma: response.data.turma_id });
         this.setState({ series_id: response.data.turma_id.series_id });
+        this.setState({ aluno_id: response.data._id });
 
-        //console.log("SeriesID: " + this.state.series_id);
+        //Busca informações da escola e turma
         let _id = this.state.series_id;
-
         const responseEscola = await api.post("/series/listSerie", { _id });
-        this.setState({ dadosSerie: responseEscola.data });
-        this.setState({ dadosEscola: responseEscola.data.escola_id });
+        this.setState({ dadosSerie: responseEscola.data }); //Objeto series
+        this.setState({ dadosEscola: responseEscola.data.escola_id }); //Objeto escola_id
+        this.setState({ escola_id: responseEscola.data.escola_id._id }); 
 
+        await AsyncStorage.setItem('aluno_id', this.state.aluno_id);
+        await AsyncStorage.setItem('series_id', this.state.series_id);
+        await AsyncStorage.setItem('turma_id', this.state.dadosTurma._id);
+        await AsyncStorage.setItem('escola_id', this.state.escola_id);
     }
 
     render() {

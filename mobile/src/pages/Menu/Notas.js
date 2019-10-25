@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, AsyncStorage } from 'react-native';
 
 
 class Notas extends React.Component{
@@ -7,15 +7,22 @@ class Notas extends React.Component{
         super();
         this.state = {
           matricula: '',
-          senha:'',
+          turma_id:'',
           perfil: ''
         };
+        this.buscaTeste();
+      }
+
+      async buscaTeste(){
+        this.setState({ turma_id: await AsyncStorage.getItem('turma_id') });
+        console.log("TURMA ID: " + this.state.turma_id);
       }
 
       render(){
-        return (
+        return (  
             <View style={style.form}>
-                <Text style={style.titulo}>Notas</Text>
+                <Text style={style.titulo}>Notas 2</Text>
+                <Text style={style.titulo}>turma ID {this.state.turma_id}</Text>
             </View>
         );
     }
