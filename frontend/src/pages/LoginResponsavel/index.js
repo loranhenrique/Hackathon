@@ -17,7 +17,7 @@ export default function LoginProfessor({ history }) {
 
         localStorage.setItem('responsavel', _id);
 
-        history.push('/Responsavel');
+        history.push('/FeedResponsavel');
     }
 
     return (

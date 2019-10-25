@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../services/api';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './style.css';
+import './styles.css';
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
@@ -9,28 +8,11 @@ import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
-import colorido from '../../assets/house_colorida.png';
 
 
-export default function Feed() {
-    const [avisos, setAvisos] = useState([]);
-    const [escola, setEscola] = useState('');
-    useEffect(() => {
-        async function loadAvisos() {
-            const aluno_id = localStorage.getItem('aluno');
+export default function CalendarioAluno(){
 
-            const response = await api.get('/avisos/EscolaAviso', { headers: { aluno_id } });
-            const escolaDoresponse = response.data[0].escola_id + "";
-
-            const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
-
-            setEscola(Escolas.data);
-            setAvisos(response.data);
-        }
-        loadAvisos();
-    }, []);
-
-    return (
+    return(
         <>
         <div className="corpo_pagina">
             <div className="menu">
@@ -64,20 +46,14 @@ export default function Feed() {
                     </li>
                 </ul>
             </div>
-            <div className="posts">
-            <ul className="feed_post">
-                {avisos.map(aviso => (
-                    <li key={aviso._id}>
-                        <img src={colorido}></img>
-                        <h5>{aviso.mensagem}</h5>
-                        <span>{escola.nome}</span>
-                    </li>
-
-                ))}
-            </ul>
+            <div className="aulas">
+                <h1>Aulas</h1>
             </div>
          
         </div>
         </>
     );
+
+
+
 }

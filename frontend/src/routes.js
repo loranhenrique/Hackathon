@@ -5,10 +5,6 @@ import LoginAluno from './pages/LoginAluno';
 import LoginResponsavel from './pages/LoginResponsavel';
 import LoginProfessor from './pages/LoginProfessor';
 import LoginEscola from './pages/LoginEscola';
-import Aluno from './pages/Aluno';
-import Responsavel from './pages/Responsavel';
-import Professor from './pages/Professor';
-import Escola from './pages/Escola';
 import Feed from './pages/Feed';
 import CriarContaResponsavel from './pages/CriarContaResponsavel';
 import CriarContaEscola from './pages/CriarContaEscola';
@@ -19,7 +15,12 @@ import RecuperarSenhaResponsavel from './pages/RecuperarSenhaResponsavel';
 import ConfirmarSenhaAluno from './pages/ConfirmarSenhaAluno';
 import ConfirmarSenhaEscola from './pages/ConfirmarSenhaEscola';
 import ConfirmarSenhaResponsavel from './pages/ConfirmarSenhaResponsavel';
-import ConfirmarSenhaProfessor from './pages/ConfirmarSenhaProfessor';
+import ConfirmarSenhaProfessor from './pages/ConfirmarSenhaProfessor'; 
+import AulasAluno from './pages/AulasAluno';
+import CalendarioAluno from './pages/CalendarioAluno';
+import DadosAluno from './pages/DadosAluno';
+import DadosEscola from './pages/DadosEscola';
+import NotasAluno from './pages/NotasAluno';
 
 
 
@@ -32,10 +33,6 @@ export default function Routes() {
                 <Route path="/LoginResponsavel" component={LoginResponsavel} />
                 <Route path="/LoginProfessor" component={LoginProfessor} />
                 <Route path="/LoginEscola" component={LoginEscola} />
-                <Route path="/Aluno" component={Aluno} />
-                <Route path="/Responsavel" component={Responsavel} />
-                <Route path="/Professor" component={Professor} />
-                <Route path="/Escola" component={Escola} />
                 <Route path="/Feed" component={Feed} />
                 <Route path="/CriarContaResponsavel" component={CriarContaResponsavel} />
                 <Route path="/CriarContaEscola" component={CriarContaEscola} />
@@ -47,6 +44,11 @@ export default function Routes() {
                 <Route path="/ConfirmarSenhaEscola" component={ConfirmarSenhaEscola} />
                 <Route path="/ConfirmarSenhaResponsavel" component={ConfirmarSenhaResponsavel} />
                 <Route path="/ConfirmarSenhaProfessor" component={ConfirmarSenhaProfessor} />
+                <Route path="/AulasAluno" component={AulasAluno} />
+                <Route path="/CalendarioAluno" component={CalendarioAluno} />
+                <Route path="/DadosAluno" component={DadosAluno} />
+                <Route path="/DadosEscola" component={DadosEscola} />
+                <Route path="/NotasAluno" component={NotasAluno} />
             </Switch>
         </BrowserRouter>
     );
