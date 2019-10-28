@@ -5,13 +5,14 @@ import Moment from 'moment';
 import api from '../../services/api';
 import { SearchBar } from 'react-native-elements';
 
-class Agenda extends React.Component {
+class AgendaProfessor extends React.Component {
     constructor() {
         super();
         this.state = {
             listaAlunos: [],
             termo: '',
             alunoIdCadastroAgenda: '',
+            professor_id: '',
         };
 
         this.arrayHolder = [''];
@@ -21,8 +22,9 @@ class Agenda extends React.Component {
     async buscaAlunos() {
         const response = await api.get("/aluno/listAll");
         this.arrayHolder = response.data;
-        console.log(response.data);
+        //console.log(response.data);
         this.setState({ listaAlunos: response.data });
+        this.setState({ professor_id: await AsyncStorage.getItem('professor_id') });
     }
 
     cabecalhoPesquisa = () => {
@@ -45,7 +47,7 @@ class Agenda extends React.Component {
     async cadastrarAgenda(params) {
         this.setState({alunoIdCadastroAgenda: params});
         await AsyncStorage.setItem('alunoIdCadastroAgenda', params);
-        console.log(params);
+        //console.log(params);
 
         const { navigate } = this.props.navigation;
         navigate('CadastraAgenda');
@@ -116,4 +118,4 @@ const style = StyleSheet.create({
 
 });
 
-export default Agenda;
+export default AgendaProfessor;

@@ -9,7 +9,8 @@ import Login from './pages/Login';
 import Aluno from './pages/Perfis/Aluno';
 
 //Menus
-import Agenda from './pages/Menu/Agenda';
+import AgendaAluno from './pages/Menu/AgendaAluno';
+import AgendaProfessor from './pages/Menu/AgendaProfessor';
 import Avisos from './pages/Menu/Avisos';
 import CadastraAgenda from './pages/Menu/CadastraAgenda';
 import DadosAluno from './pages/Menu/DadosAluno';
@@ -59,7 +60,7 @@ export const menuAluno = createBottomTabNavigator({
         },
     },
     Agenda: {
-        screen: Agenda,
+        screen: AgendaAluno,
         navigationOptions: {
             title: 'Agenda',
             tabBarIcon: ({tintColor}) => {
@@ -98,7 +99,7 @@ export const menuAluno = createBottomTabNavigator({
 export const menuResponsavel = createBottomTabNavigator({
     Notas,
     Faltas,
-    Agenda,
+    AgendaAluno,
     Avisos,
     DadosEscola,
     DadosResponsavel,
@@ -125,7 +126,7 @@ export const menuResponsavel = createBottomTabNavigator({
 
 export const menuProfessor = createBottomTabNavigator({
     Extras,
-    Agenda,
+    AgendaProfessor,
     Fisico,
 },
     {
@@ -147,10 +148,6 @@ export const menuProfessor = createBottomTabNavigator({
 );
 
 export const menuEscola = createBottomTabNavigator({
-    Aluno,
-    Notas,
-    Faltas,
-    Agenda,
     Avisos,
 },
     {

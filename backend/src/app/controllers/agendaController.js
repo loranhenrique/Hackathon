@@ -19,10 +19,10 @@ function generateToken(params = {}){
 router.post('/register', async (req,res) => {
 
     const { id, dia, assunto, tipo, arquivo } = req.body;
-    const { aluno_id } = req.headers;
+    const { aluno_matricula } = req.headers;
     const { professor_id } = req.headers; 
 
-    const aluno = await Aluno.findById(aluno_id);
+    const aluno = await Aluno.findById(aluno_matricula);
     const professor = await Professor.findById(professor_id);
 
     try{
@@ -42,7 +42,7 @@ router.post('/register', async (req,res) => {
             assunto,
             tipo,
             arquivo,
-            aluno_id: aluno_id,
+            aluno_matricula: aluno_matricula,
             professor_id: professor_id
         });
 
@@ -65,6 +65,17 @@ router.get('/listAll', async(req,res) => {
         return res.json(resp);
     }catch(err){
         console.log(err);
+    }
+});
+
+router.get('/agendaAluno', async(req,res) => {
+    try{
+        const { aluno_matricula } = req.headers;
+        let agenda = await Agenda.find({ aluno_matricula: aluno_matricula});        
+        return res.json(agenda);
+
+    }catch(err){
+        return res.status(400).send({ error: 'Erro ao buscar a agenda do aluno'});
     }
 });
 

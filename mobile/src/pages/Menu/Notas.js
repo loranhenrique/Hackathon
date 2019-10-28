@@ -10,7 +10,7 @@ class Notas extends React.Component {
         this.state = {
             matricula: '',
             aluno_id: '',
-            faltas: [],
+            notas: [],
         };
 
         this.buscaDados();
@@ -27,23 +27,23 @@ class Notas extends React.Component {
 
     async buscaFaltas() {
         let aluno_id = this.state.aluno_id;
-        const response = await api.get("/faltas/faltasaluno", { headers: { aluno_id } });
+        const response = await api.get("/notas/notasAluno", { headers: { aluno_id } });
         // console.log(response.data);
-        this.setState({ faltas: response.data });
+        this.setState({ notas: response.data });
     }
 
     render() {
         return (
             <View style={style.form}>
                 <Text style={style.titulo}>Notas</Text>
-                <Text style={style.avisoTotal}>{"Total de faltas: " + this.state.faltas.length }</Text>
+                <Text style={style.avisoTotal}>{"Total de notas: " + this.state.notas.length }</Text>
                 <FlatList
-                    data={this.state.faltas}
+                    data={this.state.notas}
                     renderItem={({ item }) =>{
                         return (
                             <View style={style.item}>
-                                <Text style={style.texto}>Dia:</Text>
-                                <Text style={style.texto}>{Moment(item.dia).format('DD/MM/YY')}</Text>
+                                <Text style={style.texto}>Nota:</Text>
+                                <Text style={style.texto}>{item.nota}</Text>
                             </View>
                           );
                     }

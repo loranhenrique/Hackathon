@@ -62,7 +62,8 @@ class Login extends React.Component {
                 case "professor":
                         try {
                             response = await api.post("/professor/authenticate", { matricula, senha });
-                            console.log(response);
+                            console.log(response.data.professor._id);
+                            await AsyncStorage.setItem('professor_id', response.data.professor._id);
                             if(response != null){
                                 navigate('menuProfessor');
                             }
