@@ -6,6 +6,9 @@ const AvisoSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
+    imgPost:{
+        type: String,
+    },
     mensagem: {
         type: String,
         require: true,
@@ -20,6 +23,10 @@ const AvisoSchema = new mongoose.Schema({
         require: true,
     }
 });
+
+SpotSchema.virtual('imgPost_url').get(function(){
+    return `http://localhost:3000/files/${this.imgPost}` 
+})
 
 //Exportar o modelo para o mongoose saber que este modelo será usado
 module.exports = mongoose.model('Aviso', AvisoSchema);

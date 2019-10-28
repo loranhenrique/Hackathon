@@ -17,7 +17,7 @@ app.use('/chat',(req,res) =>{
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 require('./app/controllers/index')(app);
 
 let messages = [];

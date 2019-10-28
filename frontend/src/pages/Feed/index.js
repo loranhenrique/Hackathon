@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -15,6 +15,7 @@ import colorido from '../../assets/house_colorida.png';
 export default function Feed() {
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
+
     useEffect(() => {
         async function loadAvisos() {
             const aluno_id = localStorage.getItem('aluno');
@@ -68,7 +69,7 @@ export default function Feed() {
             <ul className="feed_post">
                 {avisos.map(aviso => (
                     <li key={aviso._id}>
-                        <img src={colorido}></img>
+                        <img style={{ backgroundImage: `url(${aviso.imgPost_url})`}}></img>
                         <h5>{aviso.mensagem}</h5>
                         <span>{escola.nome}</span>
                     </li>

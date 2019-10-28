@@ -20,6 +20,7 @@ function generateToken(params = {}) {
 router.post('/register', async (req, res) => {
 
     const { id } = req.body;
+    const { filename } = req.body;
     const { mensagem } = req.body;
     const { escola_id } = req.body;
 
@@ -37,18 +38,13 @@ router.post('/register', async (req, res) => {
 
         const avisos = await Avisos.create({
             id,
+            imgPost: filename,
             mensagem,
             escola_id: escola_id
 
         });
         await avisos.populate('escola_id').execPopulate();
         return res.json(avisos);
-
-        /*    return res.send({
-                avisos,
-                escola,
-                token: generateToken({ id: avisos.id }),
-            });*/
 
     } catch (err) {
         console.log(err);
@@ -73,7 +69,7 @@ router.get('/EscolaAviso', async (req, res) => {
     let serie = await Serie.findOne({ _id: turma.series_id });
     let escola = await Escola.findOne({ _id: serie.escola_id });
     let avisos = await Avisos.find({ escola_id: escola._id });
-    //console.log(avisos);
+
     return res.json(avisos);
 
 });
