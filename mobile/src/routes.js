@@ -11,6 +11,7 @@ import Aluno from './pages/Perfis/Aluno';
 //Menus
 import Agenda from './pages/Menu/Agenda';
 import Avisos from './pages/Menu/Avisos';
+import CadastraAgenda from './pages/Menu/CadastraAgenda';
 import DadosAluno from './pages/Menu/DadosAluno';
 import DadosEscola from './pages/Menu/DadosEscola';
 import DadosResponsavel from './pages/Menu/DadosResponsavel';
@@ -124,7 +125,7 @@ export const menuResponsavel = createBottomTabNavigator({
 
 export const menuProfessor = createBottomTabNavigator({
     Extras,
-    Avisos,
+    Agenda,
     Fisico,
 },
     {
@@ -179,9 +180,10 @@ const Routes = createAppContainer(
         menuResponsavel,
         menuProfessor,
         menuEscola,
+        CadastraAgenda,
     },
         {
-            initialRouteName: "menuAluno"
+            initialRouteName: "Login"
         })
 );
 

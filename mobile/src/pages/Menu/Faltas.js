@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, AsyncStorage, FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import Moment from 'moment';
 
 import api from '../../services/api';
 
@@ -33,41 +33,23 @@ class Faltas extends React.Component {
     }
 
     render() {
-        const columns = 3;
-        function createRows(data, columns) {
-            const rows = Math.floor(data.length / columns); // [A]
-            let lastRowElements = data.length - rows * columns; // [B]  while (lastRowElements !== columns) { // [C]
-
-            while (lastRowElements !== columns){
-                lastRowElements += 1; // [E]
-                data.push({ // [D]
-                id: `empty-${lastRowElements}`,
-                dia: `empty-${lastRowElements}`,
-                empty: true
-              });
-            }
-            return data; // [F]
-          }
-
         return (
             <View style={style.form}>
                 <Text style={style.titulo}>Faltas</Text>
+                <Text style={style.avisoTotal}>{"Total de faltas: " + this.state.faltas.length }</Text>
                 <FlatList
-                    data={createRows(this.state.faltas, columns)}
+                    data={this.state.faltas}
                     renderItem={({ item }) =>{
-                        if (item.empty) {
-                            return <View style={[style.item, style.itemEmpty]} />;
-                          }
-
                         return (
                             <View style={style.item}>
-                              <Text style={style.texto}>{"Dia: " + new Date(item.dia).toLocaleDateString()}</Text>
+                                <Text style={style.texto}>Dia:</Text>
+                                <Text style={style.texto}>{Moment(item.dia).format('DD/MM/YY')}</Text>
                             </View>
                           );
                     }
                     }
                     keyExtractor={item => item._id}
-                    numColumns={columns}
+                    numColumns={3}
                 />
             </View>
         );
@@ -85,6 +67,12 @@ const style = StyleSheet.create({
         marginBottom: 5,
     },
 
+    avisoTotal: {
+        marginTop: 40,
+        fontSize: 16,
+        textAlign: 'center',
+    },
+
     item: {
         alignItems: 'center',
         backgroundColor: '#ff4545',
@@ -92,6 +80,7 @@ const style = StyleSheet.create({
         margin: 4,
         padding: 20,
         flexBasis: 0,
+        maxWidth: '30%'
     },
 
     texto:{

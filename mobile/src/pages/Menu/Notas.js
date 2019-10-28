@@ -1,28 +1,56 @@
-import React, {useState} from 'react';
-import { View, Text, StyleSheet, AsyncStorage } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, AsyncStorage, FlatList } from 'react-native';
+import Moment from 'moment';
 
+import api from '../../services/api';
 
-class Notas extends React.Component{
+class Notas extends React.Component {
     constructor() {
         super();
         this.state = {
-          matricula: '',
-          turma_id:'',
-          perfil: ''
+            matricula: '',
+            aluno_id: '',
+            faltas: [],
         };
-        this.buscaTeste();
-      }
 
-      async buscaTeste(){
-        this.setState({ turma_id: await AsyncStorage.getItem('turma_id') });
-        console.log("TURMA ID: " + this.state.turma_id);
-      }
+        this.buscaDados();
+    }
 
-      render(){
-        return (  
+    async buscaDados() {
+        this.setState({ aluno_id: await AsyncStorage.getItem('aluno_id') });
+
+        // console.log("Escola ID: " + this.state.escola_id);
+        // console.log("Aluno ID: " + this.state.aluno_id);
+
+        this.buscaFaltas();
+    }
+
+    async buscaFaltas() {
+        let aluno_id = this.state.aluno_id;
+        const response = await api.get("/faltas/faltasaluno", { headers: { aluno_id } });
+        // console.log(response.data);
+        this.setState({ faltas: response.data });
+    }
+
+    render() {
+        return (
             <View style={style.form}>
-                <Text style={style.titulo}>Notas 2</Text>
-                <Text style={style.titulo}>turma ID {this.state.turma_id}</Text>
+                <Text style={style.titulo}>Notas</Text>
+                <Text style={style.avisoTotal}>{"Total de faltas: " + this.state.faltas.length }</Text>
+                <FlatList
+                    data={this.state.faltas}
+                    renderItem={({ item }) =>{
+                        return (
+                            <View style={style.item}>
+                                <Text style={style.texto}>Dia:</Text>
+                                <Text style={style.texto}>{Moment(item.dia).format('DD/MM/YY')}</Text>
+                            </View>
+                          );
+                    }
+                    }
+                    keyExtractor={item => item._id}
+                    numColumns={3}
+                />
             </View>
         );
     }
@@ -30,17 +58,35 @@ class Notas extends React.Component{
 
 const style = StyleSheet.create({
     titulo: {
-        marginTop: 100,
-    },
-
-    container:{
-        flex: 1,
+        marginTop: 30,
+        fontSize: 18,
+        fontWeight: 'bold',
         justifyContent: 'center',
-        alignItems: 'center',
+        textAlign: 'center',
+        height: 25,
+        marginBottom: 5,
     },
 
-    logo: {
-        marginBottom: 50,
+    avisoTotal: {
+        marginTop: 40,
+        fontSize: 16,
+        textAlign: 'center',
+    },
+
+    item: {
+        alignItems: 'center',
+        backgroundColor: '#ff4545',
+        flexGrow: 1,
+        margin: 4,
+        padding: 20,
+        flexBasis: 0,
+        maxWidth: '30%'
+    },
+
+    texto:{
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontWeight: 'bold',
     },
 
     form: {
@@ -48,45 +94,10 @@ const style = StyleSheet.create({
         paddingHorizontal: 20,
     },
 
-    picker:{
-        height: 50,
-        paddingHorizontal: 30,
-        marginTop: 5,
-        marginBottom: 10,
-        backgroundColor: '#EEE',
-    },
-    
-    label: {
-        fontWeight: "bold",
-        color: "#333",
-        marginBottom: 2,
-    },
+    itemEmpty: {
+        backgroundColor: "transparent"
+      },
 
-    input: {
-        borderWidth: 1,
-        borderColor: "#CCC",
-        backgroundColor: '#FFF',
-        borderRadius: 3,
-        paddingHorizontal: 20, 
-        marginBottom: 20,
-        height: 40,
-        fontSize: 14,
-        color: "#333",
-    },
-
-    button: {
-        height: 40,
-        borderRadius: 3,
-        backgroundColor: '#CCC',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    buttonText: {
-        color: '#FFF',
-        fontWeight: 'bold',
-        fontSize: 16,
-    }
 });
 
 export default Notas;
