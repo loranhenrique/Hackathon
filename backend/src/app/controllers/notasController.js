@@ -10,7 +10,7 @@ const router = express.Router();
 
 const Notas = require('../models/AlunoNotas');
 
-function generateToken(params = {}){
+function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
@@ -26,52 +26,52 @@ router.post('/register', async (req, res) => {
     const aluno = await Aluno.findById(aluno_id);
 
 
-    try{
+    try {
 
-        if(!disciplinaProfessor)
+        if (!disciplinaProfessor)
             return res.status(400).send({ error: 'Disciplina do professor inexistente' });
 
-        if(!aluno)
+        if (!aluno)
             return res.status(400).send({ error: 'Aluno inexistente' });
 
-        if(await Notas.findOne({ id }))
+        if (await Notas.findOne({ id }))
             return res.status(400).send({ error: 'Nota ja cadastrada' })
 
         const notas = await Notas.create({
             id,
             nota,
             disciplinaProfessor_id: disciplinaProfessor_id,
-            aluno_id: aluno_id
+            aluno_matricula: aluno_id
         });
 
         return res.send({
-            notas,            
+            notas,
             token: generateToken({ id: notas.id }),
         });
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
         return res.status(400).send({ error: 'Erro ao cadastrar as notas' });
     }
 
 });
 
-router.get('/listAll', async(req,res) => {
-    try{           
+router.get('/listAll', async (req, res) => {
+    try {
         const resp = await Notas.find({});
         return res.json(resp);
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 });
 
-router.get('/notasAluno', async(req,res) => {
-    try{           
-        const {aluno_id} = req.headers;
-        const resp = await Notas.find({aluno_matricula:aluno_id});
+router.get('/notasAluno', async (req, res) => {
+    try {
+        const { aluno_id } = req.headers;
+        const resp = await Notas.find({ aluno_matricula: aluno_id });
         console.log(resp);
         return res.json(resp);
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 });

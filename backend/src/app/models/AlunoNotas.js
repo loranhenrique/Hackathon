@@ -10,15 +10,18 @@ const AlunoNotasSchema = new mongoose.Schema({
         require: true,
     },
     nota: {
-        type: SchemaTypes.Double
+        type: SchemaTypes.Double,
+        require: true,
     },
     disciplinaProfessor_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'DisciplinaProfessor'
+        ref: 'DisciplinaProfessor',
+        require: true,
     },
     aluno_matricula: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Aluno'
+        ref: 'Aluno',
+        require: true,
     },
 });
 
