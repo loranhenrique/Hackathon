@@ -9,8 +9,8 @@ body{
  
 }
 .corpo_pagina{
-    width: 1100px;
-    margin-left: 20%;   
+    
+    margin-left: 10%;   
     height: auto;  
 }
 .corpo_pagina .menu{
@@ -62,10 +62,11 @@ body{
 .corpo_pagina .menu-navigation-icons .escola_icon{
     height: 55px;
 }
-.corpo_pagina .posts{     
+.corpo_pagina .posts{  
+    width: auto;   
    margin-left:20%;
     color: #fff;      
-    width: 400px;
+   
 }
 /*Criando parte que será responsavel por cada estilo de post do usuario*/
 
@@ -84,7 +85,7 @@ body{
     border: 1px solid #c6c6c6; 
     display: inline-block;
     margin: 10px;
-    width: 600px;
+    width: 60%;
     height: auto;
     margin-top: 5px;
     padding: 5px;
@@ -133,24 +134,33 @@ body{
         margin-left:0 ;
     }
 }
-
-@media(min-width:700px) and (max-width:1024px){
-    .corpo_pagina{
-       margin-left: 0px;    
+@media(max-width:725px){
+    .corpo_pagina .menu  .menu-navigation-icons {
+        display: none;
     }
-    .corpo_pagina .tarefas{
-        margin-right: 30px;
+    .corpo_pagina .tarefas ul {
+        display: none;
+    }
+  
+    .corpo_pagina .posts .feed_post li{
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-left:0px;
     }
 }
 
+
 /*parte de tarefas da pagina*/
 .corpo_pagina .tarefas{
+    position: relative;
     display: block;
     height: auto;
-    width: auto;
-    float:right;
-    top: 0%;
+    float: right;
+    width: 10%;
+    right: 10%;
     margin-top: 0%;
+    min-width: 100px;
 }
 .corpo_pagina .tarefas ul li{
     color: #000000;
@@ -159,7 +169,7 @@ body{
     border: 1px solid #c6c6c6;
     background: #fff;
     height: auto;
-    width: 200px;
+    width: 90%;
     border-radius:3px;
     list-style: none;
     padding: 10px;

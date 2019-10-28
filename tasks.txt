@@ -1,0 +1,9 @@
+* colocar chat no react
+* colocar data nos posts
+* colocar chat no mongo
+* colocar imagem do banco no post
+* layout da pagina frequência
+* mexer com a notas e com o banco das notas
+*mexer com os dados pessoais do aluno, pais, escola
+* mexer com os dados da escola
+
