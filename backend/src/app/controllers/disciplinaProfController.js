@@ -56,6 +56,17 @@ router.post('/register', async (req, res) => {
     }
 
 });
+
+router.get('/list', async (req, res) => {
+    try {
+        const { _id } = req.headers;
+        const resp = await DisciplinaProfessor.findById({ _id });
+        return res.json(resp);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 router.get('/listAll', async (req, res) => {
     try {
         const resp = await DisciplinaProfessor.find({});

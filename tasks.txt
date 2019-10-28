@@ -7,3 +7,4 @@
 *mexer com os dados pessoais do aluno, pais, escola
 * mexer com os dados da escola
 
+#TIRAR TODOS OS IDS
