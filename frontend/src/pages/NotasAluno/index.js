@@ -14,24 +14,57 @@ import escola_icon from '../../assets/escola.png';
 export default function CalendarioAluno() {
     const [notas, setNotas] = useState([]);
     const [disciplinaProfessor, setDisciplinaProfessor] = useState('');
+   
     useEffect(() => {
         async function loadAvisos() {
             const aluno_id = localStorage.getItem('aluno');
 
             const response = await api.get('/notas/notasAluno', { headers: { aluno_id } });
-            console.log(response.data);
+           // console.log(response.data);
+            setNotas(response.data);
+           
+         
+           
+            //setDisciplinaProfessor(vetDisciplina);
+           // console.log(disciplinaProfessor);
             //fazer a parte que pega todos os nomes das cdiciplinas e colocar na tela de notas
             //const Disciplinas = await api.get('/disciplinaProfessor/list', { headers: { _id: response } });
 //            console.log(Disciplinas);
             //fazer um for pra percorrer todas as posições do vetor de notas
             //para conseguirmos usar para colocar no tela de notas aluno
 
-            setNotas(response.data);
+         
            // setDisciplinaProfessor(Disciplinas.data);
+          
         }
-        loadAvisos();
-    }, []);
 
+        loadAvisos();
+       
+        
+    }, []);
+   
+     async function loadDisciplinas(){
+        let vet = [];     
+        
+  //  console.log(notas);
+        for(let i = 0; i< notas.length; i++){
+            const disciplinaProfessor = await api.get('/disciplinaProfessor/list', { headers: { _id: notas[i].disciplinaProfessor_id}});
+            //console.log(disciplinaProfessor);
+            const Disciplina = await api.get('/disciplina/list', { headers: { disciplina_id: disciplinaProfessor.data.disciplina_id}});            
+            vet.push(Disciplina);
+            
+            //setDisciplinaProfessor(Disciplina);
+             //vetDisciplina.push(await api.get('/disciplinaProfessor/list', { headers: { _id: nota.disciplinaProfessor_id}}));
+             
+        }
+      return vet;
+        
+       
+    }
+    
+    console.log(loadDisciplinas());
+     
+ 
     return (
         <>
             <div className="corpo_pagina">
