@@ -102,7 +102,7 @@ export default function CalendarioAluno() {
                 <div className="calendario">
                     <div className="posts">
                         <ul className="feed_post">
-
+                        {/*tentar chamar rota direto aqui */}
 
                         </ul>
                     </div>
