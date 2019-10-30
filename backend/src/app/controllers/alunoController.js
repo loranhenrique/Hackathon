@@ -161,12 +161,23 @@ router.get('/listAll', async (req, res) => {
         console.log(err);
     }
 });
-
+/*trocar o post por get, deixei assim pq não sei onde esta sendo usada */
     router.post('/listAluno', async(req,res) => {
         const { matricula } = req.body;
 
         try{           
             const aluno = await Aluno.findOne({ matricula }).populate('responsavel_id').populate('turma_id');
+            return res.json(aluno);
+        }catch(err){
+            console.log(err);
+        }
+    });
+
+    router.get('/list', async(req,res) => {
+        const { _id } = req.headers;
+
+        try{           
+            const aluno = await Aluno.findOne({ _id }).populate('responsavel_id').populate('turma_id');
             return res.json(aluno);
         }catch(err){
             console.log(err);
