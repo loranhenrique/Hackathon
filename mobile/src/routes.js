@@ -126,7 +126,15 @@ export const menuResponsavel = createBottomTabNavigator({
 
 export const menuProfessor = createBottomTabNavigator({
     Extras,
-    AgendaProfessor,
+    AgendaProfessor: {
+        screen: AgendaAluno,
+        navigationOptions: {
+            title: 'Agenda',
+            tabBarIcon: ({tintColor}) => {
+                return <Icon name='ios-calendar' size={22} color={tintColor} />;
+            }
+        },
+    },
     Fisico,
 },
     {
@@ -180,7 +188,7 @@ const Routes = createAppContainer(
         CadastraAgenda,
     },
         {
-            initialRouteName: "Login"
+            initialRouteName: "menuProfessor"
         })
 );
 
