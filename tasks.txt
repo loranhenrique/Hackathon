@@ -8,3 +8,10 @@
 * mexer com os dados da escola
 
 #TIRAR TODOS OS IDS
+
+
+
+
+-----------se sobrar tempo-------------
+
+*quando o usuario clickar na falta que esta dentro da frequência do aluno, abrir uma pagina monstrando as aulas que ele assisitiu e as aulas que ele foi embora
