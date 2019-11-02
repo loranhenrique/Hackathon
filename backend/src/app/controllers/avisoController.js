@@ -1,14 +1,14 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-
+const UploadConfig = require('../../config/upload');
 const Escola = require('../models/Escola');
 const Turma = require('../models/Turma');
 const Serie = require('../models/Series');
 const Aluno = require('../models/Aluno');
 const authConfig = require('../../config/auth');
-
+const multer = require('multer');
 const router = express.Router();
-
+const upload = multer(UploadConfig);
 const Avisos = require('../models/Aviso');
 
 function generateToken(params = {}) {
@@ -17,10 +17,10 @@ function generateToken(params = {}) {
     });
 }
 
-router.post('/register', async (req, res) => {
+router.post('/register',upload.single('image'), async (req, res) => {
 
     const { id } = req.body;
-    const { filename } = req.body;
+    const { filename } = req.file;
     const { mensagem } = req.body;
     const { escola_id } = req.body;
 

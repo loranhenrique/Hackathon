@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 
-mongoose.connect('mongodb+srv://hackathon:hackathon@cluster0-xsrgs.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://hackasenai:hackasenai@cluster0-xsrgs.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './styles.css';
-import Moment from 'moment';
+//import Moment from 'moment';
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
@@ -67,7 +67,7 @@ export default function CalendarioAluno(){
                 {faltas.map(falta => (
                             <li key={falta._id}>
                                 <span>Dia:</span>                           
-                                <span>{Moment(falta.dia).format('DD/MM/YY')}</span>
+                               {/* <span>{Moment(falta.dia).format('DD/MM/YY')}</span>*/}
                            
                             </li>
                         ))}
