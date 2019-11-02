@@ -29,6 +29,12 @@ const router = express.Router();
             //colocando o comentario na coleção do úsuario logado
             await Aluno.findByIdAndUpdate({_id:autor_id},{$push:{comentarios : newComentario.id}});
         }
+        if(tipoLogin == "responsavel"){
+            //colocando o comentario na coleção da post referênciado
+            await Post.findByIdAndUpdate({_id:post_id},{$push:{comentarios : newComentario.id}});
+            //colocando o comentario na coleção do úsuario logado
+            await Responsavel.findByIdAndUpdate({_id:autor_id},{$push:{comentarios : newComentario.id}});
+        }
         if(tipoLogin == "professor"){
             //colocando o comentario na coleção da post referênciado
             await Post.findByIdAndUpdate({_id:post_id},{$push:{comentarios : newComentario.id}});
@@ -39,7 +45,7 @@ const router = express.Router();
              //colocando o comentario na coleção da post referênciado
              await Post.findByIdAndUpdate({_id:post_id},{$push:{comentarios : newComentario.id}});
              //colocando o comentario na coleção do úsuario logado
-             await Responsavel.findByIdAndUpdate({_id:autor_id},{$push:{comentarios : newComentario.id}});
+             await Escola.findByIdAndUpdate({_id:autor_id},{$push:{comentarios : newComentario.id}});
         }
        
         
