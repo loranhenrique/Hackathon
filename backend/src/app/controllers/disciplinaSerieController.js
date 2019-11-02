@@ -18,7 +18,6 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
     const { disciplina_id } = req.body;
     const { series_id } = req.body;
 
@@ -33,11 +32,8 @@ router.post('/register', async (req, res) => {
         if(!series)
             return res.status(400).send({ error: 'Series não existe' })
 
-        if(await DisciplinaSeries.findOne({ id }))
-            return res.status(400).send({ error: 'Disciplina dessa serie ja cadastrada' })
-
-        const disciplinaSeries = await DisciplinaSeries.create({
-            id,
+    
+        const disciplinaSeries = await DisciplinaSeries.create({            
             disciplina_id: disciplina_id,
             series_id: series_id
         });
