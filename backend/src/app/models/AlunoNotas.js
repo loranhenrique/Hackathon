@@ -4,11 +4,7 @@ require('mongoose-double')(mongoose);
 var SchemaTypes = mongoose.Schema.Types;
 
 //Modelo do usuário
-const AlunoNotasSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const AlunoNotasSchema = new mongoose.Schema({  
     nota: {
         type: SchemaTypes.Double,
         require: true,

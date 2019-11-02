@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 //Modelo do usuário
-const DisciplinaProfessorSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const DisciplinaProfessorSchema = new mongoose.Schema({ 
     disciplina_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Disciplina'

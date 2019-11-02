@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 //Modelo do usuário
-const AvisoSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const AvisoSchema = new mongoose.Schema({ 
     imgPost: {
         type: String,
     },
@@ -21,7 +17,11 @@ const AvisoSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Escola',
         require: true,
-    }
+    },
+    comentarios :[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comentario',
+    }],
 });
 
 AvisoSchema.virtual('imgPost_url').get(function () {

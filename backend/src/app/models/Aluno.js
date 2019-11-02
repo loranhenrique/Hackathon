@@ -52,7 +52,10 @@ const AlunoSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Turma',
         required: true,
-    }
+    },comentarios :[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comentario',
+    }],
 });
 
 AlunoSchema.pre('save', async function (next) {

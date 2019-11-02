@@ -4,11 +4,7 @@ require('mongoose-double')(mongoose);
 var SchemaTypes = mongoose.Schema.Types;
 
 //Modelo do usuário
-const SaudeSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const SaudeSchema = new mongoose.Schema({  
     altura: {
         type: SchemaTypes.Double
     },

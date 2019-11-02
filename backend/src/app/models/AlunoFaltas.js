@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 //Modelo do usuário
 const AlunoFaltasSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
     dia: {
         type: Date,
         require: true,

@@ -48,6 +48,14 @@ const EscolaSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    avisos: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Aviso',
+    }],
+    comentarios :[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comentario',
+    }],
 });
 
 EscolaSchema.pre('save', async function(next){

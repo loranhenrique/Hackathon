@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 //Modelo do usuário
 const DisciplinaSeriesSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
     disciplina_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Disciplina'

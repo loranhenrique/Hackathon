@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 //Modelo do usuário
-const SeriesSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const SeriesSchema = new mongoose.Schema({ 
     nome: {
         type: String,
         require: true,

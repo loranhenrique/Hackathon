@@ -19,7 +19,7 @@ function generateToken(params = {}) {
 
 router.post('/register',upload.single('image'), async (req, res) => {
 
-    const { id } = req.body;
+  
     const { filename } = req.file;
     const { mensagem } = req.body;
     const { escola_id } = req.body;
@@ -33,17 +33,18 @@ router.post('/register',upload.single('image'), async (req, res) => {
             return res.status(400).send({ error: 'Escola não existe!' })
         }
 
-        if (await Avisos.findOne({ id }))
-            return res.status(400).send({ error: 'Aviso ja cadastrado' })
+      
 
-        const avisos = await Avisos.create({
-            id,
+        const avisos = await Avisos.create({            
             imgPost: filename,
             mensagem,
             escola_id: escola_id
 
         });
+
+
         await avisos.populate('escola_id').execPopulate();
+        await Escola.findByIdAndUpdate({_id : escola_id},{$push:{avisos : avisos.id}});
         return res.json(avisos);
 
     } catch (err) {

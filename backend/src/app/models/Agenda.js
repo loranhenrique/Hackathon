@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 //Modelo do usuário
-const AgendaSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const AgendaSchema = new mongoose.Schema({   
     dia: {
         type: Date,
         require: true,

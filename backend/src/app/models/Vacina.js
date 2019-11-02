@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 //Modelo do usuário
-const VacinaSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        require: true,
-    },
+const VacinaSchema = new mongoose.Schema({  
     nome: {
         type: String,
         require: true,

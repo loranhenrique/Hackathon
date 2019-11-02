@@ -47,6 +47,10 @@ const ResponsavelSchema = new mongoose.Schema({
         type: Date,
         select: false,
     },
+    comentarios:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comentario',
+    }],
     createdAt:{
         type: Date,
         default: Date.now,
