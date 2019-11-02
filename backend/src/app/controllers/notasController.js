@@ -18,7 +18,7 @@ function generateToken(params = {}) {
 
 router.post('/register', async (req, res) => {
 
-    const { id, nota } = req.body;
+    const { nota } = req.body;
     const { disciplinaProfessor_id } = req.body;
     const { aluno_id } = req.body;
 
@@ -34,11 +34,7 @@ router.post('/register', async (req, res) => {
         if (!aluno)
             return res.status(400).send({ error: 'Aluno inexistente' });
 
-        if (await Notas.findOne({ id }))
-            return res.status(400).send({ error: 'Nota ja cadastrada' })
-
-        const notas = await Notas.create({
-            id,
+        const notas = await Notas.create({            
             nota,
             disciplinaProfessor_id: disciplinaProfessor_id,
             aluno_matricula: aluno_id

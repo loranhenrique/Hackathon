@@ -17,7 +17,7 @@ function generateToken(params = {}) {
 
 router.post('/register', async (req, res) => {
 
-    const { id, nome, ano, semestre } = req.body;
+    const { nome, ano, semestre } = req.body;
     const { escola_id } = req.body;
 
     const escola = await Escola.findById(escola_id);
@@ -27,11 +27,8 @@ router.post('/register', async (req, res) => {
         if (!escola)
             return res.status(400).send({ error: 'Escola não existe' });
 
-        if (await Series.findOne({ id }))
-            return res.status(400).send({ error: 'Serie ja cadastrada' })
-
-        const series = await Series.create({
-            id,
+        
+        const series = await Series.create({            
             nome,
             ano,
             semestre,

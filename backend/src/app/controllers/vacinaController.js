@@ -17,7 +17,7 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id, nome, dataVacinacao } = req.body;
+    const { nome, dataVacinacao } = req.body;
     const { aluno_id } = req.body;
 
     const aluno = await Aluno.findById(aluno_id);
@@ -25,13 +25,9 @@ router.post('/register', async (req, res) => {
     try{
 
         if(!aluno)
-            return res.status(400).send({ error: 'Aluno não cadastrado' })
+            return res.status(400).send({ error: 'Aluno não cadastrado' });
 
-        if(await Vacina.findOne({ id }))
-            return res.status(400).send({ error: 'Vacina ja cadastrada' })
-
-        const vacina = await Vacina.create({
-            id,
+        const vacina = await Vacina.create({            
             nome,
             dataVacinacao,
             aluno_id: aluno_id

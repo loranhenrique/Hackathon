@@ -18,7 +18,7 @@ function generateToken(params = {}){
 
 router.post('/register', async (req,res) => {
 
-    const { id, dia, assunto, tipo, arquivo } = req.body;
+    const { dia, assunto, tipo, arquivo } = req.body;
     const { aluno_matricula } = req.headers;
     const { professor_id } = req.headers; 
 
@@ -33,11 +33,7 @@ router.post('/register', async (req,res) => {
         if(!professor)
             return res.status(400).send({ error: 'Professor não existe' });
 
-        if(await Agenda.findOne({ id }))
-            return res.status(400).send({ error:'Agenda ja existe' }); 
-
-        const agenda = await Agenda.create({
-            id,
+        const agenda = await Agenda.create({            
             dia,
             assunto,
             tipo,

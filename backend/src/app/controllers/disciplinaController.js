@@ -15,12 +15,9 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
+   
 
-    try{
-
-        if(await Disciplina.findOne({ id }))
-            return res.status(400).send({ error: 'Disciplina ja cadastrada' })
+    try{     
 
         const disciplina = await Disciplina.create(req.body);
 

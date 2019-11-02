@@ -18,7 +18,7 @@ function generateToken(params = {}) {
 
 router.post('/register', async (req, res) => {
 
-    const { id } = req.body;
+  
     const { disciplina_id } = req.headers;
     const { professor_id } = req.headers;
 
@@ -35,11 +35,7 @@ router.post('/register', async (req, res) => {
             return res.status(400).send({ error: 'professor não existe!' })
         }
 
-        if (await DisciplinaProfessor.findOne({ id }))
-            return res.status(400).send({ error: 'Disciplina do professor ja cadastrada' })
-
-        const disciplinaProfessor = await DisciplinaProfessor.create({
-            id,
+        const disciplinaProfessor = await DisciplinaProfessor.create({         
             disciplina_id: disciplina_id,
             professor_matricula: professor_id
         });

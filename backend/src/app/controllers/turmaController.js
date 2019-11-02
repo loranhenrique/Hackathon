@@ -17,7 +17,7 @@ function generateToken(params = {}) {
 
 router.post('/register', async (req, res) => {
 
-    const { id, nome } = req.body;
+    const { nome } = req.body;
     const { series_id } = req.body;
 
     const series = await Series.findById(series_id);
@@ -26,12 +26,9 @@ router.post('/register', async (req, res) => {
 
         if (!series)
             return res.status(400).send({ error: 'Serie não existe' });
+    
 
-        if (await Turma.findOne({ id }))
-            return res.status(400).send({ error: 'Turma ja cadastrada' })
-
-        const turma = await Turma.create({
-            id,
+        const turma = await Turma.create({            
             nome,
             series_id: series_id
         });

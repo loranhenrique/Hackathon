@@ -17,7 +17,7 @@ function generateToken(params = {}){
 
 router.post('/register', async (req, res) => {
 
-    const { id, altura, peso, medidaCintura, medidaQuadril, imc } = req.body;
+    const { altura, peso, medidaCintura, medidaQuadril, imc } = req.body;
     const { aluno_id } = req.body;
 
     const aluno = await Aluno.findById(aluno_id);
@@ -27,11 +27,7 @@ router.post('/register', async (req, res) => {
         if(!aluno)
             return res.status(400).send({ error: 'Aluno não cadastrado' })
 
-        if(await Saude.findOne({ id }))
-            return res.status(400).send({ error: 'Saude ja cadastrada' })
-
-        const saude = await Saude.create({
-            id,
+        const saude = await Saude.create({        
             altura,
             peso,
             medidaCintura,
