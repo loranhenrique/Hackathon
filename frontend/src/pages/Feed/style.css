@@ -79,13 +79,15 @@ body{
 .corpo_pagina .posts{  
     width: auto;   
     margin-left:17%;
-    color: #fff;     
+    color: #fff;    
+    margin-bottom: 2%; 
 }
 /*Criando parte que será responsavel por cada estilo de post do usuario*/
 .corpo_pagina .posts .feed_post{
     position: relative;
     width: 57%;
     margin-left: 2%;
+    
     
 }
 .corpo_pagina .posts .feed_post img{    
@@ -106,10 +108,12 @@ body{
     margin: auto;
     width: 100%;
     height: auto;
+    box-shadow: 0px 0px 2px  #e0e0e0fb;
     align-items: center;
     margin-top: 5px;
     padding: 5px;
     list-style: none;
+    margin-bottom: 2%;
 }
 
 
@@ -131,6 +135,7 @@ body{
     margin: 5px;
     text-align: center;
     border: 1px solid #c6c6c6;
+    box-shadow: 0px 0px 2px  #e0e0e0fb;
     background: #fff;
     height: auto;
     width: 90%;

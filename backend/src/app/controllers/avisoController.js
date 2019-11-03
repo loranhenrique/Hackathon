@@ -17,9 +17,43 @@ function generateToken(params = {}) {
     });
 }
 
+router.post('/registerSemImagem', async (req, res) => {
+    const { mensagem } = req.body;
+    const { escola_id } = req.body;
+
+    const escola = await Escola.findById(escola_id);
+
+
+    try {
+
+        if (!escola) {
+            return res.status(400).send({ error: 'Escola não existe!' })
+        }
+
+      
+
+        const avisos = await Avisos.create({          
+          
+            mensagem,
+            escola_id: escola_id
+
+        });
+
+
+        await avisos.populate('escola_id').execPopulate();
+        await Escola.findByIdAndUpdate({_id : escola_id},{$push:{avisos : avisos.id}});
+        return res.json(avisos);
+
+    } catch (err) {
+        console.log(err);
+        return res.status(400).send({ error: 'Erro ao cadastrar os avisos' });
+    }
+
+});
+
 router.post('/register',upload.single('image'), async (req, res) => {
 
-  
+    
     const { filename } = req.file;
     const { mensagem } = req.body;
     const { escola_id } = req.body;

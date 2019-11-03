@@ -69,8 +69,11 @@ export default function Feed() {
                     <ul className="feed_post">
                         {avisos.map(aviso => (
                             <li key={aviso._id}>
-                                 <h5>{aviso.mensagem}</h5>                               
-                                <img style={{ backgroundImage: `url(${aviso.image})`}}></img>                               
+                                 <h5>{aviso.mensagem}</h5>                                  
+                                 {aviso.imgPost != undefined &&
+                                  <img style={{ backgroundImage: `url(${aviso.image})`}}></img> 
+                              }  
+                                                             
                                 <span>{escola.nome}</span>
                             </li>
 
