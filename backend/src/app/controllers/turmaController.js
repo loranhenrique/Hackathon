@@ -52,4 +52,14 @@ router.get('/listAll', async (req, res) => {
     }
 });
 
+router.get('/list', async (req, res) => {
+    try {
+        const {_id} = req.body;
+        const resp = await Turma.findOne({_id});
+        return res.json(resp);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 module.exports = app => app.use('/turma', router);
