@@ -1,153 +1,115 @@
 body{
     background: #fafafa;
-    font-family: Arial, Helvetica, sans-serif;    
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 1550px;   
+    
 }
 .corpo_pagina .menu-navigation-icons {
-    position: fixed;   
+    position: fixed;  
+    margin-top: 5px; 
     text-align: center;  
-    width: 136px;   
- 
+    width: 230px;
 }
-.corpo_pagina{
+.corpo_pagina{      
+    margin-top: 1%;
+    width: 80%;
+    margin-left:17% ;      
     
-    margin-left: 10%;   
-    height: auto;  
 }
-.corpo_pagina .menu{
-    width: 136px;
-    margin: 5px;
-}
+
 .corpo_pagina .menu-navigation-icons a { 
     display: block;
-    background: #fff;
+    background: #fafafa;
     color: #000000;
     padding-top: 9%;  
     font-size: 12px;      
    /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06);*/
-    border: 1px solid #e6e6e6;
     text-transform: uppercase;
     text-decoration: none;
-    white-space: nowrap;
-    align-items: center;    
-    width: 136px;
-    height: 109px;
+    white-space: nowrap;        
+    width: 100%;
+    height: 50px;
 }
 
 .corpo_pagina .menu-navigation-icons a:hover{
     opacity:0.92;
-    background-color: #ecebebad;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-.corpo_pagina .menu-navigation-icons a i {
-    display: block;    
+.corpo_pagina .menu-navigation-icons a img {
+    /*display:inline-block;    */
+    height: 20px;
+    float: left;
+    margin-right: 15%;   
+    margin-left: 10%;    
+    margin-top:-2%;
+    background-size:cover ;
 }
 
+.corpo_pagina .posts li h5{
+   padding-left:2%;
+   padding-right:2%;
+   margin-top:1%;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-size: 15px;
+   margin-bottom:1%;
+}
+.corpo_pagina .posts li span{
+    padding-left:2%;
+    padding-right:2%;
+    margin-top:1%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    float: right;
+    margin-bottom:1%;
+ }
 .corpo_pagina .menu-navigation-icons span {
-    display: block;  
-    margin-top: 10%;  
+    display: inline-block;    
+   
     font-size: 12px;
     font-weight: bold;
+    float: left;
+   
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-.corpo_pagina .menu-navigation-icons .notas{
-    height: 55px;
-}
-
-.corpo_pagina .menu-navigation-icons .aulas{
-    height: 55px;
-}
-.corpo_pagina .menu-navigation-icons .person{
-    height: 55px;
-}
-.corpo_pagina .menu-navigation-icons .escola_icon{
-    height: 55px;
+   
 }
 .corpo_pagina .posts{  
     width: auto;   
-   margin-left:20%;
-    color: #fff;      
-   
+    margin-left:17%;
+    color: #fff;     
 }
 /*Criando parte que será responsavel por cada estilo de post do usuario*/
-
+.corpo_pagina .posts .feed_post{
+    position: relative;
+    width: 57%;
+    margin-left: 2%;
+    
+}
 .corpo_pagina .posts .feed_post img{    
-    float: left;
-    height: 150px;
-    width: 150px;
-    border:1px solid rgba(0, 0, 0, 0.06); 
+    display: block;
+    margin: auto;
+    height: 600px;
+    width: 100%;   
     margin-right: 10px;
+    background-size: cover;
     
 }
 .corpo_pagina .posts .feed_post li{
-    background-color: #fff;
+    background-color: #fff;  
     color: #000000;
     border-radius: 3px;
     border: 1px solid #c6c6c6; 
     display: inline-block;
-    margin: 10px;
-    width: 60%;
+    margin: auto;
+    width: 100%;
     height: auto;
+    align-items: center;
     margin-top: 5px;
     padding: 5px;
     list-style: none;
-}
-
-/*
-@media(max-width:1000px) and (min-width:500px){  
-  
-    .corpo_pagina .menu-navigation-icons a{
-        padding-top:1%;
-    }
-    .corpo_pagina{
-        margin-left: 0%;
-    }
-    .corpo_pagina .posts{       
-       position: relative;
-        margin-left:15%; 
-        margin-topbottom: 100%;
-           
-    }
-    .corpo_pagina .posts{
-        width: 200px;
-    }
-}*/
-@media(max-width:600px)and (min-width:300px)
-    {
-    .corpo_pagina .menu  .menu-navigation-icons {
-        display: none;
-    }
-    .corpo_pagina{
-        height: auto;
-        width: auto;
-        margin: auto;
-        margin: 0px;        
-    }
-    .corpo_pagina .posts{        
-        margin: auto;
-        width: auto;       
-
-    }
-    .corpo_pagina .posts .feed_post li{
-        position: relative;
-        height: auto;
-        width: 100%;
-        margin-left:0 ;
-    }
-}
-@media(max-width:725px){
-    .corpo_pagina .menu  .menu-navigation-icons {
-        display: none;
-    }
-    .corpo_pagina .tarefas ul {
-        display: none;
-    }
-  
-    .corpo_pagina .posts .feed_post li{
-        position: relative;
-        height: auto;
-        width: 100%;
-        margin-left:0px;
-    }
 }
 
 
@@ -157,10 +119,12 @@ body{
     display: block;
     height: auto;
     float: right;
+    margin-right: 14%;    
     width: 10%;
-    right: 10%;
+    right: 7%;
     margin-top: 0%;
     min-width: 100px;
+      
 }
 .corpo_pagina .tarefas ul li{
     color: #000000;
@@ -174,5 +138,72 @@ body{
     list-style: none;
     padding: 10px;
 }
+
+@media(max-width:600px)and (min-width:300px)
+    {
+    .corpo_pagina .menu  .menu-navigation-icons {
+        display: none;
+    }
+    .corpo_pagina{
+        height: auto;
+        width: auto;
+        margin: auto;
+        margin: 0px;        
+    }
+    .corpo_pagina .posts{        
+        margin: auto;
+        width: 100%;      
+
+    }
+      
+    .corpo_pagina .posts .feed_post{
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-left:auto;
+    }
+    .corpo_pagina .posts .feed_post li{
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-left:0 ;
+    }
+}
+
+@media(max-width:1100px){    
+        .corpo_pagina .menu  .menu-navigation-icons {
+            display: none;
+        }
+        .corpo_pagina .tarefas{
+            display: none;
+        }
+        .corpo_pagina{
+            height: auto;
+            width: auto;
+            margin: auto;
+            margin: 0px;        
+        }
+        .corpo_pagina .posts{        
+            margin: auto;
+            width: 100%;         
+        }          
+        .corpo_pagina .posts .feed_post{        
+           margin-top:0%;
+            height: auto;
+            width: 100%;
+            margin: auto;            
+        }
+       
+        .corpo_pagina .posts .feed_post li{
+            position: relative;
+            height: auto;
+            width: 100%;
+            margin-left:0;
+        }
+    body{             
+        min-width: 0px;
+    }  
+}
+
 
 

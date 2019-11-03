@@ -22,9 +22,11 @@ const AvisoSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'Comentario',
     }],
+},{
+    toJSON:{virtuals :true},
 });
 
-AvisoSchema.virtual('imgPost_url').get(function () {
+AvisoSchema.virtual('image').get(function () {
     return `http://localhost:3000/files/${this.imgPost}`
 })
 
