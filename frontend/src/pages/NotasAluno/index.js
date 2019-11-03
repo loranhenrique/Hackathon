@@ -20,7 +20,7 @@ export default function CalendarioAluno() {
             const aluno_id = localStorage.getItem('aluno');
 
             const response = await api.get('/notas/notasAluno', { headers: { aluno_id } });
-           // console.log(response.data);
+           console.log(response.data);
             setNotas(response.data);
            
          
@@ -75,7 +75,7 @@ export default function CalendarioAluno() {
                         <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notasImg} alt="notas" /><span>Notas</span></Link>
                         <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
-                        <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dados escola" /><span>Dados Escola</span></Link>
+                      
                     </nav>
                 </div>
                 <div className="tarefas">

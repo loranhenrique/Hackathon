@@ -18,20 +18,20 @@ export default function CalendarioAluno(){
 
     const [dados, setDados] = useState([]);
     const [responsavel,setResponsavel] = useState([]);
+    const [escola,setEscola] = useState([]);
     useEffect(() => {
         async function loadAvisos() {
             const aluno_id = localStorage.getItem('aluno');
            
             const response = await api.get('/aluno/list', {headers: { _id : aluno_id }});  
             
-            console.log(response);
-
-           // const serie = await api.get('/series/listSerie',{_id:response.turma_id});
-          //  console.log(serie);
-            console.log(response.data);
+            const {turma_id} = response.data;
+            const serie = await api.get('/series/listSerie',{headers:{_id:turma_id.series_id}});
+          
                     
             setDados(response.data);
-            setResponsavel(response.data.responsavel_id)
+            setResponsavel(response.data.responsavel_id);
+            setEscola(serie.data.escola_id);
         }
         loadAvisos();
     }, []);
@@ -46,7 +46,7 @@ export default function CalendarioAluno(){
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
                     <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
                     <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
-                    <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dados escola" /><span>Dados Escola</span></Link>
+                  
                 </nav>
             </div>
             <div className="tarefas">
@@ -86,7 +86,7 @@ export default function CalendarioAluno(){
                <h3>Dados da Escola</h3>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
-               <label>Endereço: <span>{responsavel.logradouro + ", " + responsavel.cidade + " - " + responsavel.municipio}</span></label><br></br>
+               <label>Endereço: <span>{escola.endereco + ", "+  escola.bairro + " - " + escola.municipio}</span></label><br></br>
             </div>
          
         </div>
