@@ -1,3 +1,4 @@
+
 .corpo_pagina .calendario{
     width: 40%;
     height: auto;
@@ -29,3 +30,9 @@
     background-color: #ff4545;
 
 }
+.corpo_pagina .cor span{
+    color:#3f48cc;
+}
+    
+
+
