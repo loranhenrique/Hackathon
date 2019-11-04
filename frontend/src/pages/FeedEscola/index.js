@@ -36,7 +36,7 @@ export default function FeedEscola() {
             const escola_id = localStorage.getItem('escolas');
 
             const response = await api.get('/avisos/AvisoEscola', { headers: { escola_id } });
-            const escolaDoresponse = response.data.escola_id + "";
+            const escolaDoresponse = response.data[0].escola_id + "";
 
             const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
 
@@ -89,6 +89,7 @@ export default function FeedEscola() {
                             value={post}
                             onChange={event => setPost(event.target.value)}
                         />
+                        <button className="novoAviso" >Publicar</button>
       <label 
         id="foto" 
         style={{ backgroundImage: `url(${preview})` }}
@@ -97,6 +98,7 @@ export default function FeedEscola() {
         <input type="file" onChange={event => setFoto(event.target.files[0])} />
         <img src={camera} alt="Select img" />
       </label>
+      
       </form> 
       </div>
                 </div>
