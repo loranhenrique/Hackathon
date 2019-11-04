@@ -68,7 +68,7 @@ export default function CalendarioAluno(){
                             <li key={falta._id}>
                                 <span>Dia:</span>                           
                                 <span>{falta.dia}</span>
-                           
+                            
                             </li>
                         ))}
                        

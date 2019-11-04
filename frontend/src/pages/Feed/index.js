@@ -72,8 +72,7 @@ export default function Feed() {
                                  <h5>{aviso.mensagem}</h5>                                  
                                  {aviso.imgPost != undefined &&
                                   <img style={{ backgroundImage: `url(${aviso.image})`}}></img> 
-                              }  
-                                                             
+                              }                                                              
                                 <span>{escola.nome}</span>
                             </li>
 

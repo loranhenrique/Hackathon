@@ -20,7 +20,7 @@ export default function CalendarioAluno() {
             const aluno_id = localStorage.getItem('aluno');
 
             const response = await api.get('/notas/notasAluno', { headers: { aluno_id } });
-           console.log(response.data);
+         
             setNotas(response.data);
            
          
@@ -42,28 +42,7 @@ export default function CalendarioAluno() {
        
         
     }, []);
-   
-     async function loadDisciplinas(){
-        let vet = [];     
-        
-  //  console.log(notas);
-        for(let i = 0; i< notas.length; i++){
-            const disciplinaProfessor = await api.get('/disciplinaProfessor/list', { headers: { _id: notas[i].disciplinaProfessor_id}});
-            //console.log(disciplinaProfessor);
-            const Disciplina = await api.get('/disciplina/list', { headers: { disciplina_id: disciplinaProfessor.data.disciplina_id}});            
-            vet.push(Disciplina);
-            
-            //setDisciplinaProfessor(Disciplina);
-             //vetDisciplina.push(await api.get('/disciplinaProfessor/list', { headers: { _id: nota.disciplinaProfessor_id}}));
-             
-        }
-      return vet;
-        
-       
-    }
-    
-    console.log(loadDisciplinas());
-     
+
  
     return (
         <>
@@ -102,7 +81,12 @@ export default function CalendarioAluno() {
                 <div className="calendario">
                     <div className="posts">
                         <ul className="feed_post">
-                        {/*tentar chamar rota direto aqui */}
+                        {notas.map(nota =>(
+                             
+                            <li key={nota._id}>
+                                <span>{nota.nota}</span>
+                            </li>
+                        ))};
 
                         </ul>
                     </div>
