@@ -25,9 +25,10 @@ export default function FeedEscola() {
         data.append('image', imgPost);
         data.append('mensagem', mensagem);
 
-        await api.post('/avisos/register', data, {
-            headers: { escola_id}
-        })
+            await api.post('/avisos/register', data, {
+                headers: { escola_id}
+            })
+        
     }
 
 
