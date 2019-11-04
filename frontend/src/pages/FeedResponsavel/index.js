@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-import './style.css';
+import './styles.css';
 
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
@@ -9,15 +9,29 @@ import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';
 import person from '../../assets/person.png';
+import person2 from '../../assets/person2.png';
 import escola_icon from '../../assets/escola.png';
 import escola2 from '../../assets/escola2.png';
+import camera from '../../assets/camera.svg';
+
 
 
 
 
 export default function FeedResponsavel() {
+    const [foto, setFoto] = useState(null);
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
+    const [vacina, setVacina] = useState('');
+
+    function handleSubmit(){
+
+    }
+
+
+    const preview = useMemo(() => {
+        return foto ? URL.createObjectURL(foto) : null;
+      }, [foto])
 
     useEffect(() => {
         async function loadAvisos() {
@@ -68,6 +82,20 @@ export default function FeedResponsavel() {
                         </li>
                     </ul>
                 </div>
+                <div className="campo-vac">
+                    <div className="campo-vac2">
+                    <img className="icon_vac" src={person2}/>
+                    <form onSubmit={handleSubmit}>
+                    <input type="Text"
+                            id="vacina"
+                            placeholder="Adicione as vacinas e restrições médicas do seu filho"
+                            value={vacina}
+                            onChange={event => setVacina(event.target.value)}
+                        />
+                        </form> 
+      </div>
+                </div>
+      
                 <div className="posts">
                     <ul className="feed_post">
                         {avisos.map(aviso => (
@@ -81,8 +109,7 @@ export default function FeedResponsavel() {
 
                         ))}
                     </ul>
-                </div>
-
+                </div>          
             </div>
         </>
     );

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-import './style.css';
+import './styles.css';
+
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
@@ -10,13 +11,26 @@ import aulas from '../../assets/aulas_quadro.png';
 import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
 import escola2 from '../../assets/escola2.png';
+import camera from '../../assets/camera.svg';
 
 
 
 
-export default function Feed() {
+
+export default function FeedEscola() {
+    const [foto, setFoto] = useState(null);
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
+    const [post, setPost] = useState('');
+
+    function handleSubmit(){
+
+    }
+
+
+    const preview = useMemo(() => {
+        return foto ? URL.createObjectURL(foto) : null;
+      }, [foto])
 
     useEffect(() => {
         async function loadAvisos() {
@@ -67,6 +81,27 @@ export default function Feed() {
                         </li>
                     </ul>
                 </div>
+                <div className="campo-texto">
+                    <div className="campo-texto2">
+                    <img className="icon" src={escola2} alt= {escola.nome} />
+                    <form onSubmit={handleSubmit}>
+                    <input type="Text"
+                            id="aviso_com_foto"
+                            placeholder="Add a post"
+                            value={post}
+                            onChange={event => setPost(event.target.value)}
+                        />
+      <label 
+        id="foto" 
+        style={{ backgroundImage: `url(${preview})` }}
+        className={foto ? 'has-foto' : ''}
+      >
+        <input type="file" onChange={event => setFoto(event.target.files[0])} />
+        <img src={camera} alt="Select img" />
+      </label>
+      </form> 
+      </div>
+                </div>
                 <div className="posts">
                     <ul className="feed_post">
                         {avisos.map(aviso => (
@@ -80,8 +115,7 @@ export default function Feed() {
 
                         ))}
                     </ul>
-                </div>
-
+                </div>          
             </div>
         </>
     );

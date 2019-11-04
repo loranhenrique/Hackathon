@@ -39,12 +39,12 @@ export default function Feed() {
             <div className="corpo_pagina">
                 <div className="menu">
                     <nav className="menu-navigation-icons">
-                      <div className="cor"> <Link to="/feed" className="menu-icon"><img className="home" src={home2} alt="home" /><span>Inicio</span></Link></div>
+                      <div className="cor"><Link to="/feed" className="menu-icon"><img className="home" src={home2} alt="home" /><span>Inicio</span></Link></div>
                         <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência</span></Link>
                         <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
                         <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
-                      
+                        <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dadosEscola"/><span>Dados Escola</span></Link>
                     </nav>
                 </div>
                 <div className="tarefas">

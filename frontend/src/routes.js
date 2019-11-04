@@ -6,6 +6,8 @@ import LoginResponsavel from './pages/LoginResponsavel';
 import LoginProfessor from './pages/LoginProfessor';
 import LoginEscola from './pages/LoginEscola';
 import Feed from './pages/Feed';
+import FeedEscola from './pages/FeedEscola';
+import FeedResponsavel from './pages/FeedResponsavel';
 import CriarContaResponsavel from './pages/CriarContaResponsavel';
 import CriarContaEscola from './pages/CriarContaEscola';
 import RecuperarSenhaAluno from './pages/RecuperarSenhaAluno';
@@ -34,6 +36,8 @@ export default function Routes() {
                 <Route path="/LoginProfessor" component={LoginProfessor} />
                 <Route path="/LoginEscola" component={LoginEscola} />
                 <Route path="/Feed" component={Feed} />
+                <Route path="/FeedEscola" component={FeedEscola} />
+                <Route path="/FeedResponsavel" component={FeedResponsavel} />
                 <Route path="/CriarContaResponsavel" component={CriarContaResponsavel} />
                 <Route path="/CriarContaEscola" component={CriarContaEscola} />
                 <Route path="/RecuperarSenhaAluno" component={RecuperarSenhaAluno} />

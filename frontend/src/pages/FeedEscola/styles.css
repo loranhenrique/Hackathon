@@ -100,7 +100,9 @@ body{
 
 .corpo_pagina .posts .feed_post li{
   background-color: #ffffff;  
-  box-shadow: 1px 1px 1px 1px rgba(1, 1, 1, 0.04);
+  -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+  -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
   color: #000000;
   border-radius: 3px;
   margin: auto;
@@ -145,66 +147,559 @@ body{
   padding: 10px;
 }
 
+.corpo_pagina .campo-texto .campo-texto2 .icon { 
+  position: relative;
+  top: 11px;  
+  left: 2.5% ;
+  width: 8%;
+  height: 40px;
+}
+
+.corpo_pagina .campo-texto .campo-texto2{
+  position: relative;
+  background: #ffffff;
+  border-radius: 3px;
+  margin-left: 18.8%;  
+  margin-bottom: 0%;
+  height: 70px;   
+  width: 47%;
+  -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+  -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+}
+
+#aviso_com_foto{
+  position: relative;
+  left: 12%;
+  bottom: 30px;
+  width: 75%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f1f1f1;
+  animation-name:moverInput;
+  animation-duration: 500ms;
+  animation-fill-mode: backwards;
+  text-align: center;
+}
+
+.corpo_pagina .campo-vacina .campo-vacina2{
+  position: relative;
+  background: #ffffff;
+  border-radius: 3px;
+  margin-left: 18.8%;  
+  margin-bottom: 0%;
+  height: 70px;   
+  width: 47%;
+  -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+  -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+}
+
+#vacina{
+  position: relative;
+  left: 12%;
+  bottom: 30px;
+  width: 75%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f1f1f1;
+  animation-name:moverInput;
+  animation-duration: 500ms;
+  animation-fill-mode: backwards;
+  text-align: center;
+}
+
+label#foto {
+  position: relative;
+  border-radius: 10px;
+  margin-left: 89%;
+  bottom: 70px;
+  border: 1px solid #ddd;
+  background: #f1f1f1;
+  background-size: cover;
+  cursor: pointer;
+  height: 40px;
+  width: 8.8%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label#foto input {
+  display: none;
+}
+
+label#foto.has-foto {
+  border: 0;
+}
+
+label#foto.has-foto img {
+  display: none;
+}
+
 @media(max-width:600px)and (min-width:300px)
   {
-  .corpo_pagina .menu  .menu-navigation-icons {
-      display: none;
-  }
-  .corpo_pagina{
-      height: auto;
-      width: auto;
-      margin: auto;
-      margin: 0px;        
-  }
-  .corpo_pagina .posts{        
-      margin: auto;
-      width: 100%;      
-  }
-    
-  .corpo_pagina .posts .feed_post{
-      position: relative;
-      height: auto;
-      width: 100%;
-      margin-left:auto;
-  }
-  .corpo_pagina .posts .feed_post li{
-      position: relative;
-      height: auto;
-      width: 100%;
-      margin-left:0 ;
-  }
+      .corpo_pagina .menu-navigation-icons {
+          position: fixed;  
+          margin-top: 5px; 
+          text-align: center;  
+          width: 230px;
+      }
+      .corpo_pagina{      
+          margin-top: 1%;
+          width: 80%;
+          margin-left:17% ;      
+          
+      }
+      
+      .corpo_pagina .menu-navigation-icons a { 
+          display: block;
+          background: #f1f1f1;
+          color: #000000;
+          padding-top: 9%;  
+          font-size: 12px;      
+         /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06);*/
+          text-transform: uppercase;
+          text-decoration: none;
+          white-space: nowrap;        
+          width: 100%;
+          height: 50px;
+      }
+      
+      .corpo_pagina .menu-navigation-icons a:hover{
+          opacity:0.92;
+          background-color: white;
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.04);
+      }
+      
+      .corpo_pagina .menu-navigation-icons a img {
+          /*display:inline-block;    */
+          height: 20px;
+          float: left;
+          margin-right: 15%;   
+          margin-left: 10%;    
+          margin-top:-2%;
+          background-size:cover ;
+      }
+      
+      .corpo_pagina .posts li h5{
+          padding-bottom: 2.5%;
+         padding-top: 5%;
+         padding-left:2%;
+         padding-right:2%;
+         margin-top:1%;
+         font-family: Arial, Helvetica, sans-serif;
+         font-weight: normal;
+         font-size: 15px;
+         margin-bottom:1%;
+      }
+      .corpo_pagina .posts li span{
+          color: #545ea3;
+          padding-bottom: 1%;
+          padding-right:79%;
+          margin-top:4%;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+          font-size: 15px;
+          float: right;
+          margin-bottom:1%;
+       }
+      .corpo_pagina .menu-navigation-icons span {
+          display: inline-block;    
+          font-size: 12px;
+          font-weight: bold;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+         
+      }
+      .corpo_pagina .posts{  
+          width: auto;   
+          margin-left:17%;
+          color: #fff;   
+            
+      }
+      /*Criando parte que será responsavel por cada estilo de post do usuario*/
+      .corpo_pagina .posts .feed_post{
+          position: relative;
+          width: 57%;
+          margin-left: 2%;  
+          margin-bottom: 80%;
+      }
+      
+      .corpo_pagina .posts .feed_post img{  
+          position: relative; 
+          height: 500px;
+          width: 100%;   
+          background-size: cover;
+          -webkit-font-smoothing: antialiased !important;
+      }
+      
+      .corpo_pagina .posts .feed_post li{
+          background-color: #ffffff;  
+          -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+          -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+          box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+          color: #000000;
+          border-radius: 3px;
+          margin: auto;
+          width: 100%;
+          height: auto;
+          margin-top: 5%;
+          list-style: none;
+          background-size: cover; 
+      }
+      
+      .corpo_pagina .posts .feed_post .icon { 
+          position: relative;
+          top: 11px;  
+          left: 3% ;
+          width: 5%;
+          height: 5%;
+      }
+      
+      /*parte de tarefas da pagina*/
+      .corpo_pagina .tarefas{
+          position: relative;
+          display: block;
+          height: auto;
+          float: right;
+          margin-right: 14%;    
+          width: 10%;
+          right: 7%;
+          margin-top: 0%;
+          min-width: 100px;
+            
+      }
+      .corpo_pagina .tarefas ul li{
+          color: #000000;
+          margin: 5px;
+          text-align: center;
+          border: 1px solid #c6c6c6;
+          background: #f1f1f1;
+          height: auto;
+          width: 100%;
+          border-radius:3px;
+          list-style: none;
+          padding: 10px;
+      }
+      
+      .corpo_pagina .campo-texto .campo-texto2 .icon { 
+          position: relative;
+          top: 11px;  
+          left: 2.5% ;
+          width: 8%;
+          height: 40px;
+      }
+      
+      .corpo_pagina .campo-texto .campo-texto2{
+          position: relative;
+          background: #ffffff;
+          border-radius: 3px;
+          margin-left: 18.8%;  
+          margin-bottom: 0%;
+          height: 70px;   
+          width: 47%;
+          -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+          -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+          box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+      }
+      
+      #aviso_com_foto{
+          position: relative;
+          left: 12%;
+          bottom: 30px;
+          width: 75%;
+          height: 40px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background: #f1f1f1;
+          animation-name:moverInput;
+          animation-duration: 500ms;
+          animation-fill-mode: backwards;
+          text-align: center;
+      }
+      
+      .corpo_pagina .campo-vacina .campo-vacina2{
+          position: relative;
+          background: #ffffff;
+          border-radius: 3px;
+          margin-left: 18.8%;  
+          margin-bottom: 0%;
+          height: 70px;   
+          width: 47%;
+          -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+          -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+          box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+      }
+      
+      #vacina{
+          position: relative;
+          left: 12%;
+          bottom: 30px;
+          width: 75%;
+          height: 40px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background: #f1f1f1;
+          animation-name:moverInput;
+          animation-duration: 500ms;
+          animation-fill-mode: backwards;
+          text-align: center;
+      }
+      
+      label#foto {
+          position: relative;
+          border-radius: 10px;
+          margin-left: 89%;
+          bottom: 70px;
+          border: 1px solid #ddd;
+          background: #f1f1f1;
+          background-size: cover;
+          cursor: pointer;
+          height: 40px;
+          width: 8.8%;
+          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        label#foto input {
+          display: none;
+        }
+        
+        label#foto.has-foto {
+          border: 0;
+        }
+        
+        label#foto.has-foto img {
+          display: none;
+        }
 }
 
 @media(max-width:1100px){    
-      .corpo_pagina .menu  .menu-navigation-icons {
-          display: none;
-      }
-      .corpo_pagina .tarefas{
-          display: none;
-      }
-      .corpo_pagina{
-          height: auto;
-          width: auto;
-          margin: auto;
-          margin: 0px;        
-      }
-      .corpo_pagina .posts{        
-          margin: auto;
-          width: 100%;         
-      }          
-      .corpo_pagina .posts .feed_post{        
-         margin-top:0%;
-          height: auto;
-          width: 100%;
-          margin: auto;            
-      }
+  .corpo_pagina .menu-navigation-icons {
+      position: fixed;  
+      margin-top: 5px; 
+      text-align: center;  
+      width: 230px;
+  }
+  .corpo_pagina{      
+      margin-top: 1%;
+      width: 80%;
+      margin-left:17% ;      
+      
+  }
+  
+  .corpo_pagina .menu-navigation-icons a { 
+      display: block;
+      background: #f1f1f1;
+      color: #000000;
+      padding-top: 9%;  
+      font-size: 12px;      
+     /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06);*/
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;        
+      width: 100%;
+      height: 50px;
+  }
+  
+  .corpo_pagina .menu-navigation-icons a:hover{
+      opacity:0.92;
+      background-color: white;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.04);
+  }
+  
+  .corpo_pagina .menu-navigation-icons a img {
+      /*display:inline-block;    */
+      height: 20px;
+      float: left;
+      margin-right: 15%;   
+      margin-left: 10%;    
+      margin-top:-2%;
+      background-size:cover ;
+  }
+  
+  .corpo_pagina .posts li h5{
+      padding-bottom: 2.5%;
+     padding-top: 5%;
+     padding-left:2%;
+     padding-right:2%;
+     margin-top:1%;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: normal;
+     font-size: 15px;
+     margin-bottom:1%;
+  }
+  .corpo_pagina .posts li span{
+      color: #545ea3;
+      padding-bottom: 1%;
+      padding-right:79%;
+      margin-top:4%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 15px;
+      float: right;
+      margin-bottom:1%;
+   }
+  .corpo_pagina .menu-navigation-icons span {
+      display: inline-block;    
+      font-size: 12px;
+      font-weight: bold;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
      
-      .corpo_pagina .posts .feed_post li{
-          position: relative;
-          height: auto;
-          width: 100%;
-          margin-left:0;
-      }
+  }
+  .corpo_pagina .posts{  
+      width: auto;   
+      margin-left:17%;
+      color: #fff;   
+        
+  }
+  /*Criando parte que será responsavel por cada estilo de post do usuario*/
+  .corpo_pagina .posts .feed_post{
+      position: relative;
+      width: 57%;
+      margin-left: 2%;  
+      margin-bottom: 80%;
+  }
+  
+  .corpo_pagina .posts .feed_post img{  
+      position: relative; 
+      height: 500px;
+      width: 100%;   
+      background-size: cover;
+      -webkit-font-smoothing: antialiased !important;
+  }
+  
+  .corpo_pagina .posts .feed_post li{
+      background-color: #ffffff;  
+      -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+      -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+      box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+      color: #000000;
+      border-radius: 3px;
+      margin: auto;
+      width: 100%;
+      height: auto;
+      margin-top: 5%;
+      list-style: none;
+      background-size: cover; 
+  }
+  
+  .corpo_pagina .posts .feed_post .icon { 
+      position: relative;
+      top: 11px;  
+      left: 3% ;
+      width: 5%;
+      height: 5%;
+  }
+  
+  /*parte de tarefas da pagina*/
+  .corpo_pagina .tarefas{
+      position: relative;
+      display: block;
+      height: auto;
+      float: right;
+      margin-right: 14%;    
+      width: 10%;
+      right: 7%;
+      margin-top: 0%;
+      min-width: 100px;
+        
+  }
+  .corpo_pagina .tarefas ul li{
+      color: #000000;
+      margin: 5px;
+      text-align: center;
+      border: 1px solid #c6c6c6;
+      background: #f1f1f1;
+      height: auto;
+      width: 100%;
+      border-radius:3px;
+      list-style: none;
+      padding: 10px;
+  }
+  
+  .corpo_pagina .campo-texto .campo-texto2 .icon { 
+      position: relative;
+      top: 11px;  
+      left: 2.5% ;
+      width: 8%;
+      height: 40px;
+  }
+  
+  .corpo_pagina .campo-texto .campo-texto2{
+      position: relative;
+      background: #ffffff;
+      border-radius: 3px;
+      margin-left: 18.8%;  
+      margin-bottom: 0%;
+      height: 70px;   
+      width: 47%;
+      -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+      -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+      box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  }
+  
+  #aviso_com_foto{
+      position: relative;
+      left: 12%;
+      bottom: 30px;
+      width: 75%;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f1f1f1;
+      animation-name:moverInput;
+      animation-duration: 500ms;
+      animation-fill-mode: backwards;
+      text-align: center;
+  }
+  
+  .corpo_pagina .campo-vacina .campo-vacina2{
+      position: relative;
+      background: #ffffff;
+      border-radius: 3px;
+      margin-left: 18.8%;  
+      margin-bottom: 0%;
+      height: 70px;   
+      width: 47%;
+      -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+      -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+      box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  }
+  
+  label#foto {
+      position: relative;
+      border-radius: 10px;
+      margin-left: 89%;
+      bottom: 70px;
+      border: 1px solid #ddd;
+      background: #f1f1f1;
+      background-size: cover;
+      cursor: pointer;
+      height: 40px;
+      width: 8.8%;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    label#foto input {
+      display: none;
+    }
+    
+    label#foto.has-foto {
+      border: 0;
+    }
+    
+    label#foto.has-foto img {
+      display: none;
+    }
   body{             
       min-width: 0px;
   }  
