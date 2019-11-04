@@ -166,7 +166,7 @@ router.get('/listAll', async (req, res) => {
         const { matricula } = req.body;
 
         try{           
-            const aluno = await Aluno.findOne({ matricula }).populate('responsavel_id').populate('turma_id');
+            const aluno = await Aluno.findOne({ matricula }).populate('responsavel_id').populate('turma_id').populate('serie_id');
             return res.json(aluno);
         }catch(err){
             console.log(err);

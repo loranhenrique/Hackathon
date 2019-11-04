@@ -5,7 +5,7 @@ import './styles.css';
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
-import notas from '../../assets/notas.png';
+import notasImg from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';
 import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
@@ -21,7 +21,7 @@ export default function CalendarioAluno() {
             const aluno_id = localStorage.getItem('aluno');
 
             const response = await api.get('/notas/notasAluno', { headers: { aluno_id } });
-           // console.log(response.data);
+           console.log(response.data);
             setNotas(response.data);
            
          
@@ -69,7 +69,7 @@ export default function CalendarioAluno() {
     return (
         <>
             <div className="corpo_pagina">
-                <div className="menu">
+            <div className="menu">
                     <nav className="menu-navigation-icons">
                         <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                         <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario} /><span>Frequência</span></Link>

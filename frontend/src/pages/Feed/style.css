@@ -8,6 +8,8 @@ body{
     position: fixed;  
     margin-top: 5px; 
     text-align: center;  
+    font-size: 10px;   
+    font-weight: normal;
     width: 230px;
 
 }
@@ -22,8 +24,7 @@ body{
     display: block;
     background: #f1f1f1;
     color: #000000;
-    padding-top: 9%;  
-    font-size: 12px;      
+    padding-top: 9%; 
    /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06);*/
     text-transform: uppercase;
     text-decoration: none;
@@ -84,7 +85,6 @@ body{
     width: auto;   
     margin-left:17%;
     color: #fff;   
-      
 }
 /*Criando parte que será responsavel por cada estilo de post do usuario*/
 .corpo_pagina .posts .feed_post{
