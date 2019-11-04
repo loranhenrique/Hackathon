@@ -1,21 +1,13 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const UploadConfig = require('../../config/upload');
 const Escola = require('../models/Escola');
 const Turma = require('../models/Turma');
 const Serie = require('../models/Series');
 const Aluno = require('../models/Aluno');
-const authConfig = require('../../config/auth');
 const multer = require('multer');
 const router = express.Router();
 const upload = multer(UploadConfig);
 const Avisos = require('../models/Aviso');
-
-function generateToken(params = {}) {
-    return jwt.sign(params, authConfig.secret, {
-        expiresIn: 86400,
-    });
-}
 
 router.post('/registerSemImagem', async (req, res) => {
     const { mensagem } = req.body;
@@ -56,7 +48,7 @@ router.post('/register',upload.single('image'), async (req, res) => {
     
     const { filename } = req.file;
     const { mensagem } = req.body;
-    const { escola_id } = req.body;
+    const { escola_id } = req.headers;
 
     const escola = await Escola.findById(escola_id);
 
@@ -107,6 +99,13 @@ router.get('/EscolaAviso', async (req, res) => {
 
     return res.json(avisos);
 
+});
+
+router.get('/AvisoEscola', async (req, res) =>{
+    const { escola_id } = req.headers;
+    let avisos = await Avisos.find({ escola_id: escola_id});
+
+    return res.json(avisos);
 });
 
 module.exports = app => app.use('/avisos', router);

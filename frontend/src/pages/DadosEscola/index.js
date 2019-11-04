@@ -7,7 +7,6 @@ import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
-import escola_icon from '../../assets/escola.png';
 
 export default function CalendarioAluno(){
 
@@ -21,7 +20,6 @@ export default function CalendarioAluno(){
                         <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
                         <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
-                     
                     </nav>
                 </div>
             <div className="tarefas">

@@ -11,18 +11,16 @@ export default function CriarContaResponsavel({ history }) {
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [confirmarsenha, setConfirmarSenha] = useState('');
-    const [logradouro, setLogradouro] = useState('');
-    const [bairro, setBairro] = useState('');
-    const [municipio, setMunicipio] = useState('');
-    const [cidade, setCidade] = useState('');
-    const [cep, setCep] = useState('');
+    const [dataNasc, setDataNasc] = useState('');
+    const [situacao, setSituacao] = useState('');
+    const [responsavel, setResponsavel] = useState('');
+    const [turma, setTurma] = useState('');
 
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/responsavel/register', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
+        const response = await api.post('/aluno/register', { matricula, nome, telefone, email, senha, dataNasc, situacao, responsavel_id: responsavel, turma_id: turma});
 
         console.log(response);
 
@@ -70,45 +68,30 @@ export default function CriarContaResponsavel({ history }) {
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
                         />
-                          <input type="password"
+                          <input type="date"
                             id="confirmarsenha"
-                            placeholder="Confirmar Senha"
-                            value={confirmarsenha}
-                            onChange={event => setConfirmarSenha(event.target.value)}
+                            placeholder="MM/DD/YYYY"
+                            value={dataNasc}
+                            onChange={event => setDataNasc(event.target.value)}
                         />
                         <input type="text"
                             id="logradouro"
-                            placeholder="Logradouro"
-                            value={logradouro}
-                            onChange={event => setLogradouro(event.target.value)}
+                            placeholder="Situação"
+                            value={situacao}
+                            onChange={event => setSituacao(event.target.value)}
                         />
                         <input type="text"
                             id="bairro"
-                            placeholder="Bairro"
-                            value={bairro}
-                            onChange={event => setBairro(event.target.value)}
+                            placeholder="Responsavel id"
+                            value={responsavel}
+                            onChange={event => setResponsavel(event.target.value)}
                         />
                         <input type="text"
                             id="municipio"
-                            placeholder="Município"
-                            value={municipio}
-                            onChange={event => setMunicipio(event.target.value)}
-                        />
-                        <div className="Meio">
-                        <input type="text"
-                            id="cidade"
-                            placeholder="Cidade"
-                            value={cidade}
-                            onChange={event => setCidade(event.target.value)}
-                        />
-                        <input type="text"
-                            id="cep"
-                            placeholder="Cep"
-                            value={cep}
-                            onChange={event => setCep(event.target.value)}
-                        />
-                        </div>
-                        
+                            placeholder="Turma id"
+                            value={turma}
+                            onChange={event => setTurma(event.target.value)}
+                        />                        
                         <button type="submit" className="btnConfirmar">CONFIRMAR</button>
                         <Link to="/feedescola"><button type="submit" className="btnVoltar">VOLTAR</button></Link>
                         

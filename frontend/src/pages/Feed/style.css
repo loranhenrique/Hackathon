@@ -1,5 +1,5 @@
 body{
-    background: #fafafa;
+    background:#f1f1f1;
     font-family: Arial, Helvetica, sans-serif;
     min-width: 1550px;   
     
@@ -11,6 +11,7 @@ body{
     font-size: 10px;   
     font-weight: normal;
     width: 230px;
+
 }
 .corpo_pagina{      
     margin-top: 1%;
@@ -21,7 +22,7 @@ body{
 
 .corpo_pagina .menu-navigation-icons a { 
     display: block;
-    background: #fafafa;
+    background: #f1f1f1;
     color: #000000;
     padding-top: 9%; 
    /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06);*/
@@ -31,14 +32,11 @@ body{
     width: 100%;
     height: 50px;
 }
-
-
 .corpo_pagina .menu-navigation-icons a:hover{
     opacity:0.92;
     background-color: white;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.04);
 }
-
 .corpo_pagina .menu-navigation-icons a img {
     /*display:inline-block;    */
     height: 20px;
@@ -50,6 +48,8 @@ body{
 }
 
 .corpo_pagina .posts li h5{
+    padding-bottom: 2.5%;
+   padding-top: 5%;
    padding-left:2%;
    padding-right:2%;
    margin-top:1%;
@@ -58,65 +58,70 @@ body{
    font-size: 15px;
    margin-bottom:1%;
 }
+
+.corpo_pagina .cor span{
+    color:#3f48cc;
+}
+
 .corpo_pagina .posts li span{
-    padding-left:2%;
-    padding-right:2%;
-    margin-top:1%;
+    color: #545ea3;
+    padding-bottom: 1%;
+    padding-right:79%;
+    margin-top:4%;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 15px;
     float: right;
     margin-bottom:1%;
  }
 .corpo_pagina .menu-navigation-icons span {
     display: inline-block;    
-   
     font-size: 12px;
     font-weight: bold;
-    float: left;
-   
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
    
 }
 .corpo_pagina .posts{  
     width: auto;   
     margin-left:17%;
-    color: #fff;    
-    margin-bottom: 2%; 
+    color: #fff;   
 }
 /*Criando parte que será responsavel por cada estilo de post do usuario*/
 .corpo_pagina .posts .feed_post{
     position: relative;
     width: 57%;
-    margin-left: 2%;   
-    
+    margin-left: 2%;  
+    margin-bottom: 80%;
 }
-.corpo_pagina .posts .feed_post img{    
-    display: block;
-    margin: auto;
-    height: 600px;
+
+.corpo_pagina .posts .feed_post img{  
+    position: relative; 
+    height: 500px;
     width: 100%;   
-    margin-right: 10px;
     background-size: cover;
-    
+    -webkit-font-smoothing: antialiased !important;
 }
+
 .corpo_pagina .posts .feed_post li{
-    background-color: #fff;  
+    background-color: #ffffff;  
+    box-shadow: 1px 1px 1px 1px rgba(1, 1, 1, 0.04);
     color: #000000;
     border-radius: 3px;
-    border: 1px solid #c6c6c6; 
-    display: inline-block;
     margin: auto;
     width: 100%;
     height: auto;
-    box-shadow: 0px 0px 2px  #e0e0e0fb;
-    align-items: center;
-    margin-top: 5px;
-    padding: 5px;
+    margin-top: 5%;
     list-style: none;
-    margin-bottom: 2%;
+    background-size: cover; 
 }
 
+.corpo_pagina .posts .feed_post .icon { 
+    position: relative;
+    top: 11px;  
+    left: 3% ;
+    width: 5%;
+    height: 5%;
+}
 
 /*parte de tarefas da pagina*/
 .corpo_pagina .tarefas{
@@ -136,10 +141,9 @@ body{
     margin: 5px;
     text-align: center;
     border: 1px solid #c6c6c6;
-    box-shadow: 0px 0px 2px  #e0e0e0fb;
-    background: #fff;
+    background: #f1f1f1;
     height: auto;
-    width: 90%;
+    width: 100%;
     border-radius:3px;
     list-style: none;
     padding: 10px;
@@ -159,7 +163,6 @@ body{
     .corpo_pagina .posts{        
         margin: auto;
         width: 100%;      
-
     }
       
     .corpo_pagina .posts .feed_post{

@@ -18,7 +18,7 @@ function generateToken(params = {}) {
 router.post('/register', async (req, res) => {
 
     const { nome } = req.body;
-    const { series_id } = req.body;
+    const { series_id } = req.headers;
 
     const series = await Series.findById(series_id);
 
