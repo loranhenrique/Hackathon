@@ -16,6 +16,10 @@ const ProfessorSchema = new mongoose.Schema({
         require: true,
         select: false,
     },
+    escola_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola'
+    },
     senhaResetToken:{
         type: String,
         select: false,
@@ -23,7 +27,8 @@ const ProfessorSchema = new mongoose.Schema({
     senhaResetExpires: {
         type: Date,
         select: false,
-    },comentarios :[{
+    },
+    comentarios :[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Comentario',
     }],
