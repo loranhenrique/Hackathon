@@ -3,7 +3,6 @@ import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './style.css';
 //importando imagens que será usada no menu como logo
-import home from '../../assets/home.png';
 import home2 from '../../assets/home2.png';
 import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';

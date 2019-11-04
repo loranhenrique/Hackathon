@@ -13,9 +13,7 @@ export default function LoginAluno({ history }) {
 
         const response = await api.post('/escolas/authenticate', { matricula, senha });
 
-        const { _id } = response.data;
-
-        localStorage.setItem('escolas', _id);
+        localStorage.setItem('escolas', response.data.escola._id);
 
         history.push('/FeedEscola');
     }

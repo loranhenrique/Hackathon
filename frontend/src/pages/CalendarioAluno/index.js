@@ -5,13 +5,11 @@ import './styles.css';
 
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
-import calendario from '../../assets/calendario.png';
 import calendario2 from '../../assets/calendario2.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
-import escola2 from '../../assets/escola2.png';
 
 //import colorido from '../../assets/house_colorida.png';
 

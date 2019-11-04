@@ -7,7 +7,6 @@ import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
-import escola_icon from '../../assets/escola.png';
 
 export default function CalendarioAluno(){
 

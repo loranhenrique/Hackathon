@@ -109,4 +109,12 @@ router.get('/EscolaAviso', async (req, res) => {
 
 });
 
+router.get('/AvisoEscola', async (req, res) =>{
+    const { escola_id } = req.headers;
+    let user = await Escola.findOne({ _id: escola_id });
+    let avisos = await Avisos.find({ escola_id: user._id});
+
+    return res.json(avisos);
+});
+
 module.exports = app => app.use('/avisos', router);

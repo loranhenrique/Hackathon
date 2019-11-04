@@ -8,7 +8,6 @@ import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';
-import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
 import escola2 from '../../assets/escola2.png';
 import camera from '../../assets/camera.svg';
@@ -34,10 +33,10 @@ export default function FeedEscola() {
 
     useEffect(() => {
         async function loadAvisos() {
-            const aluno_id = localStorage.getItem('aluno');
+            const escola_id = localStorage.getItem('escolas');
 
-            const response = await api.get('/avisos/EscolaAviso', { headers: { aluno_id } });
-            const escolaDoresponse = response.data[0].escola_id + "";
+            const response = await api.get('/avisos/AvisoEscola', { headers: { escola_id } });
+            const escolaDoresponse = response.data.escola_id + "";
 
             const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
 
@@ -53,10 +52,9 @@ export default function FeedEscola() {
                 <div className="menu">
                     <nav className="menu-navigation-icons">
                         <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
-                        <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência</span></Link>
-                        <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
-                        <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
-                        <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
+                        <Link to="/cadastroProfessor" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Professores</span></Link>
+                        <Link to="/cadastroresponsavel" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Responsaveis</span></Link>
+                        <Link to="/cadastroaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Alunos</span></Link>
                         <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dados escola" /><span>Dados Escola</span></Link>
                     </nav>
                 </div>
@@ -110,7 +108,6 @@ export default function FeedEscola() {
                                 <span>{escola.nome}</span>
                                  <h5>{aviso.mensagem}</h5>                               
                                 <img style={{ backgroundImage: `url(${aviso.image})`}}></img>                               
-                                
                             </li>
 
                         ))}
