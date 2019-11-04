@@ -57,10 +57,9 @@ export default function FeedEscola() {
                 <div className="menu">
                     <nav className="menu-navigation-icons">
                         <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
-                        <Link to="/cadastroProfessor" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Professores</span></Link>
-                        <Link to="/cadastroresponsavel" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Responsaveis</span></Link>
-                        <Link to="/cadastroaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Alunos</span></Link>
-                        <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dados escola" /><span>Dados Escola</span></Link>
+                        <Link to="/criarContaProfessor" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Professores</span></Link>
+                        <Link to="/criarcontaresponsavel" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Responsaveis</span></Link>
+                        <Link to="/criarcontaaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Alunos</span></Link>
                     </nav>
                 </div>
                 <div className="tarefas">
