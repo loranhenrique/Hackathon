@@ -33,6 +33,7 @@ export default function CalendarioAluno(){
         <div className="corpo_pagina">
             <div className="menu">
                 <nav className="menu-navigation-icons">
+                    
                     <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home"/><span>Inicio</span></Link> 
                    <div className="cor"><Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario2} alt="calendario"/><span>Frequência</span></Link></div>
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas"/><span>Notas</span></Link>
