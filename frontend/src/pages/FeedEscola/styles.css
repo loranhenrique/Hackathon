@@ -172,7 +172,7 @@ body{
   position: relative;
   left: 12%;
   bottom: 30px;
-  width: 75%;
+  width: 60.5%;
   height: 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -196,26 +196,27 @@ body{
   box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
 }
 
-#vacina{
+.novo-aviso{
   position: relative;
-  left: 12%;
-  bottom: 30px;
-  width: 75%;
+  margin-left: 83%;
+  bottom: 70px;
+  width: 15%;
   height: 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background: #f1f1f1;
+  background: #545ea3;
   animation-name:moverInput;
   animation-duration: 500ms;
   animation-fill-mode: backwards;
   text-align: center;
+  color: #ffffff;
 }
 
 label#foto {
   position: relative;
   border-radius: 10px;
-  margin-left: 89%;
-  bottom: 70px;
+  margin-left: 73.5%;
+  bottom: 110px;
   border: 1px solid #ddd;
   background: #f1f1f1;
   background-size: cover;

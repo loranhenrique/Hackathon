@@ -5,6 +5,7 @@ import calendario from '../../assets/calendario.png';
 import camera from '../../assets/camera.svg';
 import escola_icon from '../../assets/escola.png';
 import escola2 from '../../assets/escola2.png';
+
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import notas from '../../assets/notas.png';
@@ -16,7 +17,6 @@ export default function FeedEscola() {
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
     const [mensagem, setMensagem] = useState('');
-
 
     async function handleSubmit(){
         const data = new FormData();
@@ -30,7 +30,6 @@ export default function FeedEscola() {
             })
         
     }
-
 
     const preview = useMemo(() => {
         return imgPost ? URL.createObjectURL(imgPost) : null;
@@ -50,7 +49,9 @@ export default function FeedEscola() {
         }
         loadAvisos();
     }, []);
-
+    
+  
+      
     return (
         <>
             <div className="corpo_pagina">
@@ -87,8 +88,6 @@ export default function FeedEscola() {
                 <div className="campo-texto">
                     <div className="campo-texto2">
                     <img className="icon" src={escola2} alt= {escola.nome} />
-
-
                     {/*Começa o formulario para adicionar novo aviso*/}
                     <form onSubmit={handleSubmit}>
                     <input type="Text"
@@ -97,12 +96,13 @@ export default function FeedEscola() {
                             value={mensagem}
                             onChange={event => setMensagem(event.target.value)}
                     />
-                    <button className="novoAviso" >Publicar</button>
+                     <button className="novo-aviso">Publicar</button> 
                     <label 
                         id="foto" 
                         style={{ backgroundImage: `url(${preview})` }}
                         className={imgPost ? 'has-foto' : ''}
                     >
+                              
                         <input type="file" onChange={event => setImgPost(event.target.files[0])} />
                         <img src={camera} alt="Select img" />
                     </label>

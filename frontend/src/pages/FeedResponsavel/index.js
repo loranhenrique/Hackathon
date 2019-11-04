@@ -3,6 +3,7 @@ import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './styles.css';
 
+
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
@@ -23,6 +24,9 @@ export default function FeedResponsavel() {
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
     const [vacina, setVacina] = useState('');
+
+
+    
 
     function handleSubmit(){
 
@@ -90,7 +94,7 @@ export default function FeedResponsavel() {
                             id="vacina"
                             placeholder="Adicione as vacinas e restrições médicas do seu filho"
                             value={vacina}
-                            onChange={event => setVacina(event.target.value)}
+                            onChange={event => setVacina(event.target.value)}             
                         />
                         </form> 
       </div>
