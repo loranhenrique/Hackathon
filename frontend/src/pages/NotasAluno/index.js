@@ -8,8 +8,6 @@ import calendario from '../../assets/calendario.png';
 import notasImg from '../../assets/notas2.png';
 import aulas from '../../assets/aulas_quadro.png';
 import person from '../../assets/person.png';
-import escola_icon from '../../assets/escola.png';
-import escola2 from '../../assets/escola2.png';
 
 
 //import colorido from '../../assets/house_colorida.png';
@@ -81,9 +79,9 @@ export default function CalendarioAluno() {
                     </ul>
                 </div>
                 <div className="calendario">
-                    <div className="posts">
-                        <ul className="feed_post">
+                    
                         <h3>Dados Pessoais</h3>
+                        <ul>
                             {notas.map(nota =>(
                                 <li key={nota._id}>
                                     <span>{nota.nota}</span>
@@ -91,7 +89,7 @@ export default function CalendarioAluno() {
                             ))}
 
                         </ul>
-                    </div>
+                    
                 </div>
 
             </div>

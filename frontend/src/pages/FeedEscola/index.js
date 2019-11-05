@@ -78,6 +78,9 @@ export default function FeedEscola() {
                             <h4>
                                 PROVAS
                     </h4>
+                    <h4>
+                                PROVAS
+                    </h4>
                             <span>
                                 5
                     </span>
@@ -110,7 +113,7 @@ export default function FeedEscola() {
 
 
                     </div>
-                </div>
+                </div>                
                 <div className="posts">
                     <ul className="feed_post">
                         {avisos.map(aviso => (
@@ -118,7 +121,7 @@ export default function FeedEscola() {
                                 <img className="icon" src={escola2} alt= {escola.nome} />
                                 <span>{escola.nome}</span>
                                  <h5>{aviso.mensagem}</h5>                               
-                                <img style={{ backgroundImage: `url(${aviso.image})`}}></img>                               
+                                <img style={{ backgroundImage: `url(${aviso.image})`}}></img>             
                             </li>
 
                         ))}
