@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, AsyncStorage, Alert, Picker, KeyboardAvoidingView, ImageBackground, Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 import api from '../services/api';
-import image from '../../assets/fundo_login.jpg';
+import image from '../../assets/fundo_novo.png';
 import logo from '../../assets/FaminSchool.png';
 
 class Login extends React.Component {
@@ -36,13 +36,24 @@ class Login extends React.Component {
                 ],
                 { cancelable: true }
             );
-        } else {
+        } 
+        if(this.state.matricula === '' || this.state.senha === '') {
+            Alert.alert(
+                "Atenção!",
+                "Por favor, preencha todos os campos.",
+                [
+                    { text: "Voltar", onPress: () => console.log("campos em branco") },
+                ],
+                { cancelable: true }
+            );
+        }else{
             await AsyncStorage.setItem('perfil', this.state.perfil);
             await AsyncStorage.setItem('matricula', this.state.matricula);
             var response = null;
 
             let matricula = this.state.matricula;
             let senha = this.state.senha;
+            
             const { navigate } = this.props.navigation;
 
             switch (this.state.perfil) {
@@ -62,7 +73,6 @@ class Login extends React.Component {
                 case "professor":
                         try {
                             response = await api.post("/professor/authenticate", { matricula, senha });
-                            console.log(response.data.professor._id);
                             await AsyncStorage.setItem('professor_id', response.data.professor._id);
                             if(response != null){
                                 navigate('menuProfessor');
@@ -74,9 +84,9 @@ class Login extends React.Component {
                     break;
                 case "escola":
                         try {
-                            response = await api.post("/escola/authenticate", { matricula, senha });
-                            console.log(response);
+                            response = await api.post("/escolas/authenticate", { matricula, senha });
                             if(response != null){
+                                await AsyncStorage.setItem('escola_id', response.data.escola._id);
                                 navigate('menuEscola');
                             }
                         } catch (err) {
@@ -87,8 +97,8 @@ class Login extends React.Component {
                 case "responsavel":
                         try {
                             response = await api.post("/responsavel/authenticate", { matricula, senha });
-                            console.log(response);
                             if(response != null){
+                                await AsyncStorage.setItem('responsavel_id', response.data.responsavel._id);
                                 navigate('menuResponsavel');
                             }
                         } catch (err) {
@@ -178,12 +188,19 @@ const style = StyleSheet.create({
         paddingHorizontal: 30,
         marginTop: 5,
         marginBottom: 10,
+        borderRadius: 8,
+        shadowOffset: {
+            width: 3,
+            height: 1
+        },
+        shadowColor: '#eee',
         backgroundColor: '#EEE',
     },
 
     label: {
         fontWeight: "bold",
-        color: "#333",
+        color: "#FFF",
+        fontSize: 16,
         marginBottom: 2,
     },
 
@@ -191,7 +208,12 @@ const style = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#CCC",
         backgroundColor: '#FFF',
-        borderRadius: 3,
+        borderRadius: 8,
+        shadowOffset: {
+            width: 3,
+            height: 1
+        },
+        shadowColor: '#eee',
         paddingHorizontal: 20,
         marginBottom: 20,
         height: 40,
@@ -202,7 +224,7 @@ const style = StyleSheet.create({
     button: {
         height: 40,
         borderRadius: 3,
-        backgroundColor: '#CCC',
+        backgroundColor: '#1f2b33',
         justifyContent: 'center',
         alignItems: 'center',
     },

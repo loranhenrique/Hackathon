@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, AsyncStorage, FlatList, TouchableHighlight } from 'react-native';
+import Moment from 'moment';
 
 import api from '../../services/api';
 import { SearchBar } from 'react-native-elements';
 
-class AgendaProfessor extends React.Component {
+class ListaAlunosResponsavel extends React.Component {
     constructor() {
         super();
         this.state = {
             listaAlunos: [],
             termo: '',
             alunoIdCadastroAgenda: '',
-            professor_id: '',
+            responsavel_id: '',
         };
 
         this.arrayHolder = [''];
@@ -19,11 +20,12 @@ class AgendaProfessor extends React.Component {
     }
 
     async buscaAlunos() {
-        const response = await api.get("/aluno/listAll");
+        this.setState({ responsavel_id: await AsyncStorage.getItem('responsavel_id') });
+        let responsavel_id = this.state.responsavel_id;
+        const response = await api.post("/aluno/listAlunoResponsavel", responsavel_id);
         this.arrayHolder = response.data;
         //console.log(response.data);
         this.setState({ listaAlunos: response.data });
-        this.setState({ professor_id: await AsyncStorage.getItem('professor_id') });
     }
 
     cabecalhoPesquisa = () => {
@@ -46,10 +48,10 @@ class AgendaProfessor extends React.Component {
     async cadastrarAgenda(params) {
         this.setState({alunoIdCadastroAgenda: params});
         await AsyncStorage.setItem('alunoIdCadastroAgenda', params);
-        //console.log(params);
+        console.log("teste");
 
         const { navigate } = this.props.navigation;
-        navigate('CadastraAgenda');
+        navigate('VacinacaoCadastro');
     }
 
     render() {
@@ -118,4 +120,4 @@ const style = StyleSheet.create({
 
 });
 
-export default AgendaProfessor;
+export default ListaAlunosResponsavel;
