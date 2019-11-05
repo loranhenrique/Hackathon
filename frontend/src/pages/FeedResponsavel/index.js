@@ -28,12 +28,14 @@ export default function FeedResponsavel() {
     useEffect(() => {
         async function loadAvisos() {
             const responsavel_id = localStorage.getItem('responsavel');
-            const avisosEscola = await api.get('/avisos/AvisoEscolaFilho',{headers : {responsavel_id}});          
-            const idEscola = avisosEscola.data[0].escola_id;           
-           const getEscola = await api.get('/escolas/list',{headers : {_id:idEscola}});
-           
-            setAvisos(avisosEscola.data);
-            setEscola(getEscola.data);
+
+            const response = await api.get('/avisos/EscolaAviso', { headers: { responsavel_id } });
+            const escolaDoresponse = response.data[0].escola_id + "";
+
+            const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
+
+            setEscola(Escolas.data);
+            setAvisos(response.data);
         }
         loadAvisos();
     }, []);
@@ -46,8 +48,8 @@ export default function FeedResponsavel() {
                         <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                         <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência</span></Link>
                         <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
-                        <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
-                        <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
+                        <Link to="/vacinas" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Vacinas</span></Link>
+                        <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link>
                     </nav>
                 </div>
            
