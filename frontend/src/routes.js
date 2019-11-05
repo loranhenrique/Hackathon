@@ -28,7 +28,7 @@ import DadosEscola from './pages/DadosEscola';
 import NotasAluno from './pages/NotasAluno';
 import FeedProfessor from './pages/FeedProfessor';
 import CadastrarFrequencia from './pages/cadastrarFrequencia';
-
+import CadastrarNotas from './pages/cadastrarNotas';
 
 export default function Routes() {
     return (
@@ -62,6 +62,7 @@ export default function Routes() {
                 <Route path="/FeedProfessor" component={FeedProfessor}/>
                 <Route path="/feedResponsavel" component={feedResponsavel} />
                 <Route path="/CadastrarFrequencia" component={CadastrarFrequencia}/>
+                <Route path="/CadastrarNotas" component={CadastrarNotas}/>
             </Switch>
         </BrowserRouter>
     );
