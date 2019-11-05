@@ -27,18 +27,7 @@ export default function CalendarioAluno() {
             console.log(disciplina.data);
             setNotas(response.data);
            
-         
-           
-            //setDisciplinaProfessor(vetDisciplina);
-           // console.log(disciplinaProfessor);
-            //fazer a parte que pega todos os nomes das cdiciplinas e colocar na tela de notas
-            //const Disciplinas = await api.get('/disciplinaProfessor/list', { headers: { _id: response } });
-//            console.log(Disciplinas);
-            //fazer um for pra percorrer todas as posições do vetor de notas
-            //para conseguirmos usar para colocar no tela de notas aluno
-
-         
-           // setDisciplinaProfessor(Disciplinas.data);
+        
           
         }
 

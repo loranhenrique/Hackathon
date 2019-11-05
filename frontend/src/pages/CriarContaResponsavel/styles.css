@@ -23,7 +23,7 @@
   .contentCriarConta {
     position: relative;
     margin: auto;
-    width: 80%;
+    width: auto;
     height: 640px;
     background: #fff;
     opacity: 0.97;
