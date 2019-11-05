@@ -256,7 +256,7 @@ const Routes = createAppContainer(
         VacinacaoCadastro,
     },
         {
-            initialRouteName: "menuResponsavel"
+            initialRouteName: "Login"
         })
 );
 
