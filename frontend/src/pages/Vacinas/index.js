@@ -49,7 +49,7 @@ export default function CriarContaResponsavel({ history }) {
                             onChange={event => setAluno(event.target.value)}
                         />
                         <button type="submit" className="btnConfirmar">CONFIRMAR</button>
-                        <Link to="/feedescola"><button type="submit" className="btnVoltar">VOLTAR</button></Link>
+                        <Link to="/feedresponsavel"><button type="submit" className="btnVoltar">VOLTAR</button></Link>
                         
                         </fieldset>
                     </form>
