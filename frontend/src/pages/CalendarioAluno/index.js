@@ -9,7 +9,6 @@ import calendario2 from '../../assets/calendario2.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
-import escola_icon from '../../assets/escola.png';
 
 //import colorido from '../../assets/house_colorida.png';
 
@@ -67,7 +66,7 @@ export default function CalendarioAluno(){
                             <li key={falta._id}>
                                 <span>Dia:</span>                           
                                 <span>{falta.dia}</span>
-                           
+
                             </li>
                         ))}
                        

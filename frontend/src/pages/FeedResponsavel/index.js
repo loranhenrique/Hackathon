@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState} from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import './styles.css';
@@ -11,13 +11,11 @@ import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';
 import person from '../../assets/person.png';
 import person2 from '../../assets/person2.png';
-import escola_icon from '../../assets/escola.png';
 import escola2 from '../../assets/escola2.png';
-import camera from '../../assets/camera.svg';
+
 
 
 export default function FeedResponsavel() {
-    const [foto, setFoto] = useState(null);
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
     const [vacina, setVacina] = useState('');
@@ -26,10 +24,6 @@ export default function FeedResponsavel() {
     function handleSubmit(){
 
     }
-
-    const preview = useMemo(() => {
-        return foto ? URL.createObjectURL(foto) : null;
-      }, [foto])
 
     useEffect(() => {
         async function loadAvisos() {
