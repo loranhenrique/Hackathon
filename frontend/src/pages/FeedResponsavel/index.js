@@ -18,7 +18,7 @@ import escola2 from '../../assets/escola2.png';
 export default function FeedResponsavel() {
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
-    const [vacina, setVacina] = useState('');
+  
   
 
     function handleSubmit(){
@@ -28,14 +28,12 @@ export default function FeedResponsavel() {
     useEffect(() => {
         async function loadAvisos() {
             const responsavel_id = localStorage.getItem('responsavel');
-
-            const response = await api.get('/avisos/EscolaAviso', { headers: { responsavel_id } });
-            const escolaDoresponse = response.data[0].escola_id + "";
-
-            const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
-
-            setEscola(Escolas.data);
-            setAvisos(response.data);
+            const avisosEscola = await api.get('/avisos/AvisoEscolaFilho',{headers : {responsavel_id}});          
+            const idEscola = avisosEscola.data[0].escola_id;           
+           const getEscola = await api.get('/escolas/list',{headers : {_id:idEscola}});
+           
+            setAvisos(avisosEscola.data);
+            setEscola(getEscola.data);
         }
         loadAvisos();
     }, []);
@@ -52,41 +50,7 @@ export default function FeedResponsavel() {
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link>
                     </nav>
                 </div>
-                <div className="tarefas">
-                    {/*Aqui será listada todas as tarefas que o aluno administrar */}
-                    <ul>
-                        <li>
-                            <h4>
-                                PROVAS
-                    </h4>
-                            <span>
-                                5
-                    </span>
-                        </li>
-                        <li>
-                            <h4>
-                                PROVAS
-                    </h4>
-                            <span>
-                                5
-                    </span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="campo-vac">
-                    <div className="campo-vac2">
-                    <img className="icon_vac" src={person2}/>
-                    <form onSubmit={handleSubmit}>
-                    <input type="Text"
-                            id="vacina"
-                            placeholder="Adicione as vacinas e restrições médicas do seu filho"
-                            value={vacina}
-                            onChange={event => setVacina(event.target.value)}             
-                        />  
-                        <button type="submit"className="btnNova">Adicionar</button>
-                        </form>    
-      </div>
-                </div>
+           
       
                 <div className="posts">
                     <ul className="feed_post">

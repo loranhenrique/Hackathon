@@ -108,4 +108,17 @@ router.get('/AvisoEscola', async (req, res) =>{
     return res.json(avisos);
 });
 
+router.get('/AvisoEscolaFilho', async (req, res) =>{
+    const { responsavel_id } = req.headers;
+
+  
+   
+    let user = await Aluno.findOne({ responsavel_id});
+    let turma = await Turma.findOne({ _id: user.turma_id });
+    let serie = await Serie.findOne({ _id: turma.series_id });
+    let escola = await Escola.findOne({ _id: serie.escola_id });
+    let avisos = await Avisos.find({ escola_id: escola._id });    
+    return res.json(avisos);
+});
+
 module.exports = app => app.use('/avisos', router);
