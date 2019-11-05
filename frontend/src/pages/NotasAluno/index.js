@@ -21,21 +21,13 @@ export default function CalendarioAluno() {
             const aluno_id = localStorage.getItem('aluno');
 
             const response = await api.get('/notas/notasAluno', { headers: { aluno_id } });
-         
+            const id_disciplina = response.data[0].disciplinaProfessor_id.disciplina_id;
+            console.log(id_disciplina);
+            const disciplina = await api.get('/disciplina/list',{headers:{disciplina_id:id_disciplina}});
+            console.log(disciplina.data);
             setNotas(response.data);
            
-         
-           
-            //setDisciplinaProfessor(vetDisciplina);
-           // console.log(disciplinaProfessor);
-            //fazer a parte que pega todos os nomes das cdiciplinas e colocar na tela de notas
-            //const Disciplinas = await api.get('/disciplinaProfessor/list', { headers: { _id: response } });
-//            console.log(Disciplinas);
-            //fazer um for pra percorrer todas as posições do vetor de notas
-            //para conseguirmos usar para colocar no tela de notas aluno
-
-         
-           // setDisciplinaProfessor(Disciplinas.data);
+        
           
         }
 

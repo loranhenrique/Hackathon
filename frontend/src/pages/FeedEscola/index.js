@@ -119,7 +119,7 @@ export default function FeedEscola() {
                         {avisos.map(aviso => (
                             <li key={aviso._id}>
                                 <img className="icon" src={escola2} alt= {escola.nome} />
-                                <span>{escola.nome}</span>
+                                <span> {escola.nome}</span>
                                  <h5>{aviso.mensagem}</h5>                               
                                 <img style={{ backgroundImage: `url(${aviso.image})`}}></img>             
                             </li>

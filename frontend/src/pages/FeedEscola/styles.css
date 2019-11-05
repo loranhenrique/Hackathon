@@ -481,6 +481,9 @@ label#foto.has-foto img {
       margin-left:17% ;      
       
   }
+  .corpo_pagina .campo-texto .campo-texto2 { 
+   display: none;
+}
   
   .corpo_pagina .menu-navigation-icons a { 
       display: block;
@@ -513,7 +516,7 @@ label#foto.has-foto img {
   }
   
   .corpo_pagina .posts li h5{
-      padding-bottom: 2.5%;
+    padding-bottom: 2.5%;
      padding-top: 5%;
      padding-left:2%;
      padding-right:2%;
@@ -528,6 +531,8 @@ label#foto.has-foto img {
       padding-bottom: 1%;
       padding-right:79%;
       margin-top:4%;
+      
+      display: inline-block;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
       font-size: 15px;
@@ -538,6 +543,7 @@ label#foto.has-foto img {
       display: inline-block;    
       font-size: 12px;
       font-weight: bold;
+     
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
      
   }

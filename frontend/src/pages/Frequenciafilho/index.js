@@ -32,7 +32,7 @@ export default function FrequenciaFilho(){
         <>
         <div className="corpo_pagina">
         <div className="menu">
-                    <nav className="menu-navigation-icons">
+                     <nav className="menu-navigation-icons">
                         <Link to="/feedresponsavel" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                         <div className="corS"><Link to="/frequenciafilho" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência filho</span></Link></div>
                         <Link to="/notasfilho" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas filho</span></Link>
