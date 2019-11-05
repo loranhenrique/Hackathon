@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, AsyncStorage, FlatList, TouchableHighlight } from 'react-native';
+import Moment from 'moment';
 
 import api from '../../services/api';
 import { SearchBar } from 'react-native-elements';
 
-class AgendaProfessor extends React.Component {
+class ListaAlunosSaude extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -49,7 +50,7 @@ class AgendaProfessor extends React.Component {
         //console.log(params);
 
         const { navigate } = this.props.navigation;
-        navigate('CadastraAgenda');
+        navigate('FisicoCadastro');
     }
 
     render() {
@@ -118,4 +119,4 @@ const style = StyleSheet.create({
 
 });
 
-export default AgendaProfessor;
+export default ListaAlunosSaude;

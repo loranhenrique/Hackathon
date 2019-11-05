@@ -37,7 +37,16 @@ class CadastraAgenda extends React.Component {
         let professor_id = this.state.professor_id;
         response = await api.post("/agenda/register", { id, dia, assunto, tipoAviso, arquivo }, { headers: { aluno_matricula, professor_id } });
 
-        console.log(response.data);
+        if(response.data != null){
+            Alert.alert(
+                "Sucesso",
+                "Dados gravados com sucesso!",
+                [
+                    { text: "Voltar", onPress: () => console.log("Agenda cadastrada") },
+                ],
+                { cancelable: true }
+            );
+        }
     }
 
     render() {
