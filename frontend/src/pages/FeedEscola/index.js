@@ -63,30 +63,7 @@ export default function FeedEscola() {
                         <Link to="/criarcontaaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Alunos</span></Link>
                     </nav>
                 </div>
-                <div className="tarefas">
-                    {/*Aqui será listada todas as tarefas que o aluno administrar */}
-                    <ul>
-                        <li>
-                            <h4>
-                                PROVAS
-                    </h4>
-                            <span>
-                                5
-                    </span>
-                        </li>
-                        <li>
-                            <h4>
-                                PROVAS
-                    </h4>
-                    <h4>
-                                PROVAS
-                    </h4>
-                            <span>
-                                5
-                    </span>
-                        </li>
-                    </ul>
-                </div>
+           
                 <div className="campo-texto">
                     <div className="campo-texto2">
                     <img className="icon" src={escola2} alt= {escola.nome} />

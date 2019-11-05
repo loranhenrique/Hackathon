@@ -33,7 +33,7 @@ export default function DadosResponsavel(){
     }, []);
 
     return(
-        
+        <>
         <div className="corpo_pagina">
             <div className="menu">
                  <nav className="menu-navigation-icons">
@@ -61,9 +61,9 @@ export default function DadosResponsavel(){
         
                       
         </div>
-    
+    </>
     );
 
-
+    
 
 }

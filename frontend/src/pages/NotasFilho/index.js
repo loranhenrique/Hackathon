@@ -41,27 +41,7 @@ export default function NotasFilho(){
                         <Link to="/dadosresponsavel" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link>
                     </nav>
                 </div>
-            <div className="tarefas">
-            {/*Aqui será listada todas as tarefas que o aluno administrar */}
-                <ul>
-                    <li>
-                    <h4>
-                        PROVAS
-                    </h4>
-                    <span>
-                        5
-                    </span>
-                    </li>
-                    <li>
-                    <h4>
-                        PROVAS
-                    </h4>
-                    <span>
-                        5
-                    </span>
-                    </li>
-                </ul>
-            </div>
+       
             <div className="calendario">
                  <h3>Notas</h3>
                 <ul>

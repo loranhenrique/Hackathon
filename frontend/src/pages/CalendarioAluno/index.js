@@ -34,7 +34,7 @@ export default function CalendarioAluno(){
                     <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home"/><span>Inicio</span></Link> 
                    <div className="corS"><Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario2} alt="calendario"/><span>Frequência</span></Link></div>
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas"/><span>Notas</span></Link>
-                    <Link to="/aulasaluno" className="menu-icon"><img className="aulas"src={aulas} alt="aulasDoAluno"/><span>Aulas</span></Link>
+                   
                     <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="dadosAluno"/><span>Dados Pessoais</span></Link>
                 </nav>
             </div>
