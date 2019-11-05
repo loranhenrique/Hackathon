@@ -23,10 +23,11 @@ router.post('/register', async (req, res) => {
     const { disciplinaProfessor_id } = req.body;
     const { aluno_id } = req.headers;
 
+  
     const professor = await Professor.findById(professor_id);
-
+    console.log(professor);
     const disciplinaProfessor = await DisciplinaProfessor.findById(disciplinaProfessor_id);
-
+   // console.log(disciplinaProfessor);
     const aluno = await Aluno.findById(aluno_id);
 
     try{

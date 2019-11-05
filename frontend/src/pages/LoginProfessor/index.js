@@ -13,8 +13,8 @@ export default function LoginProfessor({ history }) {
 
         const response = await api.post('/professor/authenticate', { matricula, senha });
 
-        const { _id } = response.data;
-
+        const { _id } = response.data.professor;       
+        
         localStorage.setItem('professor', _id);
 
         history.push('/FeedProfessor');

@@ -26,7 +26,8 @@ import CalendarioAluno from './pages/CalendarioAluno';
 import DadosAluno from './pages/DadosAluno';
 import DadosEscola from './pages/DadosEscola';
 import NotasAluno from './pages/NotasAluno';
-
+import FeedProfessor from './pages/FeedProfessor';
+import CadastrarFrequencia from './pages/cadastrarFrequencia';
 
 
 export default function Routes() {
@@ -58,8 +59,9 @@ export default function Routes() {
                 <Route path="/DadosAluno" component={DadosAluno} />
                 <Route path="/DadosEscola" component={DadosEscola} />
                 <Route path="/NotasAluno" component={NotasAluno} />
+                <Route path="/FeedProfessor" component={FeedProfessor}/>
                 <Route path="/feedResponsavel" component={feedResponsavel} />
-                
+                <Route path="/CadastrarFrequencia" component={CadastrarFrequencia}/>
             </Switch>
         </BrowserRouter>
     );
