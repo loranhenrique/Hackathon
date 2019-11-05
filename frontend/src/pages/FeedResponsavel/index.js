@@ -43,11 +43,11 @@ export default function FeedResponsavel() {
             <div className="corpo_pagina">
                 <div className="menu">
                     <nav className="menu-navigation-icons">
-                        <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
+                        <Link to="/feedresponsavel" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                         <Link to="/frequenciafilho" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência filho</span></Link>
-                        <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas filho</span></Link>
+                        <Link to="/notasfilho" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas filho</span></Link>
                         <Link to="/vacinas" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Vacinas</span></Link>
-                        <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link>
+                        <Link to="/dadosresponsavel" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link>
                     </nav>
                 </div>
            

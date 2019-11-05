@@ -6,24 +6,25 @@ import './styles.css';
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario2.png';
-import notas from '../../assets/notas.png';
+import notasImg from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
 
 //import colorido from '../../assets/house_colorida.png';
 
-export default function FrequenciaFilho(){
-    const [faltas, setFaltas] = useState([]);
+export default function NotasFilho(){
+    const [notas, setNotas] = useState([]);
     
     useEffect(() => {
         async function loadAvisos() {
            
 
            const responsavel_id = localStorage.getItem('responsavel');
-         console.log(responsavel_id);
+      //   console.log(responsavel_id);
 
-            const response = await api.get('/faltas/faltasalunopai', { headers: { responsavel_id }});          
-            setFaltas(response.data);
+            const response = await api.get('/notas/notasAlunoFilho', { headers: { responsavel_id }});         
+            console.log(response); 
+            setNotas(response.data);
         }
         loadAvisos();
     }, []);
@@ -35,7 +36,7 @@ export default function FrequenciaFilho(){
                     <nav className="menu-navigation-icons">
                         <Link to="/feedresponsavel" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                         <Link to="/frequenciafilho" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência filho</span></Link>
-                        <Link to="/notasfilho" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas filho</span></Link>
+                        <Link to="/notasfilho" className="menu-icon"><img className="notas" src={notasImg} alt="notas" /><span>Notas filho</span></Link>
                         <Link to="/vacinas" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Vacinas</span></Link>
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link>
                     </nav>
@@ -62,12 +63,12 @@ export default function FrequenciaFilho(){
                 </ul>
             </div>
             <div className="calendario">
-                 <h3>Faltas</h3>
+                 <h3>Notas</h3>
                 <ul>
-                {faltas.map(falta => (
-                            <li key={falta._id}>
-                                <span>Dia:</span>                           
-                                <span>{falta.dia}</span>
+                {notas.map(nota => (
+                            <li key={nota._id}>
+                                <span>Nota:</span>                           
+                                <span>{nota.nota}</span>
 
                             </li>
                         ))}
@@ -81,7 +82,4 @@ export default function FrequenciaFilho(){
         </div>
         </>
     );
-
-
-
 }
