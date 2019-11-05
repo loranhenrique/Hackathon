@@ -1,5 +1,3 @@
-
-
 import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
@@ -8,8 +6,7 @@ import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
-import person from '../../assets/person2.png';
-import escola_icon from '../../assets/escola.png';
+import person from '../../assets/person2.png';  
 import api from '../../services/api';
 
 
@@ -44,8 +41,7 @@ export default function CalendarioAluno(){
                     <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                     <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência</span></Link>
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
-                    <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
-                    <div className="cor"><Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link></div>
+                    <div className="corS"><Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link></div>
                 </nav>
             </div>
             <div className="tarefas">
@@ -71,8 +67,7 @@ export default function CalendarioAluno(){
             </div>
             <div className="dadosAluno">
             <fieldset class="ConjuntodeCampos">
-                    <legend class="escolha">Dados básicos de cadastro</legend>
-                <h3>Dados Pessoais</h3>
+                    <legend class="escolha">Dados do Pessoais</legend>
                <label>Matrícula: <span>{dados.matricula}</span></label><br></br>
                <label>Nome:<span>{dados.nome}</span></label><br></br>
                <label>E-mail: <span>{dados.email}</span></label><br></br>
@@ -82,8 +77,7 @@ export default function CalendarioAluno(){
             </div>
                <div className="dadosAluno2">
             <fieldset class="ConjuntodeCampos2">
-                    <legend class="escolha2">Dados básicos de cadastro</legend>
-               <h3>Dados do Responsável</h3>
+                    <legend class="escolha2">Dados do Responsável</legend>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
                <label>E-mail: <span>{responsavel.email}</span></label><br></br>
@@ -93,10 +87,10 @@ export default function CalendarioAluno(){
             </div>
                <div className="dadosAluno3">
             <fieldset class="ConjuntodeCampos3">
-                    <legend class="escolha3">Dados básicos de cadastro</legend>
-               <h3>Dados da Escola</h3>
+                    <legend class="escolha3">Dados da Escola</legend>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
+               <label>E-mail: <span>{responsavel.email}</span></label><br></br>
                <label>Endereço: <span>{escola.endereco + ", "+  escola.bairro + " - " + escola.municipio}</span></label><br></br>
 
                </fieldset>
@@ -105,7 +99,4 @@ export default function CalendarioAluno(){
         </div>
         </>
     );
-
-
-
 }

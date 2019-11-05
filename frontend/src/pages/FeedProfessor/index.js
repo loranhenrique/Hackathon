@@ -6,16 +6,10 @@ import './styles.css';
 export default function FeedProfessor() {
     return (
         <>
-            <div className="corpo_pagina">
                 <div className="menu">
-                    <nav className="menu-navigation">
-                        <Link to="/CadastrarFrequencia" className="menu-icon"><span>Cadastrar Frequências</span></Link>                        
-                        <Link to="/CadastrarNotas" className="menu-icon"><span>Cadastrar Notas</span></Link>                       
-                      
-                    </nav>
+                        <Link to="/CadastrarFrequencia" className="Frequencia"><span>Cadastrar Frequências</span></Link>                        
+                        <Link to="/CadastrarNotas" className="Notas"><span>Cadastrar Notas</span></Link>                       
                 </div>
-
-            </div>
         </>
     );
 }

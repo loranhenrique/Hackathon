@@ -52,7 +52,7 @@ export default function CalendarioAluno() {
                     <nav className="menu-navigation-icons">
                         <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
                         <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario} /><span>Frequência</span></Link>
-                       <div className="cor"><Link to="/notasaluno" className="menu-icon"><img className="notas" src={notasImg} /><span>Notas</span></Link></div>
+                       <div className="corS"><Link to="/notasaluno" className="menu-icon"><img className="notas" src={notasImg} /><span>Notas</span></Link></div>
                         <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} /><span>Aulas</span></Link>
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} /><span>Dados Pessoais</span></Link>        
                     </nav>

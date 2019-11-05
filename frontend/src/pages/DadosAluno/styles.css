@@ -1,38 +1,121 @@
+
+
 .corpo_pagina .dadosAluno{
-    width: 30%;
-    margin:auto;
+  width: 30%;
+  margin:auto;
 }
 
 .corpo_pagina .cor span{
-    color:#2CDBC7;
-  }
+  color:#2CDBC7;
+}
 
 .dadosAluno .ConjuntodeCampos {
-    position: relative;
-    margin: auto;
-    border: 1px solid #2CDBC7;
-    height: 20%;
-    width: 175%;
-    right: 65%;
-    border-radius: 25px;
-    padding-top: 10px ;
-    min-width: 100px;
-    min-height: 100px;
-  }
+  position: relative;
+  top: 60px;
+  margin: auto;
+  border: 1px solid #2CDBC7;
+  height: 20%;
+  width: 175%;
+  right: 65%;
+  border-radius: 25px;
+  padding-top: 10px ;
+  min-width: 100px;
+  min-height: 100px;
+}
 
-  .escolha {
-    font-size: 1.2em !important;
-    text-align: center;
-  }
+.dadosAluno .ConjuntodeCampos label {
+  position: relative;
+  left: 3%;
+  top: 1.5%;
+}
 
-  .ConjuntodeCampos{
-      border:none;
-  }
+.dadosAluno .ConjuntodeCampos label span {
+  position: relative;
+  left: 0.5%;
+  top: 1.5%;
+  font-weight: bold;
+}
 
-  .ConjuntodeCampos2{
+.escolha {
+  font-size: 1.2em !important;
+  text-align: center;
+}
+
+
+
+.dadosAluno2 .ConjuntodeCampos2 {
+  position: relative;
+  top: 110px;
+  margin: auto;
+  border: 1px solid #2CDBC7;
+  height: 20%;
+  width: 52.5%;
+  left: 3.8%;
+  border-radius: 25px;
+  padding-top: 10px ;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.dadosAluno2 .ConjuntodeCampos2 label {
+  position: relative;
+  left: 3%;
+  top: 1.5%;
+}
+
+.dadosAluno2 .ConjuntodeCampos2 label span {
+  position: relative;
+  left: 0.5%;
+  top: 1.5%;
+  font-weight: bold;
+}
+
+.escolha2 {
+  font-size: 1.2em !important;
+  text-align: center;
+}
+
+
+.dadosAluno3 .ConjuntodeCampos3 {
+  position: relative;
+  top: 160px;
+  margin: auto;
+  border: 1px solid #2CDBC7;
+  height: 20%;
+  width: 52.5%;
+  right: 8%;
+  border-radius: 25px;
+  padding-top: 10px ;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.dadosAluno3 .ConjuntodeCampos3 label {
+  position: relative;
+  left: 3%;
+  top: 1.5%;
+}
+
+.dadosAluno3 .ConjuntodeCampos3 label span {
+  position: relative;
+  left: 0.5%;
+  top: 1.5%;
+  font-weight: bold;
+}
+
+.escolha3 {
+  font-size: 1.2em !important;
+  text-align: center;
+}
+
+.ConjuntodeCampos{
     border:none;
 }
 
+.ConjuntodeCampos2{
+  border:none;
+}
+
 .ConjuntodeCampos3{
-    border:none;
+  border:none;
 }

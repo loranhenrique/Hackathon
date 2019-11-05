@@ -7,7 +7,7 @@ import escola_icon from '../../assets/escola.png';
 import escola2 from '../../assets/escola2.png';
 
 //importando imagens que será usada no menu como logo
-import home from '../../assets/home.png';
+import home from '../../assets/home2.png';
 import notas from '../../assets/notas.png';
 import api from '../../services/api';
 import './styles.css';
@@ -57,7 +57,7 @@ export default function FeedEscola() {
             <div className="corpo_pagina">
                 <div className="menu">
                     <nav className="menu-navigation-icons">
-                        <Link to="/feedEscola" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
+                        <div className="corS"><Link to="/feedEscola" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link></div>
                         <Link to="/criarContaProfessor" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Professores</span></Link>
                         <Link to="/criarcontaresponsavel" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Responsaveis</span></Link>
                         <Link to="/criarcontaaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Alunos</span></Link>

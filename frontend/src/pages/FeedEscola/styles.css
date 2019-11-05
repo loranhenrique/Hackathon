@@ -191,12 +191,13 @@ body{
   height: 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background: #545ea3;
+  background: #2CDBC7;
   animation-name:moverInput;
   animation-duration: 500ms;
   animation-fill-mode: backwards;
   text-align: center;
-  color: #ffffff;
+  font-weight: 600;
+  color: #000000;
 }
 
 label#foto {

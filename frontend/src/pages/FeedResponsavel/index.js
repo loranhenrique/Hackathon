@@ -5,7 +5,7 @@ import './styles.css';
 
 
 //importando imagens que será usada no menu como logo
-import home from '../../assets/home.png';
+import home from '../../assets/home2.png';
 import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';
@@ -43,7 +43,7 @@ export default function FeedResponsavel() {
             <div className="corpo_pagina">
                 <div className="menu">
                     <nav className="menu-navigation-icons">
-                        <Link to="/feedresponsavel" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
+                        <div className="corS"><Link to="/feedresponsavel" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link></div>
                         <Link to="/frequenciafilho" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência filho</span></Link>
                         <Link to="/notasfilho" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas filho</span></Link>
                         <Link to="/vacinas" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Vacinas</span></Link>
