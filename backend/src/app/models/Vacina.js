@@ -10,7 +10,7 @@ const VacinaSchema = new mongoose.Schema({
         type: Date,
         require: true,
     },
-    aluno_matricula: {
+    aluno_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Aluno'
     },

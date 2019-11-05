@@ -9,7 +9,6 @@ import calendario2 from '../../assets/calendario2.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
 import person from '../../assets/person.png';
-import escola_icon from '../../assets/escola.png';
 
 //import colorido from '../../assets/house_colorida.png';
 
@@ -37,7 +36,6 @@ export default function CalendarioAluno(){
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas"/><span>Notas</span></Link>
                     <Link to="/aulasaluno" className="menu-icon"><img className="aulas"src={aulas} alt="aulasDoAluno"/><span>Aulas</span></Link>
                     <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="dadosAluno"/><span>Dados Pessoais</span></Link>
-                    <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dadosEscola"/><span>Dados Escola</span></Link>
                 </nav>
             </div>
             <div className="tarefas">
@@ -68,7 +66,7 @@ export default function CalendarioAluno(){
                             <li key={falta._id}>
                                 <span>Dia:</span>                           
                                 <span>{falta.dia}</span>
-                           
+
                             </li>
                         ))}
                        

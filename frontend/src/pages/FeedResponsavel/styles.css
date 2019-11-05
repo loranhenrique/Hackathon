@@ -185,7 +185,7 @@ body{
     position: relative;
     left: 10%;
     bottom: 20px;
-    width: 85%;
+    width: 73%;
     height: 40px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -196,33 +196,21 @@ body{
     text-align: center;
 }
 
-label#foto {
+
+.btnNova{
     position: relative;
-    border-radius: 10px;
-    margin-left: 89%;
-    bottom: 70px;
-    border: 1px solid #ddd;
-    background: #f1f1f1;
-    background-size: cover;
-    cursor: pointer;
+    margin-left: 84%;
+    bottom: 60px;
+    width: 15%;
     height: 40px;
-    width: 8.8%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  label#foto input {
-    display: none;
-  }
-  
-  label#foto.has-foto {
-    border: 0;
-  }
-  
-  label#foto.has-foto img {
-    display: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #545ea3;
+    animation-name:moverInput;
+    animation-duration: 500ms;
+    animation-fill-mode: backwards;
+    text-align: center;
+    color: #ffffff;
   }
 
 @media(max-width:600px)and (min-width:300px)
@@ -282,7 +270,7 @@ label#foto {
            margin-bottom:1%;
         }
         .corpo_pagina .posts li span{
-            color: #545ea3;
+            color: #2CDBC7;
             padding-bottom: 1%;
             padding-right:79%;
             margin-top:4%;
@@ -292,6 +280,11 @@ label#foto {
             float: right;
             margin-bottom:1%;
          }
+
+         .corpo_pagina .corSpa span{
+            color:#2CDBC7;
+          }
+          
         .corpo_pagina .menu-navigation-icons span {
             display: inline-block;    
             font-size: 12px;
@@ -391,21 +384,6 @@ label#foto {
             box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
         }
         
-        #aviso_com_foto{
-            position: relative;
-            left: 12%;
-            bottom: 30px;
-            width: 75%;
-            height: 40px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #f1f1f1;
-            animation-name:moverInput;
-            animation-duration: 500ms;
-            animation-fill-mode: backwards;
-            text-align: center;
-        }
-        
         .corpo_pagina .campo-vacina .campo-vacina2{
             position: relative;
             background: #ffffff;
@@ -433,6 +411,23 @@ label#foto {
             animation-fill-mode: backwards;
             text-align: center;
         }
+
+        .btnNova{
+            position: relative;
+            margin-left: 83%;
+            bottom: 50px;
+            width: 15%;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #545ea3;
+            animation-name:moverInput;
+            animation-duration: 500ms;
+            animation-fill-mode: backwards;
+            text-align: center;
+            color: #ffffff;
+          }
+
         
         label#foto {
             position: relative;
@@ -643,6 +638,22 @@ label#foto {
         animation-fill-mode: backwards;
         text-align: center;
     }
+
+    .btnNova{
+        position: relative;
+        margin-left: 84%;
+        bottom: 60px;
+        width: 15%;
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: #545ea3;
+        animation-name:moverInput;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        text-align: center;
+        color: #ffffff;
+      }
     
     label#foto {
         position: relative;

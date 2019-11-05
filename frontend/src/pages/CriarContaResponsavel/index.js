@@ -22,13 +22,11 @@ export default function CriarContaResponsavel({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/responsavel', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
+        const response = await api.post('/responsavel/register', { matricula, nome, telefone, email, senha, logradouro, bairro, municipio, cidade, cep });
 
-        const { _id } = response.data;
+        console.log(response);
 
-        localStorage.setItem('responsavel', _id);
-
-        history.push('/LoginResponsavel');
+        history.push('/feedescola');
     }
 
     return (
@@ -110,8 +108,10 @@ export default function CriarContaResponsavel({ history }) {
                             onChange={event => setCep(event.target.value)}
                         />
                         </div>
+                        
                         <button type="submit" className="btnConfirmar">CONFIRMAR</button>
-                       <Link to="LoginAluno"><button type="submit" className="btnVoltar">VOLTAR</button></Link>
+                        <Link to="/feedescola"><button type="submit" className="btnVoltar">VOLTAR</button></Link>
+                        
                         </fieldset>
                     </form>
                 </div>

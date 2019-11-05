@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, AsyncStorage, FlatList, TouchableHighlight } from 'react-native';
-import Moment from 'moment';
 
 import api from '../../services/api';
 import { SearchBar } from 'react-native-elements';
@@ -57,6 +56,7 @@ class AgendaProfessor extends React.Component {
         return (
             <View style={style.form}>
                 <Text style={style.titulo}>Agenda vai/vem</Text>
+                <Text style={style.titulo}>Selecione um aluno</Text>
                 <FlatList
                     data={this.state.listaAlunos}
                     renderItem={({ item }) => {

@@ -174,6 +174,17 @@ router.get('/listAll', async (req, res) => {
         }
     });
 
+    router.post('/listAlunoResponsavel', async(req,res) => {
+        const { responsavel_id } = req.body;
+
+        try{           
+            const aluno = await Aluno.find({ responsavel_id });
+            return res.json(aluno);
+        }catch(err){
+            console.log(err);
+        }
+    });
+
     router.get('/list', async(req,res) => {
         const { _id } = req.headers;
 

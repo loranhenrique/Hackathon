@@ -38,7 +38,7 @@ class DadosAluno extends React.Component {
 
         //Busca informações da escola e turma
         let _id = this.state.series_id;
-        const responseEscola = await api.post("/series/listSerie", { _id });
+        const responseEscola = await api.get("/series/listSerie", {headers: {_id }});
         this.setState({ dadosSerie: responseEscola.data }); //Objeto series
         this.setState({ dadosEscola: responseEscola.data.escola_id }); //Objeto escola_id
         this.setState({ escola_id: responseEscola.data.escola_id._id }); 

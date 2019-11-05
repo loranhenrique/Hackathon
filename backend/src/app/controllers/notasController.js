@@ -72,4 +72,17 @@ router.get('/notasAluno', async (req, res) => {
     }
 });
 
+router.get('/notasAlunoFilho', async (req, res) => {
+    try {
+        const { responsavel_id } = req.headers;
+        let alunos = await Aluno.find({ responsavel_id });  
+        console.log(alunos);     
+        let notas = await Notas.find({ aluno_matricula: alunos._id});    
+       
+        return res.json(notas);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 module.exports = app => app.use('/notas', router);

@@ -23,10 +23,11 @@ router.post('/register', async (req, res) => {
     const { disciplinaProfessor_id } = req.body;
     const { aluno_id } = req.headers;
 
+  
     const professor = await Professor.findById(professor_id);
-
+    console.log(professor);
     const disciplinaProfessor = await DisciplinaProfessor.findById(disciplinaProfessor_id);
-
+   // console.log(disciplinaProfessor);
     const aluno = await Aluno.findById(aluno_id);
 
     try{
@@ -77,6 +78,21 @@ router.get('/faltasaluno', async(req,res) => {
         return res.json(faltas);
 
     }catch(err){
+        return res.status(400).send({ error: 'Erro ao buscar as faltas do aluno'});
+    }
+});
+
+
+router.get('/faltasalunopai', async(req,res) => {
+    try{
+        const { responsavel_id } = req.headers;
+        let alunos = await Aluno.find({ responsavel_id });       
+        let faltas = await Faltas.find({ aluno_matricula: alunos._id});    
+       
+        return res.json(faltas);
+
+    }catch(err){
+        console.log(err);
         return res.status(400).send({ error: 'Erro ao buscar as faltas do aluno'});
     }
 });

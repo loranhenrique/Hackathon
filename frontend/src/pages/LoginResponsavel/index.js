@@ -13,8 +13,8 @@ export default function LoginProfessor({ history }) {
 
         const response = await api.post('/responsavel/authenticate', { matricula, senha });
 
-        const { _id } = response.data;
-
+        const { _id }  = response.data.responsavel;
+        
         localStorage.setItem('responsavel', _id);
 
         history.push('/FeedResponsavel');

@@ -8,7 +8,7 @@ import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
 import notas from '../../assets/notas.png';
 import aulas from '../../assets/aulas_quadro.png';    
-import person from '../../assets/person.png';
+import person from '../../assets/person2.png';
 import escola_icon from '../../assets/escola.png';
 import api from '../../services/api';
 
@@ -46,7 +46,6 @@ export default function CalendarioAluno(){
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
                     <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
                     <div className="cor"><Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span></Link></div>
-                    <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dadosEscola"/><span>Dados Escola</span></Link>
                 </nav>
             </div>
             <div className="tarefas">
@@ -71,22 +70,36 @@ export default function CalendarioAluno(){
                 </ul>
             </div>
             <div className="dadosAluno">
+            <fieldset class="ConjuntodeCampos">
+                    <legend class="escolha">Dados básicos de cadastro</legend>
                 <h3>Dados Pessoais</h3>
                <label>Matrícula: <span>{dados.matricula}</span></label><br></br>
                <label>Nome:<span>{dados.nome}</span></label><br></br>
                <label>E-mail: <span>{dados.email}</span></label><br></br>
                <label>Telefone: <span>{dados.telefone}</span></label><br></br>
-              
+               
+               </fieldset>
+            </div>
+               <div className="dadosAluno2">
+            <fieldset class="ConjuntodeCampos2">
+                    <legend class="escolha2">Dados básicos de cadastro</legend>
                <h3>Dados do Responsável</h3>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
                <label>E-mail: <span>{responsavel.email}</span></label><br></br>
                <label>Endereço: <span>{responsavel.logradouro + ", " + responsavel.cidade + " - " + responsavel.municipio}</span></label><br></br>
                
+               </fieldset>
+            </div>
+               <div className="dadosAluno3">
+            <fieldset class="ConjuntodeCampos3">
+                    <legend class="escolha3">Dados básicos de cadastro</legend>
                <h3>Dados da Escola</h3>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
                <label>Endereço: <span>{escola.endereco + ", "+  escola.bairro + " - " + escola.municipio}</span></label><br></br>
+
+               </fieldset>
             </div>
          
         </div>

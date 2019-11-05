@@ -9,7 +9,9 @@ import Feed from './pages/Feed';
 import FeedEscola from './pages/FeedEscola';
 import FeedResponsavel from './pages/FeedResponsavel';
 import CriarContaResponsavel from './pages/CriarContaResponsavel';
+import CriarContaProfessor from './pages/CriarContaProfessor';
 import CriarContaEscola from './pages/CriarContaEscola';
+import CriarContaAluno from './pages/CriarContaAluno';
 import RecuperarSenhaAluno from './pages/RecuperarSenhaAluno';
 import RecuperarSenhaEscola from './pages/RecuperarSenhaEscola';
 import RecuperarSenhaProfessor from './pages/RecuperarSenhaProfessor';
@@ -19,12 +21,17 @@ import ConfirmarSenhaEscola from './pages/ConfirmarSenhaEscola';
 import ConfirmarSenhaResponsavel from './pages/ConfirmarSenhaResponsavel';
 import ConfirmarSenhaProfessor from './pages/ConfirmarSenhaProfessor'; 
 import AulasAluno from './pages/AulasAluno';
+import Vacinas from './pages/Vacinas';
+import Frequenciafilho from './pages/Frequenciafilho';
+import Notasfilho from './pages/NotasFilho';
+import feedResponsavel from './pages/FeedResponsavel';
 import CalendarioAluno from './pages/CalendarioAluno';
 import DadosAluno from './pages/DadosAluno';
 import DadosEscola from './pages/DadosEscola';
 import NotasAluno from './pages/NotasAluno';
-
-
+import FeedProfessor from './pages/FeedProfessor';
+import CadastrarFrequencia from './pages/cadastrarFrequencia';
+import CadastrarNotas from './pages/cadastrarNotas';
 
 export default function Routes() {
     return (
@@ -36,10 +43,14 @@ export default function Routes() {
                 <Route path="/LoginProfessor" component={LoginProfessor} />
                 <Route path="/LoginEscola" component={LoginEscola} />
                 <Route path="/Feed" component={Feed} />
+                <Route path="/Frequenciafilho" component={Frequenciafilho} />
+                <Route path="/Notasfilho" component={Notasfilho} />
                 <Route path="/FeedEscola" component={FeedEscola} />
                 <Route path="/FeedResponsavel" component={FeedResponsavel} />
                 <Route path="/CriarContaResponsavel" component={CriarContaResponsavel} />
+                <Route path="/CriarContaProfessor" component={CriarContaProfessor} />
                 <Route path="/CriarContaEscola" component={CriarContaEscola} />
+                <Route path="/CriarContaAluno" component={CriarContaAluno} />
                 <Route path="/RecuperarSenhaAluno" component={RecuperarSenhaAluno} />
                 <Route path="/RecuperarSenhaEscola" component={RecuperarSenhaEscola} />
                 <Route path="/RecuperarSenhaProfessor" component={RecuperarSenhaProfessor }/>
@@ -51,9 +62,13 @@ export default function Routes() {
                 <Route path="/AulasAluno" component={AulasAluno} />
                 <Route path="/CalendarioAluno" component={CalendarioAluno} />
                 <Route path="/DadosAluno" component={DadosAluno} />
+                <Route path="/Vacinas" component={Vacinas} />
                 <Route path="/DadosEscola" component={DadosEscola} />
                 <Route path="/NotasAluno" component={NotasAluno} />
-                
+                <Route path="/FeedProfessor" component={FeedProfessor}/>
+                <Route path="/feedResponsavel" component={feedResponsavel} />
+                <Route path="/CadastrarFrequencia" component={CadastrarFrequencia}/>
+                <Route path="/CadastrarNotas" component={CadastrarNotas}/>
             </Switch>
         </BrowserRouter>
     );

@@ -20,7 +20,6 @@ class AgendaAluno extends React.Component {
         this.setState({ aluno_matricula: await AsyncStorage.getItem('aluno_id') });
         let aluno_matricula = this.state.aluno_matricula;
         const response = await api.get("/agenda/agendaAluno", {headers : {aluno_matricula} });
-        console.log(response.data);
         this.setState({ listaAgenda: response.data });
     }
 
