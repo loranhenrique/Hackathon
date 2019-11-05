@@ -17,7 +17,7 @@ export default function CadastrarFrequencia({ history }) {
         event.preventDefault();
         
     
-        const response = await api.post('/faltas/register', { dia,disciplinaProfessor_id:disciplinaProfessor,headers : {professor_id:localStorage.getItem('professor'), aluno_id : aluno}});
+        const response = await api.post('/faltas/register', { dia,disciplinaProfessor_id:disciplinaProfessor},{headers : {professor_id:localStorage.getItem('professor'), aluno_id : aluno}});
 
         console.log(response);
 

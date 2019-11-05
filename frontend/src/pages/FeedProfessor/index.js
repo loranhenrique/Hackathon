@@ -9,8 +9,8 @@ export default function FeedProfessor() {
             <div className="corpo_pagina">
                 <div className="menu">
                     <nav className="menu-navigation">
-                        <Link to="/CadastrarFrequencia" className="menu-icon"><span>Cadastrar Notas</span></Link>                        
-                        <Link to="/CadastrarFaltas" className="menu-icon"><span>Cadastrar Frequências</span></Link>                       
+                        <Link to="/CadastrarFrequencia" className="menu-icon"><span>Cadastrar Frequências</span></Link>                        
+                        <Link to="/CadastrarNotas" className="menu-icon"><span>Cadastrar Notas</span></Link>                       
                       
                     </nav>
                 </div>
