@@ -28,14 +28,12 @@ export default function FeedResponsavel() {
     useEffect(() => {
         async function loadAvisos() {
             const responsavel_id = localStorage.getItem('responsavel');
-
-            const response = await api.get('/avisos/EscolaAviso', { headers: { responsavel_id } });
-            const escolaDoresponse = response.data[0].escola_id + "";
-
-            const Escolas = await api.get('/escolas/list', { headers: { _id: escolaDoresponse } });
-
-            setEscola(Escolas.data);
-            setAvisos(response.data);
+            const avisosEscola = await api.get('/avisos/AvisoEscolaFilho',{headers : {responsavel_id}});          
+            const idEscola = avisosEscola.data[0].escola_id;           
+           const getEscola = await api.get('/escolas/list',{headers : {_id:idEscola}});
+           
+            setAvisos(avisosEscola.data);
+            setEscola(getEscola.data);
         }
         loadAvisos();
     }, []);
