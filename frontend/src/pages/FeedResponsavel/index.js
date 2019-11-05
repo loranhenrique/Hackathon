@@ -16,22 +16,16 @@ import escola2 from '../../assets/escola2.png';
 import camera from '../../assets/camera.svg';
 
 
-
-
-
 export default function FeedResponsavel() {
     const [foto, setFoto] = useState(null);
     const [avisos, setAvisos] = useState([]);
     const [escola, setEscola] = useState('');
     const [vacina, setVacina] = useState('');
-
-
-    
+  
 
     function handleSubmit(){
 
     }
-
 
     const preview = useMemo(() => {
         return foto ? URL.createObjectURL(foto) : null;
@@ -62,7 +56,6 @@ export default function FeedResponsavel() {
                         <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
                         <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Aulas</span></Link>
                         <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="meus dados"/><span>Dados Pessoais</span> </Link>
-                        <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dados escola" /><span>Dados Escola</span></Link>
                     </nav>
                 </div>
                 <div className="tarefas">
@@ -95,8 +88,9 @@ export default function FeedResponsavel() {
                             placeholder="Adicione as vacinas e restrições médicas do seu filho"
                             value={vacina}
                             onChange={event => setVacina(event.target.value)}             
-                        />
-                        </form> 
+                        />  
+                        <button type="submit"className="btnNova">Adicionar</button>
+                        </form>    
       </div>
                 </div>
       

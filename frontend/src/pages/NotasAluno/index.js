@@ -5,10 +5,12 @@ import './styles.css';
 //importando imagens que será usada no menu como logo
 import home from '../../assets/home.png';
 import calendario from '../../assets/calendario.png';
-import notasImg from '../../assets/notas.png';
+import notasImg from '../../assets/notas2.png';
 import aulas from '../../assets/aulas_quadro.png';
 import person from '../../assets/person.png';
 import escola_icon from '../../assets/escola.png';
+import escola2 from '../../assets/escola2.png';
+
 
 //import colorido from '../../assets/house_colorida.png';
 
@@ -75,8 +77,7 @@ export default function CalendarioAluno() {
                         <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario} /><span>Frequência</span></Link>
                        <div className="cor"><Link to="/notasaluno" className="menu-icon"><img className="notas" src={notasImg} /><span>Notas</span></Link></div>
                         <Link to="/aulasaluno" className="menu-icon"><img className="aulas" src={aulas} /><span>Aulas</span></Link>
-                        <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} /><span>Dados Pessoais</span></Link>
-                        <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} /><span>Dados Escola</span></Link>
+                        <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} /><span>Dados Pessoais</span></Link>        
                     </nav>
                 </div>
                 <div className="tarefas">
@@ -103,7 +104,8 @@ export default function CalendarioAluno() {
                 <div className="calendario">
                     <div className="posts">
                         <ul className="feed_post">
-                        {/*tentar chamar rota direto aqui */}
+                        <h3>Dados Pessoais</h3>
+              
 
                         </ul>
                     </div>

@@ -37,7 +37,6 @@ export default function CalendarioAluno(){
                     <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas"/><span>Notas</span></Link>
                     <Link to="/aulasaluno" className="menu-icon"><img className="aulas"src={aulas} alt="aulasDoAluno"/><span>Aulas</span></Link>
                     <Link to="/dadosaluno" className="menu-icon"><img className="person" src={person} alt="dadosAluno"/><span>Dados Pessoais</span></Link>
-                    <Link to="/dadosescola" className="menu-icon"><img className="escola_icon" src={escola_icon} alt="dadosEscola"/><span>Dados Escola</span></Link>
                 </nav>
             </div>
             <div className="tarefas">
