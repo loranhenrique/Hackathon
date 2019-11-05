@@ -1,5 +1,5 @@
 .corpo_pagina .cor span{
-  color:#3f48cc;
+  columns: #2cdbc7;
 }
 body{
   background:#f1f1f1;
@@ -66,7 +66,7 @@ body{
 }
 
 .corpo_pagina .posts li span{
-  color: #545ea3;
+  color: #2CDBC7;
   padding-bottom: 1%;
   padding-right:79%;
   margin-top:4%;

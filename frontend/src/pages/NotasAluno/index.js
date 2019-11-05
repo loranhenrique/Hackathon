@@ -84,7 +84,11 @@ export default function CalendarioAluno() {
                     <div className="posts">
                         <ul className="feed_post">
                         <h3>Dados Pessoais</h3>
-              
+                            {notas.map(nota =>(
+                                <li key={nota._id}>
+                                    <span>{nota.nota}</span>
+                                </li>
+                            ))}
 
                         </ul>
                     </div>

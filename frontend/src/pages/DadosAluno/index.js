@@ -70,22 +70,36 @@ export default function CalendarioAluno(){
                 </ul>
             </div>
             <div className="dadosAluno">
+            <fieldset class="ConjuntodeCampos">
+                    <legend class="escolha">Dados básicos de cadastro</legend>
                 <h3>Dados Pessoais</h3>
                <label>Matrícula: <span>{dados.matricula}</span></label><br></br>
                <label>Nome:<span>{dados.nome}</span></label><br></br>
                <label>E-mail: <span>{dados.email}</span></label><br></br>
                <label>Telefone: <span>{dados.telefone}</span></label><br></br>
-              
+               
+               </fieldset>
+            </div>
+               <div className="dadosAluno2">
+            <fieldset class="ConjuntodeCampos2">
+                    <legend class="escolha2">Dados básicos de cadastro</legend>
                <h3>Dados do Responsável</h3>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
                <label>E-mail: <span>{responsavel.email}</span></label><br></br>
                <label>Endereço: <span>{responsavel.logradouro + ", " + responsavel.cidade + " - " + responsavel.municipio}</span></label><br></br>
                
+               </fieldset>
+            </div>
+               <div className="dadosAluno3">
+            <fieldset class="ConjuntodeCampos3">
+                    <legend class="escolha3">Dados básicos de cadastro</legend>
                <h3>Dados da Escola</h3>
                <label>Nome: <span>{responsavel.nome}</span></label><br></br>
                <label>Telefone:<span>{responsavel.telefone}</span></label><br></br>
                <label>Endereço: <span>{escola.endereco + ", "+  escola.bairro + " - " + escola.municipio}</span></label><br></br>
+
+               </fieldset>
             </div>
          
         </div>

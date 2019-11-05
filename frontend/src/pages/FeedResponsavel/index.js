@@ -43,7 +43,7 @@ export default function FeedResponsavel() {
             <div className="corpo_pagina">
                 <div className="menu">
                     <nav className="menu-navigation-icons">
-                        <Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link>
+                       <div className="corSpa"><Link to="/feed" className="menu-icon"><img className="" src={home} alt="home" /><span>Inicio</span></Link></div>
                         <Link to="/calendarioaluno" className="menu-icon"><img className="" src={calendario}  alt="calendario"/><span>Frequência</span></Link>
                         <Link to="/notasaluno" className="menu-icon"><img className="notas" src={notas} alt="notas" /><span>Notas</span></Link>
                         <Link to="/vacinas" className="menu-icon"><img className="aulas" src={aulas} alt="aulas"/><span>Vacinas</span></Link>
