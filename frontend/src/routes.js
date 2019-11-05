@@ -22,6 +22,7 @@ import ConfirmarSenhaResponsavel from './pages/ConfirmarSenhaResponsavel';
 import ConfirmarSenhaProfessor from './pages/ConfirmarSenhaProfessor'; 
 import AulasAluno from './pages/AulasAluno';
 import Vacinas from './pages/Vacinas';
+import Frequenciafilho from './pages/Frequenciafilho';
 import feedResponsavel from './pages/FeedResponsavel';
 import CalendarioAluno from './pages/CalendarioAluno';
 import DadosAluno from './pages/DadosAluno';
@@ -41,6 +42,7 @@ export default function Routes() {
                 <Route path="/LoginProfessor" component={LoginProfessor} />
                 <Route path="/LoginEscola" component={LoginEscola} />
                 <Route path="/Feed" component={Feed} />
+                <Route path="/Frequenciafilho" component={Frequenciafilho} />
                 <Route path="/FeedEscola" component={FeedEscola} />
                 <Route path="/FeedResponsavel" component={FeedResponsavel} />
                 <Route path="/CriarContaResponsavel" component={CriarContaResponsavel} />
