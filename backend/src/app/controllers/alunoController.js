@@ -24,6 +24,7 @@ router.post('/register', async (req, res) => {
     const { matricula, nome, telefone, email, dataNasc, senha, situacao } = req.body;
     const { responsavel_id } = req.body;
     const { turma_id } = req.body;
+    req.query
 
     const responsavel = await Responsavel.findById(responsavel_id);
     const turma = await Turma.findById(turma_id);

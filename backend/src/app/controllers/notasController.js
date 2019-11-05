@@ -54,7 +54,7 @@ router.post('/register', async (req, res) => {
 
 router.get('/listAll', async (req, res) => {
     try {
-        const resp = await Notas.find({});
+        const resp = await Notas.find({}).populate("disciplinaProfessor_id");
         return res.json(resp);
     } catch (err) {
         console.log(err);
@@ -64,7 +64,7 @@ router.get('/listAll', async (req, res) => {
 router.get('/notasAluno', async (req, res) => {
     try {
         const { aluno_id } = req.headers;
-        const resp = await Notas.find({ aluno_matricula: aluno_id });
+        const resp = await Notas.find({ aluno_matricula: aluno_id }).populate("disciplinaProfessor_id");
         console.log(resp);
         return res.json(resp);
     } catch (err) {
